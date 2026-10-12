@@ -1,0 +1,80 @@
+/* FITE7407 Reading — Bond Price Behaviour (Brusa, Gu & Liu 2014: Time decay of bond premium and discount) */
+SH.addLecture('fite7407', {
+  id: 'fr1', order: 7, code: 'R1',
+  title: { en: 'Reading: how bond prices move towards face value', zh: '閱讀：債券價格點樣走向面值' },
+  src: ['BondPriceBahaviour.pdf (Brusa, Gu & Liu, 2014)'],
+  intro: {
+    en: 'This Moodle reading supports Tutorial 1. If interest rates stay the same, every bond price moves to its face value at maturity — and the speed of that movement increases near the end. The authors call this "time decay" of premium and discount.',
+    zh: '呢篇 Moodle 閱讀配合導修一。如果利率不變，所有債券到期時價錢都會變返面值——而越接近到期，變得越快。作者叫佢做溢價同折讓嘅「時間衰減」。',
+  },
+  gens: ['fite.couponprice'],
+  cards: [
+    {
+      id: 'c1', s: 'Paper, section 1', t: { en: 'Pull to par', zh: '向面值收斂' },
+      en: 'A well-known result: if the **market interest rate stays unchanged**, the price of a bond **approaches its face value** as it approaches maturity.\n- A **premium bond** (price above face value) can only reach face value by moving **down**.\n- A **discount bond** (price below face value) can only reach it by moving **up**.\n- A **par bond** (coupon rate = market rate) stays **flat** at face value.\n\nThe paper\'s question: does the price move in a straight line, or does it speed up or slow down?',
+      zh: '一個有名嘅結果：如果**市場利率不變**，債券價錢會隨住接近到期**走向面值**。\n- **溢價債**（價錢高過面值）只可以**向下**走去面值。\n- **折讓債**（低過面值）只可以**向上**。\n- **平價債**（票息率＝市場利率）一直**平**喺面值。\n\n篇文問：條路係直線，定係會加速或者減速？',
+    },
+    {
+      id: 'c2', s: 'Paper, sections 2–3', t: { en: 'Time decay accelerates', zh: '時間衰減會加速' },
+      en: 'The authors prove (using the first and second derivatives of the bond price with respect to term to maturity $T$) that:\n- a **premium bond\'s** price path is **concave**: it **decreases towards par at an increasing rate**;\n- a **discount bond\'s** price path is **convex**: it **increases towards par at an increasing rate**.\n\nSo both the premium and the discount **shrink faster and faster** as maturity approaches. Because this change comes **purely from the passage of time**, they call it the **time decay** of bond premium and discount.',
+      zh: '作者用債券價錢對剩餘年期 $T$ 嘅一階同二階導數證明：\n- **溢價債**價格路徑係**凹 (concave，即向下彎、越跌越快)**：**以越來越快嘅速度向下**走去面值；\n- **折讓債**價格路徑係**凸 (convex，即越升越快)**：**以越來越快嘅速度向上**走去面值。\n\n即係溢價同折讓都**越縮越快**。因為呢個變化**純粹因為時間流逝**，作者叫佢做溢價同折讓嘅**時間衰減**。',
+      mem: { en: 'Like ice melting faster at the end: the last year moves the price the most.', zh: '好似冰溶到最後溶得最快：最後一年價錢郁得最多。' },
+    },
+    {
+      id: 'c3', s: 'Paper, Table 2', t: { en: 'The numbers: 20-year bonds at 8%', zh: '數字：8% 市場利率下嘅 20 年債' },
+      en: 'Face value $1,000, market rate **8%**, annual coupons, 20 years to maturity:\n- **10% premium bond**: falls only **$4.29** in the first year ($1,196.36 → $1,192.07) but **$18.52** in the last year ($1,018.52 → $1,000).\n- **6% discount bond**: rises only **$4.29** in the first year ($803.64 → $807.93) but **$18.52** in the last year ($981.48 → $1,000).\n- **8% par bond**: stays at **$1,000** throughout.\n\nAs term to maturity grows very long, the price approaches the **perpetual bond** value $P = \\frac{cr \\times F}{i}$: e.g. **$1,500** for a 12% bond and **$500** for a 4% bond at 8%.',
+      zh: '面值 $1,000、市場利率 **8%**、每年派息、20 年到期：\n- **10% 溢價債**：第一年只跌 **$4.29**（$1,196.36 → $1,192.07），最後一年跌 **$18.52**（$1,018.52 → $1,000）。\n- **6% 折讓債**：第一年只升 **$4.29**，最後一年升 **$18.52**。\n- **8% 平價債**：一直係 **$1,000**。\n\n年期極長時，價錢趨向**永續債**價值 $P = \\frac{cr \\times F}{i}$：例如 8% 市場利率下 12% 債係 **$1,500**、4% 債係 **$500**。',
+      f: ['P = cr \\times F \\times \\frac{1}{i}(1 - \\frac{1}{(1+i)^{T}}) + \\frac{F}{(1+i)^{T}}'],
+    },
+    {
+      id: 'c4', s: 'Paper, sections 1 & 4', t: { en: 'Two components of every bond price change', zh: '債券價格變化嘅兩個部分' },
+      en: 'Following Fabozzi, any change in a bond\'s price can be **decomposed** into:\n1. a component due to the **passage of time** towards maturity (with no change in interest rates) — the time decay, and\n2. a component due to the **change in interest rates**.\n\nEven though rates change constantly, the time component is always there and must be understood. The paper compares it to the **time decay of option prices**, which is studied in option pricing theory.',
+      zh: '跟 Fabozzi，債券價格任何變化都可以**拆做**：\n1. **時間流逝**（利率不變）造成嘅部分——即時間衰減，同\n2. **利率變化**造成嘅部分。\n\n雖然利率成日變，時間部分一定存在，要明白。篇文將佢比作期權定價理論入面嘅**期權時間衰減**。',
+    },
+    {
+      id: 'c5', s: 'Paper, section 4', t: { en: 'Why it matters: quantitative easing', zh: '點解重要：量化寬鬆' },
+      en: 'After the 2008 financial crisis, **quantitative easing (QE)** by the Fed, Bank of England, ECB and Bank of Japan pushed interest rates to historical lows. Bonds issued before 2008 carried higher coupons, so they became **premium bonds**.\n\nAs they approach maturity, their prices **fall — and the fall accelerates** — even if central banks keep rates unchanged. Many investors do not understand this and may **unfairly blame asset managers**. Understanding time decay helps managers **manage bond portfolios** and **explain value changes to clients**.',
+      zh: '2008 年金融海嘯後，聯儲局、英倫銀行、歐洲央行同日本央行嘅**量化寬鬆 (QE)** 將利率壓到歷史低位。2008 年前發行嘅債票息較高，變成**溢價債**。\n\n佢哋接近到期時價錢會**跌，而且越跌越快**，即使央行冇改利率。好多投資者唔明，可能會**錯怪基金經理**。明白時間衰減可以幫經理**管理債券組合**同**向客戶解釋**價值變化。',
+      tip: { en: 'Exam link: this is a perfect example sentence for "explain why a premium bond loses value over time even if interest rates do not change".', zh: '考試連繫：答「點解利率不變溢價債都會跌」可以用呢個例子。' },
+    },
+  ],
+  terms: [
+    { en: 'Time decay', zh: '時間衰減', d: 'The decrease of a bond\'s premium or discount caused purely by the passage of time, which accelerates towards maturity.', dz: '純粹因時間流逝令溢價或折讓減少，越接近到期越快。' },
+    { en: 'Term to maturity', zh: '剩餘年期', d: 'The time left until a bond repays its face value; it decreases as time passes.', dz: '距離債券還面值仲有幾耐；隨時間減少。' },
+    { en: 'Concave price path', zh: '凹形價格路徑', d: 'A path that decreases at an increasing rate — the premium bond\'s path towards par.', dz: '以越來越快速度下跌嘅路徑——溢價債走向面值。' },
+    { en: 'Convex price path', zh: '凸形價格路徑', d: 'A path that increases at an increasing rate — the discount bond\'s path towards par.', dz: '以越來越快速度上升嘅路徑——折讓債走向面值。' },
+    { en: 'Perpetual bond', zh: '永續債券', d: 'A bond with no maturity; its price is coupon ÷ market rate (cr × F / i).', dz: '冇到期日嘅債，價錢＝票息 ÷ 市場利率。' },
+    { en: 'Quantitative easing', zh: '量化寬鬆 (QE)', d: 'Central bank policy after 2008 that pushed interest rates to historical lows.', dz: '2008 年後央行政策，將利率壓到歷史低位。' },
+  ],
+  mcq: [
+    { q: 'If market interest rates do not change, what happens to the price of a **premium** bond as it approaches maturity?', qz: '利率不變，**溢價債**接近到期時價錢會點？', o: ['It decreases towards face value at an increasing rate', 'It increases without limit', 'It stays constant', 'It decreases at a decreasing rate'], a: 0, s: 'Paper, conclusion', x: 'The premium bond\'s path is concave: down towards par, faster and faster.', xz: '凹形：向下走向面值，越來越快。' },
+    { q: 'The price path of a **discount** bond towards maturity is…', qz: '**折讓債**走向到期嘅價格路徑係…', o: ['convex: increasing at an increasing rate', 'concave: decreasing at an increasing rate', 'a horizontal line', 'random'], a: 0, s: 'Paper, section 2', x: 'Discount bonds rise to par at an increasing rate.', xz: '凸形：以越來越快速度上升。' },
+    { q: 'What is the price path of a **par** bond (coupon rate = market rate) over time?', qz: '**平價債**價格路徑係？', o: ['A horizontal straight line at face value', 'Upward-sloping', 'Downward-sloping', 'Zig-zag'], a: 0, s: 'Paper, eq. (3)', x: 'For a par bond the price is constant and equal to par.', xz: '一直等於面值嘅水平線。' },
+    { q: 'In Table 2 (8% market rate), how much does the 10% coupon bond fall in its **last** year before maturity?', qz: '表 2（市場利率 8%），10% 票息債最後一年跌幾多？', o: ['$18.52', '$4.29', '$196.36', '$0'], a: 0, s: 'Paper, Table 2', x: 'From $1,018.52 to $1,000 = $18.52, versus only $4.29 in the first year.', xz: '由 $1,018.52 跌到 $1,000，跌 $18.52；第一年只跌 $4.29。' },
+    { q: 'What do the authors call the decrease in premium or discount that comes purely from the passage of time?', qz: '純粹因時間流逝令溢價或折讓減少，作者叫佢乜？', o: ['Time decay', 'Duration', 'Convexity risk', 'Accrued interest'], a: 0, s: 'Paper, section 1', x: 'Time decay of bond premium and discount.', xz: '時間衰減。' },
+    { q: 'As term to maturity approaches infinity, the price of a 12% bond at an 8% market rate approaches…', qz: '年期趨向無限，12% 票息債喺 8% 市場利率下價錢趨向？', o: ['$1,500', '$1,000', '$1,200', '$800'], a: 0, s: 'Paper, section 3', x: 'Perpetual bond: P = cr × F / i = 0.12 × 1000 / 0.08 = $1,500.', xz: '永續債：0.12 × 1000 ÷ 0.08 = $1,500。' },
+    { q: 'Why did many pre-2008 bonds become premium bonds?', qz: '點解好多 2008 年前嘅債變成溢價債？', o: ['Quantitative easing pushed market rates far below their coupon rates', 'Their issuers defaulted', 'Their coupons were increased', 'They were converted into shares'], a: 0, s: 'Paper, section 4', x: 'QE drove rates to historical lows; older bonds carry higher coupons.', xz: 'QE 令利率低過佢哋嘅票息。' },
+    { q: 'According to the paper (following Fabozzi), a change in bond price can be decomposed into which two components?', qz: '根據篇文（跟 Fabozzi），債券價格變化可以拆做邊兩部分？', o: ['Passage of time and change in interest rates', 'Coupon and tax', 'Credit risk and FX risk', 'Clean price and dirty price'], a: 0, s: 'Paper, section 1', x: 'One component from time passage (no rate change), one from interest rate changes.', xz: '時間流逝同利率變化。' },
+    { q: 'Why might investors unfairly blame asset managers, according to the paper?', qz: '篇文話點解投資者可能錯怪基金經理？', o: ['They see premium bonds losing value over time without understanding time decay', 'Managers always pick bad bonds', 'Managers hide fees', 'Bonds never lose value'], a: 0, s: 'Paper, section 4', x: 'The value decline can be purely due to time passage and central bank policy.', xz: '價值下跌可能純粹因時間同央行政策。' },
+    { q: 'True or false: for a premium bond, price is an increasing function of term to maturity, at a decreasing rate.', qz: '對定錯：溢價債價錢係剩餘年期嘅遞增函數，但增幅遞減。', o: ['True', 'False'], a: 0, s: 'Paper, eqs. (4), (7)', x: 'True — and since T decreases over time, the price falls at an increasing rate.', xz: '啱——而 T 隨時間減少，所以價錢以越來越快速度跌。' },
+    { q: 'True or false: the time-decay effect only exists if interest rates are constant forever.', qz: '對定錯：時間衰減只係利率永遠不變先存在。', o: ['True', 'False'], a: 1, s: 'Paper, section 1', x: 'False — the time component is always present; rate changes are an additional component.', xz: '錯，時間部分一直存在，利率變化只係另一部分。' },
+  ],
+  written: [
+    {
+      id: 'w1', cmd: 'Explain', marks: 6,
+      q: 'Explain why the price of a **premium bond** falls over time even if market interest rates do not change, and why the fall **accelerates** near maturity. Use numbers from the reading.',
+      qz: '解釋點解利率不變溢價債都會跌，同點解接近到期跌得更快。用閱讀材料嘅數字。',
+      plan: [{ en: 'Why premium; pull to par.', zh: '點解溢價；向面值收斂。' }, { en: 'Concave path / time decay.', zh: '凹形路徑／時間衰減。' }, { en: 'Numbers: $4.29 vs $18.52.', zh: '數字：$4.29 vs $18.52。' }, { en: 'Implication (QE, communication).', zh: '影響（QE、溝通）。' }],
+      points: [
+        { en: 'Premium because coupon rate > market rate', zh: '溢價原因', kw: ['coupon', 'higher|above|greater'] },
+        { en: 'At maturity the price must equal face value', zh: '到期等於面值', kw: ['face value|par'] },
+        { en: 'The fall accelerates (concave path / time decay)', zh: '加速（凹形）', kw: ['increasing rate|accelerat|concave|faster'] },
+        { en: 'Numbers: $4.29 in first year vs $18.52 in last year', zh: '數字', kw: ['4.29|18.52'] },
+        { en: 'Implication for investors/managers (QE)', zh: '影響', kw: ['quantitative easing|qe|manager|investor'] },
+      ],
+      model: 'A bond trades at a premium when its coupon rate is higher than the market interest rate, because investors are willing to pay more than face value for the higher coupons. However, at maturity the bond only repays its face value, so its price must move down to face value over time, even if market rates do not change. The reading shows that this path is concave, which means that the price decreases at an increasing rate. In other words, the premium shrinks faster and faster as maturity approaches, which the authors call time decay. For example, a 20-year bond with a 10% coupon and a market rate of 8% falls by only $4.29 in its first year, but by $18.52 in its final year. This matters in practice: after quantitative easing pushed rates to historical lows, many older bonds became premium bonds, and their value declines faster as they mature, so asset managers must explain this effect to their clients.',
+      modelZh: '票息率高過市場利率，投資者肯畀多過面值，所以溢價。但到期只還面值，所以就算利率不變，價錢都要跌去面值。路徑係凹形，越跌越快（時間衰減）。例如 20 年、10% 票息、8% 市場利率：第一年跌 $4.29，最後一年跌 $18.52。QE 之後好多舊債變溢價，價值加速下跌，經理要向客戶解釋。',
+      phrases: ['A bond trades at a premium when ...', 'However, at maturity the bond only repays its face value, so ...', 'In other words, the premium shrinks faster and faster as ...', 'For example, ... falls by only $4.29 in its first year, but by $18.52 in its final year.'],
+    },
+  ],
+});
