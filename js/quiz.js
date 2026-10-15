@@ -235,7 +235,7 @@
       const ok = q.options[i].ok;
       if (o.silent) {
         btns.forEach((b, k) => { b.disabled = true; if (k === i) b.classList.add('picked'); });
-        if (q.kind !== 'calc') SH.store.recordAnswer(q.cid, q.uid, ok);
+        if (q.kind !== 'calc' && !q.noRecord) SH.store.recordAnswer(q.cid, q.uid, ok);
         onAnswer && onAnswer(ok, { usedHint, q, picked: i });
         return;
       }
@@ -244,7 +244,7 @@
         if (q.options[k].ok) b.classList.add('right');
         else if (k === i) b.classList.add('wrong');
       });
-      if (q.kind !== 'calc') SH.store.recordAnswer(q.cid, q.uid, ok);
+      if (q.kind !== 'calc' && !q.noRecord) SH.store.recordAnswer(q.cid, q.uid, ok);
       SH.beep(ok ? 'good' : 'bad');
       SH.buzz(ok ? 15 : [40, 40, 40]);
       fb.appendChild(ui.stamp(ok ? '啱' : '錯', ok ? 'ok' : 'no'));

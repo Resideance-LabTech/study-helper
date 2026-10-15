@@ -28,7 +28,7 @@ SH.addLecture('fite7407', {
       mem: { en: '“Clipping coupons” is where the word *coupon* for bond interest comes from.', zh: '債券「票息 coupon」呢個字，就係嚟自以前要「剪息票」。' },
     },
     {
-      id: 'c4', s: 'Slide 11', t: { en: 'How securities are represented', zh: '證券嘅表示形式' },
+      id: 'c4', scene: 'f1.custody', s: 'Slide 11', t: { en: 'How securities are represented', zh: '證券嘅表示形式' },
       en: 'From most physical to most digital:\n1. **Individual certificates**: each piece is physically deliverable.\n2. **Collective certificates**: most rights are certified together; individual paper can still be delivered on request.\n3. **Global certificates**: *all* rights of the issue are in **one** certificate, kept in the vault of the **central custodian**. Physical delivery is **not possible**; holdings exist only as **book entries** in accounts.\n4. **Digital (tokenised) securities**: a cryptographic representation of a security.',
       zh: '由最實體到最數碼：\n1. **個別證書**：每張都可以實物交收。\n2. **集合證書**：大部分權利集中喺一張；如有需要仍可以要求交收個別紙本。\n3. **全球證書**：成批發行嘅*所有*權利都喺**一張**證書，放喺**中央託管機構**嘅金庫。**唔可以**要求實物交收，持倉只係戶口入面嘅**記賬 (book entry)**。\n4. **數碼（代幣化）證券**：用密碼學表示嘅證券。',
       tip: { en: 'A classic exam contrast: *collective* certificates still allow delivery on request; *global* certificates do not.', zh: '常考對比：集合證書仍可以要求交收；全球證書就唔得。' },
@@ -363,7 +363,7 @@ SH.addLecture('fite7407', {
       zh: '乜嘢係*公平價*？喺交易所：\n- 由**供求**決定；\n- 由**主導經紀**（交易大堂）或**電子系統**定；\n- 用**貨幣單位**（股票）或面值嘅**百分比**（債券）表示。\n\n**單一價 (spot price)** 用喺**唔係持續交易**嘅證券。透過**競價**收集買賣盤，按**最大成交原則**定價。**Skontro 主管**為每宗交易出**成交單 (contract note)**（包括經紀費）。',
     },
     {
-      id: 'c8', s: 'Slides 50–51', t: { en: 'The principle of highest executable volume', zh: '最大成交量原則' },
+      id: 'c8', scene: 'f1b.auction', s: 'Slides 50–51', t: { en: 'The principle of highest executable volume', zh: '最大成交量原則' },
       en: 'In an auction, the exchange chooses the price at which the **largest volume can be executed**. At that price:\n- **all market (unlimited) orders** are executed,\n- all **buy orders with a limit at or above** the price are executed,\n- all **sell orders with a limit at or below** the price are executed.\n\n**Lecture example.** Buy: 100 units market ("lowest"), 60 @ 182, 80 @ 181. Sell: 80 units market ("best"), 120 @ 180, 40 @ 181.\n- At **180**: buy 240, sell 200 → executable **200**\n- At **181**: buy 240, sell 240 → executable **240**\n- At **182**: buy 160, sell 240 → executable **160**\n\nThe determined price is **181**: it gives the highest turnover, and here the market is fully cleared.',
       zh: '競價時，交易所揀**成交量最大**嘅價。喺嗰個價：\n- **所有市價盤**成交，\n- 限價**≥** 該價嘅**買盤**成交，\n- 限價**≤** 該價嘅**賣盤**成交。\n\n**講義例子**：買盤：市價 100、182 元 60、181 元 80。賣盤：市價 80、180 元 120、181 元 40。\n- 180：買 240、賣 200 → 成交 **200**\n- 181：買 240、賣 240 → 成交 **240**\n- 182：買 160、賣 240 → 成交 **160**\n\n成交價係 **181**，成交量最大，而且全部盤都成交（market cleared）。',
       tip: { en: 'Note: slide 50 literally says buy orders limited *below* and sell orders *above* the price, but the worked example on slide 51 only works with the rule used here. Logic check: a buyer happy to pay 182 is also happy at 181; a seller happy at 180 is also happy at 181. That is why buy limits count when *≥ p* and sell limits when *≤ p*.', zh: '注意：slide 50 文字寫反咗（寫 below／above），但 slide 51 嘅例子只可以用呢度嘅規則計。邏輯：肯出 182 嘅買家，181 梗係肯；肯 180 賣嘅賣家，181 都肯。所以買盤計 ≥ p，賣盤計 ≤ p。' },
@@ -407,7 +407,7 @@ SH.addLecture('fite7407', {
       tip: { en: 'Slide 64 asks: does "possible" mean "guaranteed"? A good answer: the better price is *possible* because fees are saved, but the bank must make sure it really is better — otherwise it breaches the duty to act in the customer\'s interest.', zh: 'Slide 64 問「可能」係咪等於「保證」？好答案：因為慳咗費用所以*可能*好啲，但銀行要確保真係好啲，否則違反以客戶利益為先嘅責任。' },
     },
     {
-      id: 'c16', s: 'Slide 65', t: { en: 'Trade confirmation', zh: '交易確認書' },
+      id: 'c16', scene: 'f1b.lifecycle', s: 'Slide 65', t: { en: 'Trade confirmation', zh: '交易確認書' },
       en: 'The basis for fulfilment (**clearing and settlement**) is the **trade confirmation**:\n- issued by the **broker**;\n- sent **immediately** to the counterparties who gave the orders;\n- contains: type of trade (buy/sell); security, **ISIN**, nominal amount, price, trade date/time; identifiers of counterparties and broker; broker fee, other fees, external charges; entry date/time; **accrued interest** and compensations (for bonds).\n\nIt lets all participants confirm the data quickly; joining the information in a **central matching facility** reduces risk.',
       zh: '結算（**清算同交收**）嘅基礎係**交易確認書**：\n- 由**經紀**發出；\n- **即刻**送畀落盤嘅雙方；\n- 內容：買定賣；證券、**ISIN**、面值數量、價錢、交易時間；雙方同經紀編號；經紀費、其他費用；輸入時間；（債券）**應計利息**同補償。\n\n等所有參與者快速核對資料；集中喺**中央配對系統**可以減低風險。',
     },
@@ -418,7 +418,7 @@ SH.addLecture('fite7407', {
       tip: { en: 'A "good or bad?" question wants **both sides** + your conclusion.', zh: '「好定唔好」題要寫**兩面**＋你嘅結論。' },
     },
     {
-      id: 'c18', s: 'Slides 67–70', t: { en: 'Central counterparty (CCP) and netting', zh: '中央對手方同淨額結算' },
+      id: 'c18', scene: 'f1b.ccp', s: 'Slides 67–70', t: { en: 'Central counterparty (CCP) and netting', zh: '中央對手方同淨額結算' },
       en: 'Counterparties must be **identified** for correct trade matching and for monitoring by the regulator.\n\nTo reduce **settlement risk**, exchanges (like Frankfurt) introduced a **central counterparty (CCP)**:\n- the CCP **guarantees fulfilment** and takes the **default risk** for either party;\n- the CCP settles **netted positions**: only the **difference** after aggregating all daily trades is moved between banks.\n\n**Lecture example:** banks A, B, C and D have several individual trades with each other ($100, $50, $80 …). With the CCP in the middle, every trade becomes "bank ↔ CCP". After netting, most banks move **$0**, and only small net amounts (e.g. $30) are paid.',
       zh: '交易雙方要**識別**清楚，先可以正確配對同畀監管機構監察。\n\n為咗減低**結算風險**，交易所（例如法蘭克福）引入**中央對手方 (CCP)**：\n- CCP **保證履約**，承擔任何一方嘅**違約風險**；\n- CCP 用**淨額**結算：將一日所有交易加埋，只轉**差額**。\n\n**講義例子**：原本好多筆銀行之間嘅付款；有 CCP 喺中間，每筆都變成「銀行 ↔ CCP」。淨額之後，大部分銀行轉 **$0**，只有細額（例如 $30）要付。',
       mem: { en: 'CCP = the referee who holds everyone\'s money and only pays out the final score.', zh: 'CCP 好似打麻雀計數：唔使每鋪都畀錢，最後埋數先找差額。' },

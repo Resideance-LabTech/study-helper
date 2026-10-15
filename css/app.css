@@ -399,7 +399,7 @@ details.panel[open] > summary::before { content: "▾ "; }
 
 /* ---------- stories ---------- */
 .story { background: var(--card); border-radius: var(--r-l); padding: 16px 14px; margin-bottom: 16px; border: 1px solid var(--line); }
-.scene { font-style: italic; color: var(--muted); font-size: 14px; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
+.story-scene { font-style: italic; color: var(--muted); font-size: 14px; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
 .bubble-row { display: flex; gap: 8px; margin: 12px 0; align-items: flex-end; }
 .bubble-row.r { flex-direction: row-reverse; }
 .avatar { font-size: 28px; width: 40px; height: 40px; border-radius: 50%; background: var(--card2); display: grid; place-items: center; flex: none; }
@@ -705,3 +705,97 @@ details.ans-no > summary { color: var(--bad); }
 .bi:has(.zh-toggle.mini) { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; }
 .bi:has(.zh-toggle.mini) .bi-en { flex: 1 1 auto; }
 .bi:has(.zh-toggle.mini) .bi-zh { flex-basis: 100%; margin-top: 4px; }
+
+/* pull-to-refresh and overscroll no longer reload or bounce the page */
+html, body { overscroll-behavior: none; }
+.modal-close { margin-top: 16px; }
+
+/* ---------- animated scenes ("Watch") ---------- */
+.scene { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-l); padding: 12px; margin: 12px 0; box-shadow: var(--shadow); }
+.scene-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.scene-head h4 { margin: 0; }
+.scene-badge { font: 700 11px var(--f-body); background: var(--seal); color: #fff; border-radius: 5px; padding: 2px 6px; flex: none; }
+.scene-stage svg { width: 100%; height: auto; display: block; background: var(--card2); border-radius: 12px; }
+.scene .mv { transition: transform .9s cubic-bezier(.45,.05,.25,1), opacity .6s ease; transform-box: view-box; }
+.scene .sc-box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+.scene .hl .sc-box { stroke: var(--accent); stroke-width: 2.5; }
+.scene .sc-lbl { font: 600 11px var(--f-body); fill: var(--ink); }
+.scene .sc-sub { font: 500 9.5px var(--f-body); fill: var(--muted); }
+.scene .sc-big { font: 800 16px var(--f-head); fill: var(--ink); }
+.scene .sc-note { font: 600 10px var(--f-body); fill: var(--muted); }
+.scene .sc-arrow { stroke: var(--muted); stroke-width: 1.6; }
+.scene .sc-headp { fill: var(--muted); }
+.scene .sc-tok { stroke: rgba(0,0,0,.15); stroke-width: 1; }
+.scene .sc-tokt, .scene .sc-chipt { font: 700 9.5px var(--f-body); fill: #fff; }
+.scene .tok.a .sc-tok, .scene .chipt.a .sc-chip, .scene .barg.a .sc-bar { fill: var(--accent); }
+.scene .tok.g .sc-tok, .scene .chipt.g .sc-chip, .scene .barg.g .sc-bar { fill: var(--gold); }
+.scene .tok.s .sc-tok, .scene .chipt.s .sc-chip, .scene .barg.s .sc-bar { fill: var(--seal); }
+.scene .tok.n .sc-tok, .scene .chipt.n .sc-chip, .scene .barg.n .sc-bar { fill: var(--muted); }
+.scene .tok.ok .sc-tok, .scene .chipt.ok .sc-chip, .scene .barg.ok .sc-bar { fill: var(--ok); }
+.scene .tok.bad .sc-tok, .scene .chipt.bad .sc-chip, .scene .barg.bad .sc-bar { fill: var(--bad); }
+body[data-theme="calc"] .scene .tok.a .sc-tokt, body[data-theme="calc"] .scene .chipt.a .sc-chipt { fill: #231a08; }
+.scene .sc-bar { transition: width .9s ease; }
+.scene .pulse { animation: scpulse 1s ease 2; }
+@keyframes scpulse { 50% { opacity: .35; } }
+.scene-cap { min-height: 64px; padding: 8px 2px 4px; }
+.cap-en { font-size: 15px; line-height: 1.45; }
+.cap-zh { font-size: 13.5px; color: var(--muted); margin-top: 4px; font-family: var(--f-zh); }
+.scene-dots { display: flex; gap: 5px; justify-content: center; margin: 4px 0 8px; }
+.sdot { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 0; background: var(--line); }
+.sdot.on { background: var(--accent); }
+.scene-ctr { display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.scene-ctr .btn { min-width: 48px; }
+.scene-play { min-width: 64px !important; font-size: 18px; }
+@media (prefers-reduced-motion: reduce) { .scene .mv { transition: none; } }
+
+/* ---------- sort game & simulation banner ---------- */
+.sort-card { background: var(--card); border: 2px solid var(--line); border-radius: var(--r-l); padding: 18px 16px; min-height: 140px; display: flex; flex-direction: column; justify-content: center; gap: 6px; margin: 10px 0; }
+.sort-card.flash-ok { border-color: var(--ok); background: var(--ok-soft); }
+.sort-card.flash-no { border-color: var(--bad); background: var(--bad-soft); }
+.sort-en { font-size: 17px; margin: 0; }
+.sort-zh { color: var(--muted); margin: 0; font-family: var(--f-zh); }
+.sort-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sort-b { min-height: 72px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.sort-b small { font-weight: 400; font-size: 12px; }
+.sort-b0 { border-color: var(--accent); }
+.sort-b1 { border-color: var(--gold); }
+.sort-fb { min-height: 40px; margin-top: 10px; font-size: 14px; }
+.ok-t { color: var(--ok); font-weight: 700; }
+.no-t { color: var(--bad); font-weight: 700; }
+.sim-banner { display: flex; gap: 14px; align-items: center; width: 100%; text-align: left; margin: 14px 0 6px; padding: 16px; border-radius: var(--r-l); border: 2px solid var(--gold); background: linear-gradient(135deg, var(--card), var(--card2)); box-shadow: var(--shadow); }
+.sim-banner > span:last-child { display: flex; flex-direction: column; gap: 2px; }
+.sim-banner b { font: 800 18px var(--f-head); }
+.sim-e { font-size: 40px; }
+
+/* ---------- simulation games ---------- */
+.sim-intro { text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.sim-intro .bi, .sim-rules { text-align: left; width: 100%; }
+.sim-big { font-size: 64px; line-height: 1; }
+.sim-rules { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 14px; }
+.sim-meters-legend { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.sim-intro .seg { flex-wrap: wrap; justify-content: center; }
+.sim-hud { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 8px 0 12px; position: sticky; top: 0; z-index: 3; background: var(--paper); padding: 4px 0; }
+.sim-m { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-m); padding: 6px 8px; display: grid; grid-template-columns: auto 1fr; column-gap: 6px; align-items: center; transition: background .3s; }
+.sim-m.low { border-color: var(--bad); background: var(--bad-soft); }
+.sim-mi { grid-row: span 2; font-size: 20px; }
+.sim-ml { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sim-m b { font: 700 15px var(--f-num); }
+.sim-bar { grid-column: 1 / -1; height: 5px; border-radius: 3px; background: var(--card2); overflow: hidden; margin-top: 4px; }
+.sim-bar i { display: block; height: 100%; background: var(--accent); transition: width .5s; }
+.sim-m.low .sim-bar i { background: var(--bad); }
+.sim-ticker { grid-column: 1 / -1; font: 12px var(--f-num); color: var(--muted); text-align: center; }
+.sim-day { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-l); padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: var(--shadow); }
+.sim-dayn { font: 700 13px var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+.sim-fx { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0; }
+.sim-d { font: 700 14px var(--f-num); padding: 4px 8px; border-radius: 8px; animation: simpop .5s ease; }
+.sim-d.up { background: var(--ok-soft); color: var(--ok); }
+.sim-d.down { background: var(--bad-soft); color: var(--bad); }
+@keyframes simpop { 0% { transform: scale(.6); opacity: 0; } 70% { transform: scale(1.12); } 100% { transform: scale(1); opacity: 1; } }
+.sim-up { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; text-align: left; width: 100%; padding: 12px; border-radius: var(--r-m); border: 1px solid var(--line); background: var(--card2); color: var(--ink); }
+.sim-up.dim { opacity: .5; }
+.sim-ue { font-size: 26px; }
+.sim-up b { font-size: 15px; }
+.sim-ud { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+.sim-uc { font: 700 14px var(--f-num); color: var(--gold); }
+.sim-hint { margin: 0 0 10px; padding: 8px 12px; border-radius: var(--r-m); background: var(--accent-soft); }
+@media (prefers-reduced-motion: reduce) { .sim-d { animation: none; } }

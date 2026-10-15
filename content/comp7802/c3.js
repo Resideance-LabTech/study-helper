@@ -18,13 +18,13 @@ SH.addLecture('comp7802', {
       mem: { en: 'Two roads to the same place must cost the same: long deposit = short deposit + forward deposit.', zh: '兩條路去同一個地方，價錢一定一樣：長期存款 = 短期存款 + 遠期存款。' },
     },
     {
-      id: 'c2', s: 'Slides 5–6', t: { en: 'What is an FRA?', zh: '乜嘢係 FRA？' },
+      id: 'c2', fig: 'fratime', s: 'Slides 5–6', t: { en: 'What is an FRA?', zh: '乜嘢係 FRA？' },
       en: 'A **forward rate agreement (FRA)** is an **off-balance-sheet** agreement to **fix a future interest rate**.\n- On the agreed **fixing date**, one party pays the other the **difference between the reference rate (SOFR/LIBOR) and the FRA rate** on the agreed **notional principal**.\n- **No principal is exchanged**; neither party must borrow or lend.\n- It **settles at the beginning** of the FRA period (so the amount is discounted).\n\n**Uses:** **hedging** future interest rate risk (fix the rate today); **speculating** on rate expectations; **arbitrage** between FRAs and other instruments such as futures.',
       zh: '**遠期利率協議 (FRA)** 係一個**資產負債表外**協議，用嚟**鎖定將來嘅利率**。\n- 喺**定息日**，一方就**名義本金**支付**參考利率（SOFR／LIBOR）同 FRA 利率嘅差額**。\n- **唔交換本金**；雙方都唔使真係借錢或者借出。\n- 喺 FRA 期間**開始**時結算（所以金額要折現）。\n\n**用途**：**對沖**將來利率風險（今日鎖定利率）；**投機**；同期貨等工具之間**套利**。',
       tip: { en: 'Notation "6 v 12" (or 6 × 12): the period starts in 6 months and ends in 12 months — a 6-month rate, 6 months forward.', zh: '「6 v 12」：6 個月後開始、12 個月後結束——即 6 個月後嘅 6 個月利率。' },
     },
     {
-      id: 'c3', s: 'Slides 7–10', t: { en: 'Hedging a loan with an FRA', zh: '用 FRA 對沖貸款' },
+      id: 'c3', scene: 'c3.fra', s: 'Slides 7–10', t: { en: 'Hedging a loan with an FRA', zh: '用 FRA 對沖貸款' },
       en: 'A borrower pays **SOFR/LIBOR + margin** to the cash lender and fears rising rates. It **buys an FRA** (e.g. 6 v 12): on the FRA it **pays the fixed FRA rate** and **receives SOFR/LIBOR**. The floating parts cancel, so the borrowing cost is **FRA rate + margin**.\n\n**Example:** a company wants to fix the rate on a **USD 20m** loan for **3 months, starting in 2 months**. It buys a **2 v 5 FRA**. Usually **two days before** the settlement date (the fixing date), the FRA rate is compared with the reference rate:\n- **Reference rate > FRA rate** → the bank **pays the customer** (compensation for more expensive refinancing).\n- **Reference rate < FRA rate** → the **customer pays** the balance (offset by cheaper refinancing).\n\nEither way, the future refinancing rate is fixed at the FRA rate. Only interest differences move — never the principal.',
       zh: '借款人向貸款人付 **SOFR／LIBOR + 息差**，驚加息。佢**買入 FRA**（例如 6 v 12）：FRA 上**付定息 FRA 利率**、**收 SOFR／LIBOR**。浮息部分抵銷，借貸成本就變成 **FRA 利率 + 息差**。\n\n**例子**：公司想鎖定 **2,000 萬美元**、**兩個月後開始、借三個月**嘅利率，就買 **2 v 5 FRA**。通常結算日前**兩日**（定息日）比較 FRA 利率同參考利率：\n- **參考利率 > FRA 利率** → 銀行**畀錢客戶**（補償較貴嘅再融資）。\n- **參考利率 < FRA 利率** → **客戶畀錢**（但再融資平咗）。\n\n無論點，將來嘅融資利率都鎖定喺 FRA 利率，只係交換利息差，從來唔交換本金。',
       mem: { en: 'FRA buyer = future borrower = afraid of rates going UP. FRA seller = future lender = afraid of rates going DOWN.', zh: 'FRA 買方 = 將來借錢嘅人 = 驚加息；賣方 = 將來借出錢嘅人 = 驚減息。' },
@@ -42,7 +42,7 @@ SH.addLecture('comp7802', {
       tip: { en: 'The FRA notional must grow with the amount owed — otherwise the interest-on-interest is not hedged.', zh: 'FRA 名義本金要跟欠款增加，否則利息嘅利息冇對沖到。' },
     },
     {
-      id: 'c6', s: 'Slides 15–16, 23–25', t: { en: 'Futures: basics, dealing, clearing and margin', zh: '期貨：基本、交易、結算同保證金' },
+      id: 'c6', scene: 'c3.margin', s: 'Slides 15–16, 23–25', t: { en: 'Futures: basics, dealing, clearing and margin', zh: '期貨：基本、交易、結算同保證金' },
       en: 'A **futures** contract is one where the commodity is **considered as delivered** (delivery may not physically occur) at a future date. It is **exchange-traded** (versus OTC forwards), **standardised by the exchange**, and its pricing depends on the underlying.\n\n**Users:** **hedgers** (cover risk on underlying positions) and **speculators** (create highly **leveraged** positions).\n\n**Dealing:** **open outcry** in the exchange\'s trading pit, or **screen trading** designed to simulate its transparency.\n\n**Clearing:** after confirmation, the **clearing house substitutes itself as counterparty** — the seller to every buyer and the buyer to every seller.\n\n**Margin:** **initial margin** = collateral per deal, protecting the clearing house until the position can be revalued. **Variation (maintenance) margin** = **marking to market**, paid **daily** on adverse price moves.',
       zh: '**期貨**合約當商品喺將來某日**當作已交收**（未必實物交收）。佢喺**交易所買賣**（遠期係場外）、由交易所**標準化**，價錢取決於相關資產。\n\n**用家**：**對沖者**（覆蓋現貨倉風險）同**投機者**（建立高**槓桿**倉位）。\n\n**交易**：交易池**公開喊價**，或者模仿其透明度嘅**電子交易**。\n\n**結算**：確認後，**結算所成為對手方**——每個買方嘅賣方、每個賣方嘅買方。\n\n**保證金**：**初始保證金** = 每單交易嘅抵押，保障結算所直至重估倉位。**變動（維持）保證金** = **按市值計價**，每日就不利價格變動支付。',
     },
@@ -220,6 +220,25 @@ SH.addLecture('comp7802', {
       model: 'Both FRAs and interest rate futures allow market participants to lock in an interest rate for a future period, so both can be used for hedging, speculation and arbitrage. However, an FRA is an over-the-counter contract, so its amount and dates can be chosen freely, whereas futures are traded on an exchange and their contract size and delivery dates are standardised. Futures also require an initial margin and daily variation margin, because positions are marked to market every day. In addition, an FRA settlement is discounted because it is paid at the start of the period, while futures profits and losses are not discounted. Futures markets are usually more liquid and have narrower spreads. Futures carry virtually no credit risk because the clearing house becomes the counterparty to every trade, and the daily margin payments mean that losses are collected before they can build up.',
       modelZh: '兩者都可以鎖定將來利率，用嚟對沖、投機、套利。FRA 係場外、金額日期自由；期貨喺交易所、標準化。期貨要初始同每日變動保證金。FRA 結算要折現，期貨盈虧唔折現。期貨流通、差價窄。期貨幾乎冇信用風險，因為結算所做每單交易嘅對手方，而且每日收保證金，蝕錢唔會積累。',
       phrases: ['Both ... allow market participants to ...', 'However, an FRA is an over-the-counter contract, whereas futures ...', 'In addition, an FRA settlement is discounted because ...', 'Futures carry virtually no credit risk because ...'],
+    },
+  ],
+  sorts: [
+    {
+      id: 'z1', t: { en: 'FRA or futures?', zh: 'FRA 定期貨？' },
+      buckets: [{ en: 'FRA (OTC)', zh: 'FRA（場外）' }, { en: 'Futures (exchange)', zh: '期貨（交易所）' }],
+      items: [
+        ['Any amount the client wants', '客戶要幾多都得', 0, 'Amount'],
+        ['Standardised contract size, e.g. HK$5,000,000', '標準合約大細，例如 500 萬港元', 1, 'Amount'],
+        ['Any start date, matched to the loan', '任何開始日，配合貸款', 0, 'Dates'],
+        ['Fixed delivery months set by the exchange', '交易所定好嘅交收月份', 1, 'Dates'],
+        ['Initial margin plus daily variation margin', '初始保證金加每日變動保證金', 1, 'Margin'],
+        ['Settlement amount is discounted to the start of the period', '結算金額折現到期初', 0, 'Settlement'],
+        ['Profit and loss is not discounted', '盈虧唔折現', 1, 'Settlement'],
+        ['Virtually no credit risk: the clearing house is the counterparty', '差唔多冇信用風險：結算所做對手', 1, 'Credit risk'],
+        ['More liquid, with narrower spreads', '流動性高、差價窄', 1, 'Liquidity'],
+        ['Quoted as 100 minus the interest rate', '報價 = 100 減利率', 1, 'Quote'],
+        ['Quoted as a rate, e.g. 12.82 / 12.88', '以利率報價，例如 12.82 / 12.88', 0, 'Quote'],
+      ],
     },
   ],
   orders: [

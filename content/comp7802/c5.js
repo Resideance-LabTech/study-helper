@@ -11,7 +11,7 @@ SH.addLecture('comp7802', {
   gens: ['comp.mmdf', 'comp.dffwd', 'comp.zc', 'comp.bootstrap'],
   cards: [
     {
-      id: 'c1', s: 'Slides 2–4', t: { en: 'What is a yield curve?', zh: '乜嘢係收益率曲線？' },
+      id: 'c1', fig: 'curves', s: 'Slides 2–4', t: { en: 'What is a yield curve?', zh: '乜嘢係收益率曲線？' },
       en: 'The **yield curve** is the relationship between interest rates and maturity — the **term structure of interest rates**. It gives the market rate of interest for **theoretical zero-coupon instruments** maturing at **any future date**, derived from the prices of **real instruments that trade in a liquid market**.\n\n**By shape:** **positive** (upward-sloping), **negative** (inverted), **flat**.\n**By category:** **par yield** curves, **zero-coupon yield** curves, **forward rate** curves.',
       zh: '**收益率曲線**係利率同年期嘅關係——即**利率期限結構**。佢畀出將來**任何一日**到期嘅**理論零息工具**嘅市場利率，由**流通市場上真實工具**嘅價格推算出嚟。\n\n**按形狀**：**正斜率**（向上）、**負斜率**（倒掛）、**平坦**。\n**按類別**：**平價收益率**曲線、**零息收益率**曲線、**遠期利率**曲線。',
     },
@@ -38,7 +38,7 @@ SH.addLecture('comp7802', {
       zh: '每個現金存款直接畀一個折現因子：$D = \\frac{1}{1 + r \\times \\frac{days}{365}}$。\n\n**3 個月**：即期 7 月 19 日 → 10 月 19 日 = **92 日**，中間價 3.185%：\n$D_{3M} = \\frac{1}{1 + 0.03185 \\times 92/365} = 0.992036$。\n\n1W、1M、2M 同樣計，即期**之前**（例如 7 月 18 日）就用隔夜同隔日利率。',
     },
     {
-      id: 'c6', s: 'Slide 12', t: { en: 'Step 2 — the middle from FRAs', zh: '第二步：用 FRA 做中段' },
+      id: 'c6', scene: 'c5.boot', s: 'Slide 12', t: { en: 'Step 2 — the middle from FRAs', zh: '第二步：用 FRA 做中段' },
       en: 'An FRA links its start and end discount factors: $D_{E} = \\frac{D_{S}}{1 + r \\times t}$.\n\n- **1x4 FRA** (19 Aug → 19 Nov 2006, 3.50%): D_S = the **1M cash** discount factor; then D_E = the **4M** discount factor.\n- **3x6 FRA**: D_S = **3M cash** DF (0.992036) → D_E = **6M** DF = **0.983017**.\n- **6x9 FRA**: D_S = the **6M** DF from the 3x6 FRA → D_E = **9M** DF = **0.974035**.\n\nEach FRA extends the curve by 3 months using the DF found in the step before.',
       zh: 'FRA 連接開始同結束嘅折現因子：$D_{E} = \\frac{D_{S}}{1 + r \\times t}$。\n\n- **1x4 FRA**（8 月 19 日 → 11 月 19 日，3.50%）：D_S = **1 個月現金** DF；D_E = **4 個月** DF。\n- **3x6 FRA**：D_S = **3 個月現金** DF (0.992036) → **6 個月** DF = **0.983017**。\n- **6x9 FRA**：D_S = 3x6 得出嘅 **6 個月** DF → **9 個月** DF = **0.974035**。\n\n每張 FRA 用上一步嘅 DF 將曲線延長三個月。',
     },

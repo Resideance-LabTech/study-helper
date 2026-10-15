@@ -432,5 +432,69 @@
     play();
   }
 
-  SH.games = { boss, match, order, blitz, calc, resultCard };
+  /* ================= SORT IT (two buckets) ================= */
+  function sort(root, cid, lids, startId) {
+    let sets = SH.all(cid, 'sorts', lids);
+    if (!sets.length) {
+      root.innerHTML = '';
+      root.appendChild(SH.ui.empty('No sorting rounds for this selection yet.'));
+      return;
+    }
+    if (startId) sets = sets.filter((s) => s.uid === startId).concat(sets.filter((s) => s.uid !== startId));
+    let si = 0;
+    function play() {
+      const S = sets[si % sets.length];
+      const items = shuffle(S.items.map((it) => ({ en: it[0], zh: it[1], b: it[2], tag: it[3] })));
+      let k = 0, right = 0, streak = 0;
+      const missed = [];
+      root.innerHTML = '';
+      root.appendChild(h('div', { class: 'game-head' }, h('h3', {}, 'Sort it'), h('span', { class: 'muted small' }, (si % sets.length) + 1 + ' / ' + sets.length)));
+      root.appendChild(SH.ui.biTitle(S.t, 'h2'));
+      const bar = h('div', { class: 'setbar' });
+      const card = h('div', { class: 'sort-card' });
+      const btns = h('div', { class: 'sort-btns' }, S.buckets.map((b, bi) => h('button', { class: 'btn sort-b sort-b' + bi, onclick: () => answer(bi) },
+        h('b', {}, b.en), h('small', { lang: 'zh-HK' }, b.zh))));
+      const fb = h('div', { class: 'sort-fb', 'aria-live': 'polite' });
+      root.append(bar, card, btns, fb);
+      function draw() {
+        bar.innerHTML = '';
+        bar.append(SH.ui.progressBar(k / items.length), h('span', { class: 'small muted' }, right + ' / ' + k));
+        if (k >= items.length) return finish();
+        const it = items[k];
+        card.innerHTML = '';
+        card.append(it.tag ? h('span', { class: 'qtag' }, it.tag) : null, h('p', { class: 'sort-en' }, '“' + it.en + '”'),
+          SH.ui.assist() === 'both' ? h('p', { class: 'sort-zh', lang: 'zh-HK' }, it.zh) : null);
+        card.classList.remove('flash-ok', 'flash-no');
+      }
+      function answer(bi) {
+        if (k >= items.length) return;
+        const it = items[k];
+        const ok = bi === it.b;
+        if (ok) { right++; streak++; SH.beep('good'); } else { streak = 0; SH.beep('bad'); SH.buzz(30); missed.push(it.en + ' → **' + S.buckets[it.b].en + '**'); }
+        card.classList.add(ok ? 'flash-ok' : 'flash-no');
+        fb.innerHTML = '';
+        fb.append(h('span', { class: ok ? 'ok-t' : 'no-t' }, ok ? '✓ ' + (streak >= 3 ? streak + ' in a row!' : 'Correct') : '✗ It belongs to: ' + S.buckets[it.b].en), h('span', { class: 'muted small', lang: 'zh-HK' }, ' ' + it.zh));
+        k++;
+        setTimeout(draw, ok ? 350 : 900);
+      }
+      function finish() {
+        const xp = right * 3 + (right === items.length ? 15 : 0);
+        award(cid, xp);
+        items.forEach(() => {});
+        SH.store.recordAnswer(cid, S.uid, right >= items.length * 0.8);
+        root.innerHTML = '';
+        root.appendChild(resultCard(cid, {
+          win: right >= items.length * 0.8, title: right + ' / ' + items.length + ' sorted correctly', sub: S.t.en,
+          score: right, scoreLabel: 'Correct', xp, bestKey: 'sort.' + S.uid, review: missed,
+          again: () => { si++; play(); },
+        }));
+        const againBtn = root.querySelector('.result .btn.primary');
+        if (againBtn) againBtn.textContent = sets.length > 1 ? 'Next round' : 'Play again';
+      }
+      draw();
+    }
+    play();
+  }
+
+  SH.games = { boss, match, order, blitz, calc, sort, resultCard };
 })();

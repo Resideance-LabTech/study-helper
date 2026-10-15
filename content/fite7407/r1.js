@@ -7,6 +7,7 @@ SH.addLecture('fite7407', {
     en: 'This Moodle reading supports Tutorial 1. If interest rates stay the same, every bond price moves to its face value at maturity — and the speed of that movement increases near the end. The authors call this "time decay" of premium and discount.',
     zh: '呢篇 Moodle 閱讀配合導修一。如果利率不變，所有債券到期時價錢都會變返面值——而越接近到期，變得越快。作者叫佢做溢價同折讓嘅「時間衰減」。',
   },
+  boss: { name: 'The Pull-to-Par Poltergeist', zh: '拉向面值嘅搗蛋鬼', emoji: '🧲', hp: 8, taunt: 'Premium or discount, I drag every bond to face value — faster and faster!', defeat: 'The poltergeist reaches maturity and vanishes at par.' },
   gens: ['fite.couponprice'],
   cards: [
     {

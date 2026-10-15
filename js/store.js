@@ -6,7 +6,7 @@
   const BOX_DAYS = [0, 1, 2, 4, 8, 16, 32];
 
   const defaults = () => ({
-    settings: { assist: 'tap', sound: true, haptics: true, ttsRate: 0.95, dailyGoal: 80, examMode: false },
+    settings: { assist: 'tap', sound: true, haptics: true, ttsRate: 0.95, dailyGoal: 80, examMode: false, swipe: true },
     days: {},
     streak: { last: '', count: 0, best: 0 },
     courses: {},

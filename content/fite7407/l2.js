@@ -7,7 +7,7 @@ SH.addLecture('fite7407', {
     en: 'What a depot bank does every day: bookings, deliveries, transfers and reconciliation. Then the corporate events it must process for every holding — capital increases, share swaps, splits and AGMs — and a real €60 million mistake.',
     zh: '託管銀行每日做乜：記賬、交收、轉倉同對賬。之後係佢要為每個持倉處理嘅公司行動：增資、換股、拆股、股東大會，仲有一單真實嘅六千萬歐元錯誤。',
   },
-  boss: { name: 'The Corporate Action Kraken', zh: '公司行動八爪魚', emoji: '🐙', hp: 12, taunt: 'Split, merge, squeeze out… one missed booking and you lose millions!', defeat: 'Every tentacle reconciled. No breaks left.' },
+  boss: { name: 'The Corporate Action Kraken', zh: '公司行動海怪', emoji: '🦑', hp: 12, taunt: 'Split, merge, squeeze out… one missed booking and you lose millions!', defeat: 'Every tentacle reconciled. No breaks left.' },
   gens: ['fite.rights', 'fite.split'],
   cards: [
     {
@@ -21,7 +21,7 @@ SH.addLecture('fite7407', {
       zh: '提供證券戶口嘅機構要**保管**持倉同**管理**：\n- 戶口交易、轉倉同**持倉對賬**；\n- 處理所有持倉嘅**公司行動**；\n- 有需要**客戶指示**嘅事件要通知客戶；\n- 通知**股東週年大會 (AGM)**；\n- 處理息票、更新息票紙；\n- 將收益（股息等）記入**現金戶口**；\n- 處理所有**稅務**；\n- 製作內外部統計。\n\n兩個來源：**客戶引發**（買賣、場外交收、轉畀配偶子女）同**外部觸發**（發行人指定日期嘅公司行動、報告同統計責任）。',
     },
     {
-      id: 'c3', s: 'Slide 6', t: { en: 'Three views on holdings', zh: '持倉嘅三個角度' },
+      id: 'c3', fig: 'views3', s: 'Slide 6', t: { en: 'Three views on holdings', zh: '持倉嘅三個角度' },
       en: 'A financial institution must maintain **three views** on its customers\' holdings:\n1. **By customer**: each customer\'s depot with all positions they own.\n2. **By security**: the aggregated total holding in each security **across all customers**.\n3. **By depository**: for each security, the split of the total by the **external depository** where it is held (local, international or via accounts at other banks).',
       zh: '金融機構要維持持倉嘅**三個角度**：\n1. **按客戶**：每個客戶戶口入面所有持倉。\n2. **按證券**：每隻證券**全部客戶**加埋嘅總持倉。\n3. **按存管機構**：每隻證券嘅總數，分別放喺邊個**外部存管機構**（本地、海外或者其他銀行戶口）。',
       tip: { en: 'Depository reconciliation compares the bank\'s in-house view (holdings per security and depository) with the external listing each depository sends. Any difference is a break that must be followed up.', zh: '存管對賬就係將銀行內部角度（每隻證券、每個存管機構嘅持倉）同存管機構寄嚟嘅外部清單比較，有差異 (break) 就要跟進。' },
@@ -38,7 +38,7 @@ SH.addLecture('fite7407', {
       zh: '**交收畀對手**：客戶（或授權人）指示銀行將持倉交去另一間銀行，講明 **DVP**（貨銀對付）定 **DFP**（免付款交收）。銀行要核對：持倉**夠唔夠**？戶口有冇**凍結**、禁止交易、或者持倉**抵押咗**？放喺邊個**存管機構**？冇問題就經存管網絡執行，用**中央配對引擎**配對交收同收貨，有需要就做**外匯預計**。\n\n**從對手收貨**：銀行收到來貨通知。如果係 **DVP**，要檢查客戶現金戶口**夠唔夠錢**，經存管配對系統確認，有需要做外匯，並為交收日產生**付款指示**。之後存管機構將持倉轉入收貨人戶口。',
     },
     {
-      id: 'c6', s: 'Slides 10–11', t: { en: 'DFP vs DVP — the pictures', zh: 'DFP 同 DVP 圖解' },
+      id: 'c6', scene: 'f2.dvp', s: 'Slides 10–11', t: { en: 'DFP vs DVP — the pictures', zh: 'DFP 同 DVP 圖解' },
       en: '**Delivery free of payment (DFP):** the customer at Bank A instructs DFP; the customer at Bank B advises **RFP** (receive free of payment). The depository matches the two instructions and moves 100 units from Bank A\'s security account to Bank B\'s. Both banks update their customers\' depots. **No cash moves.**\n\n**Delivery versus payment (DVP):** the seller instructs **DVP**, the buyer instructs **RVP** (receive versus payment). The depository matches them and moves the 100 units **and** the $1,000 in the opposite direction at the same time, through both banks\' security and cash accounts.',
       zh: '**免付款交收 (DFP)**：A 行客戶指示 DFP；B 行客戶通知 **RFP**（免付款收貨）。存管機構配對兩邊指示，將 100 單位由 A 行證券戶口轉去 B 行。兩間銀行更新客戶戶口。**冇錢郁。**\n\n**貨銀對付 (DVP)**：賣家指示 **DVP**，買家指示 **RVP**（付款收貨）。存管機構配對後，**同時**將 100 單位同 $1,000 反方向轉，經過兩間銀行嘅證券同現金戶口。',
       mem: { en: 'D/R = Deliver/Receive · FP/VP = Free of / Versus Payment. DVP always pairs with RVP; DFP with RFP.', zh: 'D/R＝交／收；FP/VP＝免付款／對付款。DVP 配 RVP；DFP 配 RFP。' },
@@ -70,7 +70,7 @@ SH.addLecture('fite7407', {
       zh: '**公司事件 (CE)／公司行動 (CA)** 係託管人要喺客戶戶口持倉上執行嘅**非交易事件**，例如：增資；拆股或合股；以股代息；換股。\n\n- 由發行公司同資訊中介**公布**。\n- 託管人要**即刻**準備、**準時**執行。\n- 由**發行公司**（股票）或**託管銀行**（基金）按總部所在地**本地法律**決定。',
     },
     {
-      id: 'c12', s: 'Slides 21–23', t: { en: 'Capital increase against cash (rights issue)', zh: '現金增資（供股）' },
+      id: 'c12', scene: 'f2.rights', s: 'Slides 21–23', t: { en: 'Capital increase against cash (rights issue)', zh: '現金增資（供股）' },
       en: 'The general meeting can authorise the board to increase capital by at most **50%** (Germany); the authorisation is valid for at most **5 years**, so it is prepared in advance and executed when the time is right.\n\nIn a capital increase **against cash**, every shareholder has a **right to participate**. Rights can be **exercised or sold**.\n\nSequence in the custodian:\n1. The capital increase is **published**.\n2. The custodian sends information and a **rights issue advice** to shareholders.\n3. Rights are **booked** into shareholders\' accounts.\n4. Rights are **traded** for a few weeks; customers instruct the custodian to buy, sell or hold rights.\n5. If **no instruction** arrives, the custodian **sells the right on the last trading day**.\n6. The intended exercise is **reported to the issuer**.\n7. The issuer converts the rights into **young shares**, which the custodian books into customer accounts.\n\nValue of a right: $V = \\frac{K_{O} - K_{N}}{R + 1}$. Example: capital from US$120m by US$20m to US$140m → ratio **6:1**; K_N = $18, K_O = $25 → **V = $1**.',
       zh: '股東大會可以授權董事會增資最多 **50%**（德國），授權最長 **5 年**，所以通常預先準備，時機啱先執行。\n\n**現金增資**時，每個股東都有**參與權**，可以**行使或者賣出**。\n\n託管人嘅流程：\n1. **公布**增資。\n2. 寄資料同**供股通知**畀股東。\n3. 將認購權**記入**股東戶口。\n4. 認購權**買賣**幾個星期；客戶指示買、賣或持有。\n5. 如果**冇指示**，託管人喺**最後交易日賣出**認購權。\n6. 將行使意向**報畀發行人**。\n7. 發行人將權轉做**新股**，託管人記入客戶戶口。\n\n認購權價值：$V = \\frac{K_{O} - K_{N}}{R + 1}$。例子：股本由 1.2 億增 2 千萬到 1.4 億美元 → 比例 **6:1**；K_N = $18、K_O = $25 → **V = $1**。',
       tip: { en: 'Why does the custodian sell unexercised rights on the last day? Otherwise they would expire worthless and the customer would lose their value.', zh: '點解冇指示就喺最後一日賣？唔賣就會過期變廢紙，客戶會蝕咗佢嘅價值。' },
@@ -103,7 +103,7 @@ SH.addLecture('fite7407', {
       ex: { en: '200 shares at $100, split 1:5 → 1,000 shares at $20 (still $20,000). 1,000 units at $0.50, reverse split 10:1 → 100 units at $5.', zh: '200 股 $100，1:5 拆股 → 1,000 股 $20（仍然 $20,000）。1,000 單位 $0.50，10:1 合股 → 100 單位 $5。' },
     },
     {
-      id: 'c18', s: 'DWP Bank article (Moodle reading)', t: { en: 'Case: DWP Bank loses €60 million in a reverse split', zh: '案例：DWP Bank 合股蝕咗六千萬歐元' },
+      id: 'c18', scene: 'f2.dwp', s: 'DWP Bank article (Moodle reading)', t: { en: 'Case: DWP Bank loses €60 million in a reverse split', zh: '案例：DWP Bank 合股蝕咗六千萬歐元' },
       en: 'In December 2022, the ETC "**Natural Gas 3x Daily Short**" (ISIN IE00B76BRD76, issuer WisdomTree) had fallen to about 0.0056 cents. WisdomTree announced a **17,000:1 reverse split** effective after the close on **16 December**.\n\nA customer of **DWP Bank** (custodian for about 5.5 million depots of savings and cooperative banks) had bought the ETC for a four-digit sum. After the reverse split the **price was adjusted (×17,000) but the number of units in the depot was not**. Normally custodians **block** the security until the depot adjustment is done — this did not happen.\n\nThe holding suddenly looked worth **tens of millions**. The customer sold; most trades were cancelled by the exchanges as obvious mistrades, but at least one went through. As **commission agent**, DWP Bank had to deliver units that did not exist, so it **bought about 800,000 units** at over €100 — while only about 300,000 were in circulation. Market makers had to issue new ETCs, and the price rose from €105.50 to over €350. Frankfurt turnover jumped to **€87 million** in one day. The provisional loss: **about €60 million**, roughly a full year\'s profit.',
       zh: '2022 年 12 月，ETC「**Natural Gas 3x Daily Short**」（ISIN IE00B76BRD76，發行人 WisdomTree）跌到大約 0.0056 仙。WisdomTree 宣布 **17,000:1 合股**，喺 **12 月 16 日**收市後生效。\n\n**DWP Bank**（幫儲蓄銀行同合作銀行管理約 550 萬個戶口）一位客戶用四位數金額買咗呢隻 ETC。合股之後**價錢調整咗（×17,000），但戶口入面嘅單位數冇調整**。正常託管銀行會喺調整完成前**凍結**呢隻證券，但呢次冇。\n\n持倉突然變成值**幾千萬**。客戶即刻賣；大部分交易被交易所當錯價取消，但最少一單成交咗。DWP 作為**代客（佣金）交易代理**要交付根本唔存在嘅單位，於是**買入約 80 萬單位**，每個超過 €100——但市面只有約 30 萬單位。莊家要再發行，價錢由 €105.50 升到超過 €350。法蘭克福一日成交飆到 **8,700 萬歐元**。暫計損失：**約六千萬歐元**，差唔多成年利潤。',
       tip: { en: 'Exam link: this case shows why **corporate actions must be executed on time**, why securities are **blocked** during adjustments, why **reconciliation** matters, and how a **commission trade** makes the bank liable for delivery.', zh: '考試連繫：呢單案例顯示**公司行動要準時執行**、調整期間要**凍結**證券、**對賬**有幾重要，同埋**佣金交易**令銀行要負責交付。' },

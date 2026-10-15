@@ -124,7 +124,6 @@
     C.lectures.forEach((L) => list.appendChild(lectureRow(cid, L)));
     root.appendChild(list);
 
-    if (C.exam) root.appendChild(h('section', { class: 'note' }, ui().biTitle({ en: 'How you are assessed', zh: '評核方法' }, 'h3'), ui().bi(C.exam.en, C.exam.zh, { say: false })));
     root.appendChild(h('div', { class: 'row gap wrap foot-links' },
       h('button', { class: 'link', onclick: () => go('/c/' + cid + '/glossary') }, 'Glossary 詞彙表'),
       h('button', { class: 'link', onclick: () => go('/c/' + cid + '/formulas') }, 'Formula sheet 公式'),
@@ -168,7 +167,7 @@
 
   /* =============== LECTURE =============== */
   const LTABS = [
-    ['learn', 'Learn', '學'], ['story', 'Story', '故事'], ['examples', 'Examples', '例子'], ['practice', 'Calculate', '計數'], ['exam', 'Exam', '考試'], ['quiz', 'Quiz', '測驗'],
+    ['learn', 'Learn', '學'], ['watch', 'Watch', '動畫'], ['story', 'Story', '故事'], ['examples', 'Examples', '例子'], ['practice', 'Calculate', '計數'], ['exam', 'Exam', '考試'], ['quiz', 'Quiz', '測驗'],
   ];
   V.lecture = function (root, cid, lid, tab, sub) {
     const L = SH.lecture(cid, lid);
@@ -177,7 +176,7 @@
     root.appendChild(backHead(L.title, L.code + ' · ' + SH.courses[cid].code));
     const tabs = h('div', { class: 'ltabs scroll-x', role: 'tablist' });
     const have = {
-      learn: L.cards.length, story: L.stories.length, examples: L.examples.length, practice: L.gens.length, exam: L.written.length, quiz: L.mcq.length,
+      learn: L.cards.length, watch: SH.scenesFor ? SH.scenesFor(cid, [L.id]).length : 0, story: L.stories.length, examples: L.examples.length, practice: L.gens.length, exam: L.written.length, quiz: L.mcq.length,
     };
     LTABS.forEach(([k, en, zh]) => {
       if (!have[k]) return;
@@ -187,7 +186,7 @@
     root.appendChild(tabs);
     const body = h('div', { class: 'lbody' });
     root.appendChild(body);
-    ({ learn: learnTab, story: storyTab, examples: examplesTab, practice: practiceTab, exam: examTab, quiz: quizTab }[tab] || learnTab)(body, cid, L, sub);
+    ({ learn: learnTab, watch: (b, c, LL) => SH.scenePlayer.list(b, c, [LL.id]), story: storyTab, examples: examplesTab, practice: practiceTab, exam: examTab, quiz: quizTab }[tab] || learnTab)(body, cid, L, sub);
   };
 
   /* ----- Learn: one concept card at a time ----- */
@@ -213,6 +212,8 @@
         ui().bi(c.en, c.zh),
         c.f ? (Array.isArray(c.f) ? c.f : [c.f]).map((f) => ui().formula(f)) : null,
         c.lab && SH.labs && SH.labs[c.lab] ? SH.labs[c.lab]() : null,
+        c.fig && SH.figs && SH.figs[c.fig] ? h('div', { class: 'fig scene', html: SH.figs[c.fig]() }) : null,
+        c.scene && SH.scenePlayer && SH.scenes[c.scene] ? SH.scenePlayer.mount(c.scene, { compact: true }) : null,
         c.ex ? h('div', { class: 'ccard-ex' }, h('h4', {}, 'Example 例子'), ui().bi(c.ex.en, c.ex.zh, { say: false })) : null,
         c.tip ? h('div', { class: 'ccard-tip' }, h('h4', {}, 'Exam tip 考試貼士'), ui().bi(c.tip.en, c.tip.zh, { say: false })) : null,
         c.mem ? h('div', { class: 'ccard-mem' }, h('h4', {}, 'Memory hook 記憶法'), ui().bi(c.mem.en, c.mem.zh, { say: false })) : null);
@@ -227,15 +228,20 @@
           : h('button', { class: 'btn primary', onclick: () => go(`/c/${cid}/l/${L.id}/quiz`) }, 'Test yourself ›'));
       holder.append(dots, card, nav);
       // swipe
-      let x0 = null;
-      card.addEventListener('touchstart', (e) => (x0 = e.target.closest('.lab, input, select, .formula, .step-html') ? null : e.touches[0].clientX), { passive: true });
+      // Strict swipe: long, fast and clearly sideways — normal scrolling never changes the card
+      let t0 = null;
+      card.addEventListener('touchstart', (e) => {
+        t0 = !SH.store.settings().swipe || e.touches.length > 1 || e.target.closest('.lab, .scene, .fig, input, select, .formula, .step-html, .tbl')
+          ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() };
+      }, { passive: true });
       card.addEventListener('touchend', (e) => {
-        if (x0 == null) return;
-        const dx = e.changedTouches[0].clientX - x0;
-        x0 = null;
-        if (Math.abs(dx) > 70) {
-          if (dx < 0 && i < L.cards.length - 1) { i++; draw(); }
-          else if (dx > 0 && i > 0) { i--; draw(); }
+        if (!t0) return;
+        const dx = e.changedTouches[0].clientX - t0.x, dy = e.changedTouches[0].clientY - t0.y, dt = Date.now() - t0.t;
+        t0 = null;
+        const wide = Math.max(120, window.innerWidth * 0.35);
+        if (Math.abs(dx) > wide && Math.abs(dx) > 3 * Math.abs(dy) && dt < 600) {
+          if (dx < 0 && i < L.cards.length - 1) { i++; draw(); SH.scrollTop(); }
+          else if (dx > 0 && i > 0) { i--; draw(); SH.scrollTop(); }
         }
       });
     }
@@ -260,7 +266,7 @@
       holder.innerHTML = '';
       L.stories.forEach((S) => {
         const box = h('article', { class: 'story' }, ui().biTitle(S.t, 'h2'));
-        if (S.scene) box.appendChild(h('p', { class: 'scene' }, h('span', {}, S.scene.en), !enOnly ? h('span', { lang: 'zh-HK', class: 'muted' }, ' ' + S.scene.zh) : null));
+        if (S.scene) box.appendChild(h('p', { class: 'story-scene' }, h('span', {}, S.scene.en), !enOnly ? h('span', { lang: 'zh-HK', class: 'muted' }, ' ' + S.scene.zh) : null));
         S.lines.forEach(([who, en, zh]) => {
           const p = (C.cast && C.cast[who]) || { name: who, avatar: '🙂' };
           const side = p.side || 'l';
@@ -335,6 +341,11 @@
         h('span', { class: 'wq md', html: SH.inline(W.q.split('\n')[0]) }),
         h('span', { class: 'wm muted small' }, (W.marks || '') + 'm' + (s && s.c ? ' ✓' : ''))));
     });
+    if (L.sorts && L.sorts.length) {
+      root.appendChild(ui().sectionHead({ en: 'Sort it', zh: '分類挑戰' }));
+      L.sorts.forEach((Z) => root.appendChild(h('button', { class: 'wrow', onclick: () => go(`/c/${cid}/play/sort/${encodeURIComponent(Z.uid)}`) },
+        h('span', { class: 'wcmd' }, 'Sort'), h('span', { class: 'wq' }, Z.t.en), h('span', { class: 'wm muted small' }, Z.items.length + ' items'))));
+    }
     if (L.orders.length) {
       root.appendChild(ui().sectionHead({ en: 'Process puzzles', zh: '流程排序' }));
       L.orders.forEach((P) => root.appendChild(h('button', { class: 'wrow', onclick: () => go(`/c/${cid}/play/order/${encodeURIComponent(P.uid)}`) },
@@ -573,6 +584,10 @@
   V.games = function (root, cid) {
     const C = SH.courses[cid];
     root.appendChild(h('div', { class: 'vhead plain' }, h('div', { class: 'vhead-t' }, ui().biTitle({ en: 'Games', zh: '遊戲' }, 'h1'), h('div', { class: 'muted small' }, C.code + ' · play to remember'))));
+    const SIM = SH.sims && SH.sims[cid];
+    if (SIM) root.appendChild(h('button', { class: 'sim-banner', onclick: () => go(`/c/${cid}/play/sim`) },
+      h('span', { class: 'sim-e', 'aria-hidden': 'true' }, SIM.emoji),
+      h('span', {}, h('b', {}, SIM.name.en), h('small', { lang: 'zh-HK' }, SIM.name.zh), h('small', { class: 'muted' }, SIM.blurb))));
     // boss row
     root.appendChild(ui().sectionHead({ en: 'Boss battles', zh: '打大佬' }));
     const bosses = h('div', { class: 'bosses scroll-x' });
@@ -593,6 +608,8 @@
       ['cmd', 'Aa', 'Command word drill', '題目指令字', 'What does the question really ask you to do?'],
       ['calc', '÷', 'Calculation lab', '計數實驗室', 'Endless calculations with new numbers and worked steps.'],
     ];
+    if (SH.all(cid, 'sorts').length) games.splice(3, 0, ['sort', '⇵', 'Sort it', '分類挑戰', 'Two buckets, many statements: who says it, whose duty is it?']);
+    if (SH.scenes && SH.scenesFor(cid).length) games.unshift(['watch', '▶', 'Watch: animated lessons', '動畫課堂', 'Short animated explainers with subtitles — like mini videos, fully offline.']);
     root.appendChild(ui().sectionHead({ en: 'Quick games', zh: '小遊戲' }));
     const grid = h('div', { class: 'glist' });
     games.forEach(([id, ic, en, zh, d]) => grid.appendChild(h('button', { class: 'gitem', onclick: () => go(`/c/${cid}/play/${id}`) },
@@ -602,9 +619,9 @@
 
   /* =============== PLAY (game runner) =============== */
   V.play = function (root, cid, gid, arg, params) {
-    const titles = { boss: ['Boss battle', '打大佬'], match: ['Term match', '配對詞彙'], blitz: ['True / false blitz', '對錯快打'], order: ['Process puzzle', '流程排序'], cmd: ['Command word drill', '題目指令字'], calc: ['Calculation lab', '計數實驗室'] };
+    const titles = { boss: ['Boss battle', '打大佬'], match: ['Term match', '配對詞彙'], blitz: ['True / false blitz', '對錯快打'], order: ['Process puzzle', '流程排序'], cmd: ['Command word drill', '題目指令字'], calc: ['Calculation lab', '計數實驗室'], sort: ['Sort it', '分類挑戰'], sim: ['Simulation', '模擬遊戲'], watch: ['Watch', '動畫課堂'] };
     const t = titles[gid] || ['Game', '遊戲'];
-    const needScope = ['match', 'blitz', 'order'].includes(gid) && !arg;
+    const needScope = ['match', 'blitz', 'order', 'sort', 'watch'].includes(gid) && !arg;
     let lids = params.l ? params.l.split(',') : [];
     root.appendChild(backHead({ en: t[0], zh: t[1] }, SH.courses[cid].code));
     const scope = h('div', {});
@@ -618,12 +635,15 @@
       else if (gid === 'blitz') SH.games.blitz(stage, cid, l);
       else if (gid === 'order') SH.games.order(stage, cid, l, arg ? decodeURIComponent(arg) : null);
       else if (gid === 'cmd') SH.exam.cmdDrill(stage, cid);
+      else if (gid === 'sort') SH.games.sort(stage, cid, l, arg ? decodeURIComponent(arg) : null);
+      else if (gid === 'sim') SH.sims[cid].run(stage, cid);
+      else if (gid === 'watch') SH.scenePlayer.list(stage, cid, l, arg ? decodeURIComponent(arg) : null);
       else if (gid === 'calc') {
         if (arg) SH.games.calc(stage, cid, arg);
         else calcMenu(stage, cid);
       }
     }
-    const need = (L) => (gid === 'order' ? L.orders.length : gid === 'match' ? L.terms.length >= 4 : L.terms.length || L.mcq.length);
+    const need = (L) => (gid === 'order' ? L.orders.length : gid === 'sort' ? L.sorts.length : gid === 'watch' ? SH.scenesFor(cid, [L.id]).length : gid === 'match' ? L.terms.length >= 4 : L.terms.length || L.mcq.length);
     function drawScope() {
       scope.innerHTML = '';
       scope.appendChild(lectureChips(cid, lids, (v) => { lids = v; drawScope(); start(); }, { need }));
@@ -882,6 +902,7 @@
       h('label', { class: 'switch' }, h('input', { type: 'checkbox', checked: st.examMode, onchange: (e) => { s.setSetting('examMode', e.target.checked); SH.app.refreshTop(); } }), h('span', {}, 'Exam mode: hide all Cantonese')),
       h('label', { class: 'switch' }, h('input', { type: 'checkbox', checked: st.sound, onchange: (e) => s.setSetting('sound', e.target.checked) }), h('span', {}, 'Sound effects')),
       h('label', { class: 'switch' }, h('input', { type: 'checkbox', checked: st.haptics, onchange: (e) => s.setSetting('haptics', e.target.checked) }), h('span', {}, 'Vibration')),
+      h('label', { class: 'switch' }, h('input', { type: 'checkbox', checked: st.swipe !== false, onchange: (e) => s.setSetting('swipe', e.target.checked) }), h('span', {}, 'Swipe sideways to change concept cards 左右掃轉卡')),
       h('label', {}, h('span', {}, 'Speech speed 朗讀速度'), h('input', { type: 'range', min: 0.6, max: 1.3, step: 0.05, value: st.ttsRate, onchange: (e) => { s.setSetting('ttsRate', Number(e.target.value)); SH.speak('This is the reading speed.'); } })),
       h('label', {}, h('span', {}, 'Daily XP goal 每日目標'), h('select', { onchange: (e) => { s.setSetting('dailyGoal', Number(e.target.value)); SH.app.refreshTop(); } },
         [40, 80, 150, 250].map((v) => h('option', { value: v, selected: st.dailyGoal === v }, v + ' XP')))));

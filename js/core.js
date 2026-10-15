@@ -125,11 +125,11 @@
 
   /* Markdown-lite -> HTML. Paragraphs, "- " bullets, "1. " lists, **bold**, *em*, ==mark==, `code`, $formula$ */
   function inline(t) {
-    // pull formulas out first
-    const parts = String(t).split(/(\$[^$]+\$)/g);
+    // pull formulas out first. A "$" followed by a digit is money ($500), unless the span is clearly TeX ($1 + L \times t$).
+    const parts = String(t).split(/(\$(?![\d\s])[^$\n*]+?\$|\$\d[^$\n*]*?\\[^$\n*]*?\$)/g);
     return parts
-      .map((p) => {
-        if (p.startsWith('$') && p.endsWith('$') && p.length > 2) return fx(p.slice(1, -1));
+      .map((p, i) => {
+        if (i % 2) return fx(p.slice(1, -1));
         return esc(p)
           .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
           .replace(/==([^=]+)==/g, '<mark>$1</mark>')
@@ -234,20 +234,36 @@
     setTimeout(() => t.classList.add('out'), 2600);
     setTimeout(() => t.remove(), 3100);
   }
+  /* Pop-up sheet. It closes ONLY with the ✕ / Close buttons, Escape, or the phone's Back button —
+     tapping the dark background does nothing, so it cannot be dismissed by accident. */
   function modal(content, opts = {}) {
     const layer = $('#modal-layer');
-    const close = () => {
+    let open = true;
+    const finish = () => {
+      if (!open) return;
+      open = false;
       wrap.remove();
       document.removeEventListener('keydown', onKey);
+      window.removeEventListener('popstate', onPop);
       opts.onClose && opts.onClose();
+    };
+    // the Back button closes the sheet instead of leaving the page
+    history.pushState({ shModal: true }, '');
+    const onPop = () => finish();
+    const close = () => {
+      if (!open) return;
+      if (history.state && history.state.shModal) history.back(); // triggers onPop → finish
+      else finish();
     };
     const onKey = (e) => e.key === 'Escape' && close();
     const box = h('div', { class: 'modal-box ' + (opts.cls || ''), role: 'dialog', 'aria-modal': 'true' });
-    const wrap = h('div', { class: 'modal-wrap', onclick: (e) => e.target === wrap && close() }, box);
+    const wrap = h('div', { class: 'modal-wrap' }, box);
     box.appendChild(h('button', { class: 'modal-x', 'aria-label': 'Close', onclick: close }, '✕'));
     box.appendChild(typeof content === 'function' ? content(close) : content);
+    box.appendChild(h('button', { class: 'btn block modal-close', onclick: close }, 'Close 關閉'));
     layer.appendChild(wrap);
     document.addEventListener('keydown', onKey);
+    window.addEventListener('popstate', onPop);
     return close;
   }
 

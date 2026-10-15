@@ -43,7 +43,7 @@ SH.addLecture('comp7802', {
       zh: '**SOFR（有抵押隔夜融資利率）**喺美國取代 LIBOR。佢基於**隔夜國債回購**交易——銀行用**國債做抵押**互相隔夜借錢，應付流動資金同儲備需要。**聯儲銀行**每朝公布上一個營業日回購交易嘅 SOFR。\n\n分別：SOFR 基於**真實成交**（**有抵押**）；LIBOR 靠銀行**報價**，未必係真實交易（**無抵押**）。\n\n**CME 定期 SOFR 參考利率**：每日公布 **1、3、6、12 個月**嘅**前瞻性**利率估計，用 SOFR 期貨計——**13 個連續一個月期貨 (SR1)** 同 **5 個連續三個月期貨 (SR3)**。',
     },
     {
-      id: 'c7', s: 'Slide 21', t: { en: 'Day/year conventions: ACT/360 vs ACT/365', zh: '日數慣例：ACT/360 vs ACT/365' },
+      id: 'c7', fig: 'daycount', s: 'Slide 21', t: { en: 'Day/year conventions: ACT/360 vs ACT/365', zh: '日數慣例：ACT/360 vs ACT/365' },
       en: 'Interest paid = interest rate × (days in period / days in year).\n\n**Most money markets use ACT/360.**\n\n**ACT/365 exceptions:**\n- **International and domestic:** **sterling (GBP), Hong Kong dollar (HKD), Singapore dollar**, Malaysian ringgit, Taiwan dollar, Thai baht, South African rand.\n- **Domestic only (not international):** Japanese yen, Canadian dollar, Australian dollar, New Zealand dollar.',
       zh: '利息 = 利率 × (期間日數 / 一年日數)。\n\n**大部分貨幣市場用 ACT/360。**\n\n**ACT/365 例外：**\n- **國際同本地**：**英鎊、港元、新加坡元**、馬幣、新台幣、泰銖、南非蘭特。\n- **只限本地（國際唔係）**：日圓、加元、澳元、紐元。',
       mem: { en: 'ACT/365 club: "Sterling and Asia (HK, SG, MY, TW, TH) plus South Africa". Everyone else, including USD and EUR, is 360.', zh: 'ACT/365 俱樂部：英鎊同亞洲（港、星、馬、台、泰）加南非。其他包括美元歐元都係 360。' },
@@ -61,7 +61,7 @@ SH.addLecture('comp7802', {
       mem: { en: 'A CD is a time deposit you can sell.', zh: '存款證＝可以轉賣嘅定期存款。' },
     },
     {
-      id: 'c10', s: 'Slides 27–32', t: { en: 'Pricing a CD', zh: '存款證定價' },
+      id: 'c10', scene: 'c2.cd', s: 'Slides 27–32', t: { en: 'Pricing a CD', zh: '存款證定價' },
       en: '**Price = present value of the maturity proceeds.** For a CD paying one coupon at maturity:\n1. **Maturity proceeds** = face value × (1 + coupon × coupon days/year).\n2. **Price** = maturity proceeds / (1 + current rate × days from purchase to maturity/year).\n\n**Example:** XYZ CD, A1/P1, issued 2 Jan 2014, matures 2 Jan 2015, face $1,000,000, 5%.\n- Maturity proceeds = 1,000,000 × (1 + 0.05 × 365/365) = **$1,050,000**.\n- With **61 days** left and 2-month rates at **4%**: price = 1,050,000 / (1 + 0.04 × 61/365) = **$1,043,027**.\n- If you are offered **$1,042,800**, the yield is (1,050,000/1,042,800 − 1) × 365/61 = **4.13%**.\n\n**Quote "4.13 – 3.89":** the market maker **buys** at a price yielding **4.13%** and **sells** at a price yielding **3.89%** (higher yield = lower price, so he buys cheap and sells dear).',
       zh: '**價錢 = 到期金額嘅現值。**一次過到期派息嘅存款證：\n1. **到期金額** = 面值 × (1 + 票息 × 票息日數/年)。\n2. **價錢** = 到期金額 / (1 + 現時利率 × 剩餘日數/年)。\n\n**例子**：XYZ 存款證，A1/P1，2014 年 1 月 2 日發行，2015 年 1 月 2 日到期，面值 $1,000,000，5%。\n- 到期金額 = **$1,050,000**。\n- 剩 **61 日**、兩個月利率 **4%**：價錢 = **$1,043,027**。\n- 有人出 **$1,042,800**，收益率 = **4.13%**。\n\n**報價「4.13 – 3.89」**：莊家用收益 **4.13%** 嘅價**買入**、**3.89%** 嘅價**賣出**（收益高＝價錢低，即平買貴賣）。',
       f: ['Price = \\frac{F(1 + c \\times \\frac{coupon\\ days}{year})}{1 + i \\times \\frac{days\\ left}{year}}'],
@@ -73,7 +73,7 @@ SH.addLecture('comp7802', {
       tip: { en: 'Notice: buying **above 100** gives a yield **below** the 2.85% coupon. Price up ⇔ yield down.', zh: '留意：用**高過 100** 買，收益就**低過** 2.85% 票息。價升⇔息跌。' },
     },
     {
-      id: 'c12', s: 'Slides 33–36', t: { en: 'Treasury bills and discount rates', zh: '國庫券同貼現率' },
+      id: 'c12', scene: 'c2.tbill', s: 'Slides 33–36', t: { en: 'Treasury bills and discount rates', zh: '國庫券同貼現率' },
       en: '**T-bill:** term **13, 26 or 52 weeks**; mostly **no coupon**, issued at a **discount**; US and UK quote on a **"discount rate" basis**, most other places on a **true yield** basis; bearer; negotiable.\n\n**US T-bills:** the Federal Reserve auctions 13- and 26-week bills **every Monday** for delivery on **Thursday**, and 52-week bills every month. Secondary market settlement **T+1**. "No" risk of default — so T-bill yields are **lower** than CD yields.\n\n**Discount-rate price:** $P = F(1 - D \\times \\frac{days}{year})$. Example: 50 days at **4.12%** discount, $1,000,000 → 1,000,000 − 1,000,000 × 0.0412 × 50/360 = **$994,278**.\n\n**Conversion:** $y = \\frac{D}{1 - D \\times t}$ and $D = \\frac{y}{1 + y \\times t}$. The yield is always **higher** than the discount rate, because the discount is calculated on the face value, not on the (smaller) amount invested.',
       zh: '**國庫券**：**13、26 或 52 週**；大多**冇票息**，**折讓**發行；美英用**貼現率**報價，其他地方用**真實收益率**；不記名；可轉讓。\n\n**美國國庫券**：聯儲**每個星期一**拍賣 13 同 26 週，**星期四**交收；52 週每月一次。二手市場 **T+1**。「冇」違約風險——所以收益率**低過**存款證。\n\n**貼現率定價**：$P = F(1 - D \\times \\frac{days}{year})$。例子：50 日、貼現率 **4.12%**、$1,000,000 → **$994,278**。\n\n**換算**：$y = \\frac{D}{1 - D \\times t}$、$D = \\frac{y}{1 + y \\times t}$。收益率一定**高過**貼現率，因為貼現係按面值計，唔係按（較細嘅）投資額。',
       mem: { en: 'Discount rate divides by the face value; yield divides by what you actually paid.', zh: '貼現率用面值做分母；收益率用你實際畀嘅錢做分母。' },
@@ -234,6 +234,26 @@ SH.addLecture('comp7802', {
       model: 'A time deposit and a certificate of deposit are both issued by banks, whereas a treasury bill is issued by the government. A time deposit usually pays all of its interest at maturity, it is quoted as an interest rate and it is not negotiable, so the depositor must wait until maturity. A certificate of deposit usually pays a coupon, it is quoted as a yield, it is normally in bearer form and it is negotiable, which means it can be sold in the secondary market before maturity. A treasury bill normally has a term of 13, 26 or 52 weeks and pays no coupon; instead it is issued at a discount to its face value. In the US and the UK it is quoted on a discount-rate basis, while most other markets quote a true yield. Because government paper is assumed to be free of default risk, T-bills usually offer lower yields than bank CDs.',
       modelZh: '定期存款同存款證由銀行發行，國庫券由政府發行。定期存款到期派息、用利率報價、唔可轉讓。存款證通常有票息、用收益率報價、不記名、可轉讓，可以提早賣。國庫券 13／26／52 週、冇票息、折讓發行，美英用貼現率報價。政府冇違約風險，所以收益率通常低過存款證。',
       phrases: ['A time deposit and a certificate of deposit are both issued by banks, whereas ...', '..., which means it can be sold in the secondary market before maturity.', 'Instead, it is issued at a discount to its face value.', 'Because government paper is assumed to be free of default risk, ...'],
+    },
+  ],
+  sorts: [
+    {
+      id: 'z1', t: { en: 'Which day count: ACT/360 or ACT/365?', zh: '邊個日數慣例：ACT/360 定 ACT/365？' },
+      buckets: [{ en: 'ACT/360', zh: 'ACT/360' }, { en: 'ACT/365', zh: 'ACT/365' }],
+      items: [
+        ['USD interbank deposit', '美元同業存款', 0, 'USD'],
+        ['EUR interbank deposit', '歐元同業存款', 0, 'EUR'],
+        ['CHF interbank deposit', '瑞士法郎同業存款', 0, 'CHF'],
+        ['GBP (sterling) deposit', '英鎊存款', 1, 'GBP'],
+        ['HKD deposit', '港元存款', 1, 'HKD'],
+        ['SGD deposit', '新加坡元存款', 1, 'SGD'],
+        ['Malaysian ringgit deposit', '馬來西亞令吉存款', 1, 'MYR'],
+        ['South African rand deposit', '南非蘭特存款', 1, 'ZAR'],
+        ['JPY deposit in the domestic Japanese market', '日本本地市場日圓存款', 1, 'JPY'],
+        ['JPY deposit in the international (euro) market', '國際（歐洲）市場日圓存款', 0, 'JPY'],
+        ['AUD deposit in the domestic Australian market', '澳洲本地市場澳元存款', 1, 'AUD'],
+        ['CAD deposit in the international market', '國際市場加元存款', 0, 'CAD'],
+      ],
     },
   ],
   orders: [

@@ -26,10 +26,6 @@ SH.addCourse({
     kiki: { name: 'Kiki (IT) 琪琪', avatar: '👩‍💻', side: 'l' },
   },
   finalBoss: { name: 'Prof. Final Exam', emoji: '🧑‍🏫' },
-  exam: {
-    en: '**40%** continuous assessment (course work) and **60%** written examination (about 2 hours). The written exam covers **all** taught content. Questions test three learning outcomes: (1) describe the key properties of financial products and how they are processed; (2) explain the organisation of a transaction bank, outsourcing and offshoring; (3) explain how IT implements the requirements of products, customers, markets and regulators.',
-    zh: '**40%** 平時分（功課），**60%** 筆試（大約兩個鐘），考晒所有教過嘅內容。題目考三個學習成果：(1) 描述金融產品嘅特性同處理流程；(2) 解釋交易銀行嘅組織、外判同離岸；(3) 解釋 IT 點樣實現產品、客戶、市場同監管機構嘅要求。答題要用英文，重點係描述 (describe) 同解釋 (explain)。',
-  },
   examPhrases: [
     { g: 'Defining 下定義', p: ['*X* refers to ...', '*X* is a type of ... that ...', 'In the context of custody, *X* means ...'] },
     { g: 'Giving reasons 講原因', p: ['This is because ...', 'The main reason is that ...', 'This is necessary in order to ...', 'This reduces the risk of ...'] },

@@ -16,7 +16,7 @@
     const C = SH.courses[cid];
     if (!C) throw new Error('Unknown course ' + cid);
     L.course = cid;
-    const lists = ['cards', 'terms', 'stories', 'examples', 'mcq', 'written', 'orders', 'cloze'];
+    const lists = ['cards', 'terms', 'stories', 'examples', 'mcq', 'written', 'orders', 'cloze', 'sorts'];
     for (const k of lists) {
       L[k] = L[k] || [];
       L[k].forEach((it, i) => {

@@ -1,36 +1,4 @@
-/* COMP7802 Lecture 0 (introduction) and Lecture 1 — Basic financial arithmetic */
-SH.addLecture('comp7802', {
-  id: 'c0', order: 0, code: 'L0',
-  title: { en: 'Course map: financial computing', zh: '課程地圖：金融計算' },
-  src: ['0-COMP7802 Introduction.pdf'],
-  intro: { en: 'What COMP7802 covers, how you are assessed and why these calculations matter for finance jobs.', zh: 'COMP7802 講乜、點評分，同點解呢啲計數對金融工作咁重要。' },
-  cards: [
-    {
-      id: 'c1', s: 'Introduction, slides 2–3', t: { en: 'Two halves of the course', zh: '課程兩大部分' },
-      en: '**1. Financial arithmetic + instrument pricing & risk management**\n- basic financial arithmetic and the **time value of money**;\n- pricing of **money market instruments, FRAs, interest rate futures and interest rate swaps**;\n- **yield curve** construction;\n- **option pricing, Greeks** and related risk management;\n- modern risk management practice: **VaR**.\n\n**2. Financial modelling applications** — building models in **Excel** where applicable.',
-      zh: '**1. 金融數學 + 產品定價同風險管理**\n- 基本金融數學同**貨幣時間價值**；\n- **貨幣市場工具、FRA、利率期貨、利率掉期**定價；\n- **收益率曲線**建構；\n- **期權定價、希臘字母**同風險管理；\n- 現代風險管理：**VaR**。\n\n**2. 金融建模應用**——喺適當時候用 **Excel** 建模。',
-      mem: { en: 'Money today → money markets → forwards (FRA/futures) → swaps → curves → options → Greeks → VaR. Each step builds on the one before.', zh: '今日嘅錢 → 貨幣市場 → 遠期 → 掉期 → 曲線 → 期權 → 希臘字母 → VaR，一步疊一步。' },
-    },
-    {
-      id: 'c2', s: 'Introduction, slides 4–6', t: { en: 'Assessment and preparation', zh: '評核同準備' },
-      en: '**Assessment:** 2 assignments, 1 quiz, 1 final exam.\n\n**Reference books:** *Mastering Financial Calculations* (Robert Steiner) and *Options, Futures and Other Derivatives* (John Hull).\n\nNo prior knowledge of financial products is assumed — everything is introduced from scratch — but **basic calculus and statistics** are required. Ask questions!\n\nThe skills lead to roles such as securities/financial analyst, investment banking, fund management, trading assistant, trader support, middle office, operations & settlements, and IT support & development.',
-      zh: '**評核**：兩份功課、一次小測、一次期末考。\n\n**參考書**：*Mastering Financial Calculations*（Robert Steiner）同 *Options, Futures and Other Derivatives*（John Hull）。\n\n唔假設你識金融產品——全部由零開始——但要識**基本微積分同統計**。有問題要問！\n\n相關職位：證券／金融分析師、投資銀行、基金管理、交易助理、交易支援、中台、營運結算、IT 支援同開發。',
-      tip: { en: 'Hull and Steiner use the same notation as the slides (S, X, r, T, σ). Learn the English symbols names: "S-nought", "sigma", "N of d-one".', zh: 'Hull 同 Steiner 用同 slide 一樣嘅符號。記住英文讀法：S-nought、sigma、N of d-one。' },
-    },
-  ],
-  terms: [
-    { en: 'Time value of money', zh: '貨幣時間價值', d: 'The idea that money today is worth more than the same amount in the future, because it can earn interest.', dz: '今日嘅錢值多過將來同一筆錢，因為可以賺利息。' },
-    { en: 'Middle office', zh: '中台', d: 'Bank functions between trading (front office) and settlement (back office), e.g. risk control and valuation.', dz: '介乎前台交易同後台結算之間嘅部門，例如風險控制同估值。' },
-    { en: 'Financial modelling', zh: '金融建模', d: 'Representing financial problems mathematically (often in Excel) to value assets, measure risk or answer "what if" questions.', dz: '用數學（通常用 Excel）表示金融問題，去估值、量度風險或者答「如果」問題。' },
-  ],
-  mcq: [
-    { q: 'Which risk measure is named as "modern risk management practice" in COMP7802?', qz: 'COMP7802 話「現代風險管理」用邊個指標？', o: ['VaR', 'Beta only', 'Credit rating', 'Duration only'], a: 0, s: 'Introduction, slide 2', x: 'The course covers modern risk management practice — VaR.', xz: 'VaR。' },
-    { q: 'How is COMP7802 assessed?', qz: 'COMP7802 點評核？', o: ['2 assignments, 1 quiz, 1 final exam', '1 essay and 1 presentation', 'Final exam only', '4 quizzes'], a: 0, s: 'Introduction, slide 6', x: '2 assignments + 1 quiz + 1 final exam.', xz: '兩份功課、一次小測、一次期末考。' },
-    { q: 'Which tool is used for financial modelling in the course?', qz: '課程用乜嘢工具做金融建模？', o: ['Excel spreadsheet', 'Only paper and pen', 'A Bloomberg terminal', 'SQL databases'], a: 0, s: 'Introduction, slide 2', x: 'Financial modelling using Excel spreadsheets.', xz: 'Excel。' },
-    { q: 'True or false: COMP7802 assumes prior knowledge of financial products.', qz: '對定錯：COMP7802 假設你已經識金融產品。', o: ['True', 'False'], a: 1, s: 'Introduction, slide 5', x: 'False — products are introduced from scratch; only basic calculus and statistics are required.', xz: '錯，由零開始，只需要基本微積分同統計。' },
-  ],
-});
-
+/* COMP7802 Lecture 1 — Basic financial arithmetic */
 SH.addLecture('comp7802', {
   id: 'c1', order: 1, code: 'L1',
   title: { en: 'Basic financial arithmetic: time value of money', zh: '基本金融數學：貨幣時間價值' },
@@ -49,7 +17,7 @@ SH.addLecture('comp7802', {
       f: ['FV = PV(1 + i \\times \\frac{days}{year})'],
     },
     {
-      id: 'c2', s: 'Slide 3', t: { en: 'Compound interest', zh: '複利' },
+      id: 'c2', scene: 'c1.compound', s: 'Slide 3', t: { en: 'Compound interest', zh: '複利' },
       en: 'With **compound interest**, interest is **reinvested** and earns interest itself:\n\nTotal proceeds = principal × (1 + interest rate × days/year)ᴺ\n\nExample: $100 for 2 years at 4%, reinvesting after year 1: $100 → $104 → **$108.16** = $100 × (1.04)².',
       zh: '**複利**即係利息**再投資**，利息再生利息：\n\n本利和 = 本金 × (1 + 利率 × 日數/年)ᴺ\n\n例子：$100、4%、兩年，第一年後再投資：$100 → $104 → **$108.16** = $100 × 1.04²。',
       f: ['FV = PV(1 + i)^{N}'],
@@ -81,7 +49,7 @@ SH.addLecture('comp7802', {
       mem: { en: 'More compounding → you need a lower quoted rate for the same result: 9.3% annual ≈ 8.894% daily ≈ 8.8926% continuous.', zh: '複利越密，要達到同一結果所需嘅報價利率越低。' },
     },
     {
-      id: 'c7', s: 'Slides 16–21', t: { en: 'Present value and future value', zh: '現值同終值' },
+      id: 'c7', scene: 'c1.pv', s: 'Slides 16–21', t: { en: 'Present value and future value', zh: '現值同終值' },
       en: 'Would you take **$100 now** or **$100 in one year**? Now — because you can earn interest on it. That is the **time value of money**.\n- **Future value (FV)**: the amount received in the future from investing money now, including interest.\n- **Present value (PV)**: the amount that must be invested now to receive a given amount in the future.\n\nExample: $100 at 4% for **146 days** grows to $100 × (1 + 0.04 × 146/365) = **$101.60**; so the PV of $101.60 in 146 days is $100.\n\nRelationships:\n- simple: $FV = PV(1 + i \\times t)$\n- annually compounded: $FV = PV(1 + i)^{N}$\n- continuous: $FV = PV e^{rt}$',
       zh: '你要**今日 $100** 定**一年後 $100**？今日——因為可以賺利息，呢個就係**貨幣時間價值**。\n- **終值 (FV)**：今日投資，將來收到（包括利息）嘅金額。\n- **現值 (PV)**：要將來收到某金額，今日要投資幾多。\n\n例子：$100、4%、**146 日** → **$101.60**；所以 146 日後 $101.60 嘅現值係 $100。\n\n關係：\n- 單利：$FV = PV(1 + i \\times t)$\n- 年複利：$FV = PV(1 + i)^{N}$\n- 連續：$FV = PV e^{rt}$',
       ex: { en: 'Course spreadsheet: $100 → $101.60 in 146 days equals 4% simple, **4.0481%** annually compounded, or **3.9683%** continuously compounded — three ways of describing the same deal.', zh: '課程 Excel：146 日 $100 → $101.60，等於單利 4%、年複利 **4.0481%**、連續複利 **3.9683%**——同一單嘢三種講法。' },

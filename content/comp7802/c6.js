@@ -189,7 +189,7 @@ SH.addLecture('comp7802', {
       tip: { en: 'Rule: buy the cheap side of the parity equation, sell the expensive side, and the payoffs at T cancel.', zh: '規則：買平價方程嘅平邊、賣貴邊，到期回報抵銷。' },
     },
     {
-      id: 'c3', s: 'Slides 5–9', t: { en: 'One-step binomial model', zh: '一步二項式模型' },
+      id: 'c3', scene: 'c7.binom', s: 'Slides 5–9', t: { en: 'One-step binomial model', zh: '一步二項式模型' },
       en: 'The **binomial model** (Cox, Ross and Rubinstein, 1979) models the possible paths of the underlying and uses **risk-neutral valuation**. Assumptions: the stock follows a **random walk** — each step it moves **up or down**; **no arbitrage**; a **riskless portfolio earns the risk-free rate**.\n\n**Example:** 3-month European call, strike **$21**; stock **$20** now; in 3 months **$22** (call = 1) or **$18** (call = 0); r = **12%** p.a.\n\nBuild a riskless portfolio: **long Δ shares, short 1 call**. Choose Δ so the value is equal in both states: 22Δ − 1 = 18Δ → **Δ = 0.25**.\nValue in 3 months = 22 × 0.25 − 1 = **4.5** (or 18 × 0.25 = 4.5).\nPV today = 4.5 × e^(−0.12 × 0.25) = **4.367**.\nSo 20 × 0.25 − C = 4.367 → **C = 0.633**.',
       zh: '**二項式模型**（Cox、Ross、Rubinstein 1979）模擬相關資產可能嘅路徑，用**風險中性定價**。假設：股價**隨機漫步**——每步**升或跌**；**無套利**；**無風險組合賺無風險利率**。\n\n**例子**：3 個月歐式認購，行使價 **$21**；股價 **$20**；3 個月後 **$22**（認購 = 1）或 **$18**（= 0）；r = **12%**。\n\n建無風險組合：**持 Δ 股、沽 1 張認購**。兩個情況價值相等：22Δ − 1 = 18Δ → **Δ = 0.25**。\n3 個月後價值 = **4.5**；今日現值 = 4.5 × e^(−0.03) = **4.367**。\n所以 20 × 0.25 − C = 4.367 → **C = 0.633**。',
       mem: { en: 'If a portfolio has no risk, it must earn the risk-free rate — that pins down the option price.', zh: '組合冇風險就一定賺無風險利率——咁就鎖定咗期權價。' },

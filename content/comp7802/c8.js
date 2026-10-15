@@ -11,14 +11,14 @@ SH.addLecture('comp7802', {
   gens: ['comp.posdelta', 'comp.deltahedge', 'comp.theta'],
   cards: [
     {
-      id: 'c1', s: 'Slides 2–3', t: { en: 'Delta', zh: 'Delta' },
+      id: 'c1', fig: 'greeks', s: 'Slides 2–3', t: { en: 'Delta', zh: 'Delta' },
       en: '**Delta = change in option price / change in underlying price** — the **slope** of the option price curve.\n\nThe **absolute value of delta approximates the probability** that the option ends **in the money**.\n\n**Long options:** call delta between **0** (out of the money) and **1** (deep in the money); put delta between **−1** (deep in the money) and **0** (out of the money).\n**Short options:** call delta is **negative**, put delta is **positive**.\n\nDelta becomes **less sensitive** to asset price changes as maturity **increases**. In Black-Scholes, **Δ_put = Δ_call − 1**, and **Δ_call = N(d₁)** (proved in the reading by differentiating the BS formula).',
       zh: '**Delta = 期權價變化 / 相關資產價變化**——期權價曲線嘅**斜率**。\n\n**Delta 嘅絕對值約等於**期權到期**價內**嘅概率。\n\n**長倉**：認購 delta 介乎 **0**（價外）至 **1**（深價內）；認沽介乎 **−1**（深價內）至 **0**（價外）。\n**短倉**：認購 delta **負**、認沽 delta **正**。\n\n年期越**長**，delta 對價格變化越**唔敏感**。Black-Scholes 入面 **Δ_put = Δ_call − 1**，**Δ_call = N(d₁)**（閱讀材料將 BS 公式微分證明）。',
       f: ['\\Delta = \\frac{\\partial C}{\\partial S} = N(d_{1}), \\quad \\Delta_{put} = \\Delta_{call} - 1'],
       mem: { en: 'Delta 0.6 ≈ "the option moves 60 cents per $1" ≈ "60% chance of finishing in the money".', zh: 'Delta 0.6 ≈ 股價郁 $1 期權郁 6 毫 ≈ 60% 機會價內。' },
     },
     {
-      id: 'c2', s: 'Slides 4–5', t: { en: 'Delta hedging', zh: 'Delta 對沖' },
+      id: 'c2', scene: 'c8.delta', s: 'Slides 4–5', t: { en: 'Delta hedging', zh: 'Delta 對沖' },
       en: '**Hedge ratio (delta) = notional amount of the option / hedged amount of underlying.**\n\n- **Call hedge:** a **delta-neutral** portfolio is a riskless combination of **holding the stock and writing calls**. Number of calls written per share = **1 / call delta**.\n- **Put hedge:** **hold the stock and buy puts**. Number of puts = **1 / |put delta|**.\n\nDelta hedging holds only for **very small** price changes. As the stock moves, delta changes, so the number of options (or shares) must change: delta hedging needs **periodic rebalancing** with **high transaction costs** — for both selling calls and buying puts.',
       zh: '**對沖比率 (delta) = 期權名義數量 / 對沖嘅相關資產數量。**\n\n- **認購對沖**：**持股 + 沽認購**組成 **delta 中性**無風險組合。每股要沽 **1 / call delta** 張認購。\n- **認沽對沖**：**持股 + 買認沽**。認沽張數 = **1 / |put delta|**。\n\nDelta 對沖只係對**好細**嘅價格變化有效。股價一郁 delta 就變，期權（或股票）數量都要變：要**定期再平衡**，**交易成本高**——沽認購同買認沽都係。',
     },
@@ -202,7 +202,7 @@ SH.addLecture('comp7802', {
       mem: { en: 'Duration is to bonds what delta is to options; convexity is to bonds what gamma is to options.', zh: '久期之於債券 = delta 之於期權；凸性之於債券 = gamma 之於期權。' },
     },
     {
-      id: 'c5', s: 'Slides 7–8', t: { en: 'Value at Risk (VaR)', zh: '風險值 (VaR)' },
+      id: 'c5', scene: 'c9.var', fig: 'vardet', s: 'Slides 7–8', t: { en: 'Value at Risk (VaR)', zh: '風險值 (VaR)' },
       en: '**VaR** is the **maximum possible expected loss** over a **specified time horizon** for a **given level of confidence**.\n\n*Example:* "There is a 99% probability that the portfolio will lose no more than **$2 million in a single day**." Or: "With **95% confidence**, our worst **daily** loss will not exceed **4%**."\n\n**Determinants of VaR:**\n1. **Probability distribution** of likely returns — related to the expected frequency of events.\n2. **Confidence level** — the higher the confidence level, the **lower** the probability that losses exceed VaR (so VaR is larger).\n3. **Time horizon** — the holding period must be defined; VaRs **cannot be compared** unless they share the same time interval; losses over **longer** periods should be **larger**.',
       zh: '**VaR** 係喺**指定時間**、**指定信心水平**下嘅**最大預期損失**。\n\n*例子*：「有 99% 概率組合**一日**內蝕唔超過 **200 萬**。」或者：「**95% 信心**下，**每日**最差損失唔超過 **4%**。」\n\n**VaR 決定因素**：\n1. 回報嘅**概率分佈**——同事件預期頻率有關。\n2. **信心水平**——越高，損失超過 VaR 嘅概率越**低**（所以 VaR 越大）。\n3. **時間範圍**——要定明持有期；時間唔同嘅 VaR **唔可以直接比較**；期間越**長**損失應該越**大**。',
       f: ['P(\\text{Loss} > VaR) = 1 - \\text{confidence level}'],

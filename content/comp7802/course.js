@@ -26,10 +26,6 @@ SH.addCourse({
     grandma: { name: 'Grandma 婆婆', avatar: '👵', side: 'l' },
   },
   finalBoss: { name: 'Mr Shum\'s Final Exam', emoji: '🧮' },
-  exam: {
-    en: 'Assessment: **2 assignments**, **1 quiz** and **1 final exam**. Most marks come from **calculations**, so always: (1) write the formula, (2) substitute the numbers with the correct **day count** (ACT/360 vs ACT/365), (3) state the answer with units and a short English sentence. Basic calculus and statistics are assumed; the course also uses Excel for financial modelling.',
-    zh: '評核：**兩份功課**、**一次小測**、**一次期末考**。大部分分數嚟自**計數**，所以每次都要：(1) 寫公式；(2) 用啱嘅**日數慣例**（ACT/360 定 ACT/365）代入；(3) 寫答案連單位，再加一句英文解釋。假設你識基本微積分同統計；課程亦會用 Excel 做金融建模。',
-  },
   examPhrases: [
     { g: 'Setting up a calculation 開始計數', p: ['Using the formula ..., we have ...', 'Substituting the given values, ...', 'The day count convention for HKD is ACT/365, so ...', 'First, we calculate the maturity proceeds.'] },
     { g: 'Stating results 寫結果', p: ['Therefore, the price of the CD is $...', 'Hence, the forward-forward rate is ...% per annum.', 'The swap rate is approximately ...%.', 'This gives an annualised volatility of ...%.'] },
