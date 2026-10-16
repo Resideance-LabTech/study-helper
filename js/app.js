@@ -3,7 +3,7 @@
   'use strict';
   const SH = window.SH;
   const { h, $ } = SH;
-  SH.CONTENT_VERSION = '2026.10.11';
+  SH.CONTENT_VERSION = '2026.10.16';
 
   SH.installHelp = [
     '**Option A — single file (easiest, fully offline).** Copy `dist/StudyHelper.html` to your phone (USB cable, Google Drive, or email it to yourself and download it). Open it with Chrome or your file manager\'s HTML viewer. Everything runs offline and progress is saved on the phone.',
