@@ -214,7 +214,9 @@
     function finish(dead) {
       const score = Math.round(S.score(st));
       const frac = st.n ? st.right / st.n : 0;
-      const rank = dead ? S.ranks[0] : S.ranks[clamp(Math.floor(frac * 5 - 0.0001) + (score > S.goodScore ? 1 : 0), 0, S.ranks.length - 1)];
+      // title follows accuracy: <40% · 40% · 60% · 75% · 90%; a strong score lifts a 75%+ week one step
+      const lvl = frac >= 0.9 ? 4 : frac >= 0.75 ? 3 : frac >= 0.6 ? 2 : frac >= 0.4 ? 1 : 0;
+      const rank = dead ? S.ranks[0] : S.ranks[Math.min(4, lvl + (frac >= 0.75 && score > S.goodScore ? 1 : 0))];
       const xp = st.right * 3 + st.day * 6 + (dead ? 0 : 20);
       SH.award(cid, xp, dead ? null : 'Survived the week');
       root.innerHTML = '';
