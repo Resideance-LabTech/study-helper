@@ -11,12 +11,12 @@ SH.addLecture('fite7407', {
   gens: ['fite.rights', 'fite.split'],
   cards: [
     {
-      id: 'c1', s: 'Slide 3', t: { en: 'Prelude: who keeps the list of shareholders?', zh: '序：邊個記住股東名單？' },
+      id: 'c1', fig: 'f2.c1', s: 'Slide 3', t: { en: 'Prelude: who keeps the list of shareholders?', zh: '序：邊個記住股東名單？' },
       en: 'Think about owning shares. Who knows who holds shares of a company, and how many? Who **needs** to know (the company for dividends and votes, regulators, tax authorities), and who **wants** others to know?\n\nA small company can run a simple list of shareholders. As the company grows, shares change hands daily and owners live in many countries, so a simple list becomes impractical. The next best option is **custody**: banks keep the holdings in accounts, and the chain of depot banks and depositories keeps track for the company.',
       zh: '諗下持股：邊個知道邊個持有幾多股？邊個**需要**知（公司要派息同投票、監管、稅局），邊個**想**人知？\n\n細公司可以用簡單股東名單。公司大咗，股份日日轉手、股東散落唔同國家，簡單名單就唔掂。下一個最好方法就係**託管**：銀行喺戶口記住持倉，由託管銀行同存管機構嘅鏈條幫公司追蹤。',
     },
     {
-      id: 'c2', s: 'Slides 4–5', t: { en: 'What a depot bank must do', zh: '託管銀行要做嘅嘢' },
+      id: 'c2', fig: 'f2.c2', s: 'Slides 4–5', t: { en: 'What a depot bank must do', zh: '託管銀行要做嘅嘢' },
       en: 'Institutions offering securities accounts must **safe-keep** the holdings and **administer** the positions:\n- manage account transactions, holding transfers and **holding reconciliation**;\n- process **corporate actions** of the issuers for all holdings;\n- inform customers on corporate events that need a **customer instruction**;\n- inform customers on **Annual General Meetings (AGMs)**;\n- process coupons and renew coupon sheets;\n- book gains (dividends etc.) to the **cash account**;\n- process all **tax** matters;\n- create statistics for internal and external use.\n\nThese activities have two sources: **customer-induced actions** (buy/sell, OTC deliveries, transfers e.g. to spouse or children) and **externally triggered actions** (corporate events on issuer-defined dates, reporting and statistics duties).',
       zh: '提供證券戶口嘅機構要**保管**持倉同**管理**：\n- 戶口交易、轉倉同**持倉對賬**；\n- 處理所有持倉嘅**公司行動**；\n- 有需要**客戶指示**嘅事件要通知客戶；\n- 通知**股東週年大會 (AGM)**；\n- 處理息票、更新息票紙；\n- 將收益（股息等）記入**現金戶口**；\n- 處理所有**稅務**；\n- 製作內外部統計。\n\n兩個來源：**客戶引發**（買賣、場外交收、轉畀配偶子女）同**外部觸發**（發行人指定日期嘅公司行動、報告同統計責任）。',
     },
@@ -28,12 +28,12 @@ SH.addLecture('fite7407', {
       mem: { en: 'Who owns it? How much in total? Where is it?', zh: '邊個擁有？總共幾多？放喺邊？' },
     },
     {
-      id: 'c4', s: 'Slide 7', t: { en: 'Depot bookings are heavily regulated', zh: '戶口記賬受嚴格監管' },
+      id: 'c4', fig: 'f2.c4', s: 'Slide 7', t: { en: 'Depot bookings are heavily regulated', zh: '戶口記賬受嚴格監管' },
       en: 'Every booking changes a customer\'s **ownership position**, so it is heavily regulated. There are legal requirements for **trading, book-keeping, safe-keeping and accounting standards**.\n\nAny change in ownership must be complete in form and content:\n- name, address and description of **sender and receiver**;\n- currency and **nominal value**;\n- security identification (**ISIN**);\n- **transaction date** and **booking date**;\n- other remarks (trade inhibitions, dormant account, deceased customer…).',
       zh: '每一筆記賬都會改變客戶**擁有權**，所以監管好嚴。**交易、記賬、保管同會計準則**都有法例要求。\n\n擁有權轉變要格式同內容齊全：\n- **發送方同接收方**嘅名、地址、描述；\n- 貨幣同**面值**；\n- 證券編號 (**ISIN**)；\n- **交易日**同**記賬日**；\n- 其他備註（交易限制、休眠戶口、客戶已故…）。',
     },
     {
-      id: 'c5', s: 'Slides 8–9', t: { en: 'Delivering to and receiving from a counterparty', zh: '向對手交收同收貨' },
+      id: 'c5', fig: 'f2.c5', s: 'Slides 8–9', t: { en: 'Delivering to and receiving from a counterparty', zh: '向對手交收同收貨' },
       en: '**Delivery to a counterparty.** The customer (or an authorised person) instructs the bank to deliver positions to another bank, stating **DVP** (delivery versus payment) or **DFP** (delivery free of payment). The bank validates: is the position **big enough**? Is the depot **blocked**, trading blocked, or are positions **pledged as collateral**? At which **depository** are they held? If all is fine, it executes through the depository network, using a **central matching engine** to match delivery and receipt, with an **FX pre-calculation** if needed.\n\n**Receiving from a counterparty.** The bank receives an advice of incoming securities. For **DVP** it checks that enough **cash** is in the customer\'s cash account, confirms via the depository\'s matching system, does FX if needed, and creates a **cash instruction** for the value date. The depository then moves the position into the receiver\'s depot.',
       zh: '**交收畀對手**：客戶（或授權人）指示銀行將持倉交去另一間銀行，講明 **DVP**（貨銀對付）定 **DFP**（免付款交收）。銀行要核對：持倉**夠唔夠**？戶口有冇**凍結**、禁止交易、或者持倉**抵押咗**？放喺邊個**存管機構**？冇問題就經存管網絡執行，用**中央配對引擎**配對交收同收貨，有需要就做**外匯預計**。\n\n**從對手收貨**：銀行收到來貨通知。如果係 **DVP**，要檢查客戶現金戶口**夠唔夠錢**，經存管配對系統確認，有需要做外匯，並為交收日產生**付款指示**。之後存管機構將持倉轉入收貨人戶口。',
     },
@@ -44,28 +44,28 @@ SH.addLecture('fite7407', {
       mem: { en: 'D/R = Deliver/Receive · FP/VP = Free of / Versus Payment. DVP always pairs with RVP; DFP with RFP.', zh: 'D/R＝交／收；FP/VP＝免付款／對付款。DVP 配 RVP；DFP 配 RFP。' },
     },
     {
-      id: 'c7', s: 'Slide 12', t: { en: 'Depot transfer within the same bank', zh: '同一間銀行內轉倉' },
+      id: 'c7', fig: 'f2.c7', s: 'Slide 12', t: { en: 'Depot transfer within the same bank', zh: '同一間銀行內轉倉' },
       en: 'A customer can transfer positions to a **different depot in the same bank**, for example for the benefit of a spouse or children.\n\nChecks: was the instruction given by an **authorised person**? Is the holding **sufficient**? Is the depot blocked, selling blocked, or are positions pledged as collateral?\n\nExecution: **no external depository booking** is needed. The bank\'s position towards the market is unchanged; it is purely an **internal booking** between accounts.',
       zh: '客戶可以將持倉轉去**同一間銀行**另一個戶口，例如轉畀配偶或子女。\n\n檢查：係咪**獲授權人士**指示？持倉**夠唔夠**？戶口有冇凍結、禁止賣出、或者抵押咗？\n\n執行：**唔使經外部存管機構**。銀行對市場嘅總持倉冇變，只係戶口之間嘅**內部記賬**。',
     },
     {
-      id: 'c8', s: 'Slides 13–14', t: { en: 'Depot reconciliation (with the customer)', zh: '戶口對賬（同客戶）' },
+      id: 'c8', fig: 'f2.c8', s: 'Slides 13–14', t: { en: 'Depot reconciliation (with the customer)', zh: '戶口對賬（同客戶）' },
       en: 'Double book-keeping means recording things twice — and when you write things twice, they will almost certainly **differ** sometimes. Reconciliation finds and fixes these differences.\n\n**Depot reconciliation:** at least **once a year**, the depot bank must send the customer a **full account listing**. It must contain: depot number and description; nominal amount or units held; security identification; serial numbers or other information for administering bonds; the **depository** and type of deposit (physical or electronic). The bank must keep **proof and an audit trail** of the reconciliation for possible customer claims.',
       zh: '複式記賬即係記兩次，而記兩次就差唔多一定會有時**唔一致**。對賬就係搵出並修正差異。\n\n**戶口對賬**：最少**每年一次**，託管銀行要寄**完整持倉清單**畀客戶，內容包括：戶口號碼同描述；面值或單位數；證券編號；債券管理需要嘅編號等；**存管機構**同存放方式（實物或電子）。銀行要保存**證明同審計紀錄**，應付客戶索償。',
     },
     {
-      id: 'c9', s: 'Slide 15', t: { en: 'Depository reconciliation', zh: '存管機構對賬' },
+      id: 'c9', fig: 'f2.c9', s: 'Slide 15', t: { en: 'Depository reconciliation', zh: '存管機構對賬' },
       en: 'In regular intervals the depot bank reconciles its holdings with the **depositories** it uses.\n- It should be done by a **neutral party**, not the department that administers custody (segregation of duties).\n- The depository provides a **full listing** of the bank\'s positions on request via a **SWIFT** instruction.\n- The bank compares this with its **in-house view** (holdings across all customers).\n- **Breaks** (differences) must be followed up and corrected. Typical causes: **open or in-flight transactions**, or a **real booking error**.',
       zh: '託管銀行要定期同佢用嘅**存管機構**對賬。\n- 應由**中立一方**做，唔好由負責託管嘅部門做（職能分隔）。\n- 存管機構可以經 **SWIFT** 指示提供銀行持倉**完整清單**。\n- 銀行同自己嘅**內部角度**（全部客戶持倉）比較。\n- **差異 (break)** 一定要跟進同修正。常見原因：**未完成／進行中嘅交易**，或者**真正記錯賬**。',
       tip: { en: 'Why a neutral party? The people who made a booking are the least likely to spot their own error, and separation reduces the risk of hiding fraud.', zh: '點解要中立？自己記嘅賬最難睇到自己錯，分開亦減少隱藏欺詐嘅風險。' },
     },
     {
-      id: 'c10', s: 'Slides 16–18', t: { en: 'External events and information sources', zh: '外部事件同資料來源' },
+      id: 'c10', fig: 'f2.c10', s: 'Slides 16–18', t: { en: 'External events and information sources', zh: '外部事件同資料來源' },
       en: 'External events require extra bookings and actions:\n- bookings that change a customer\'s **position** (e.g. split or merge);\n- **cash bookings** on the associated cash account (e.g. dividend payment);\n- **mandatory information** of the customer on issuer events;\n- collecting **customer instructions** for corporate actions with options, and for AGMs where the bank acts as **proxy** (banks can suggest their voting and collect customers who join).\n\nInformation sources: **data providers** (Thomson Reuters, Bloomberg, Morningstar, WM) sell static and market data; **clearing houses** (e.g. Clearstream Banking AG) give information not in third-party feeds; **depositories** add settlement, custody and foreign tax information; issuers publish mandatory company information in **official publishing organs**.',
       zh: '外部事件需要額外記賬同行動：\n- 改變客戶**持倉**嘅記賬（例如拆股、合併）；\n- 現金戶口嘅**現金記賬**（例如派息）；\n- 就發行人事件**必須通知**客戶；\n- 收集有選擇嘅公司行動嘅**客戶指示**，同銀行做**代表 (proxy)** 嘅 AGM 投票指示（銀行可以建議點投，邀請客戶跟）。\n\n資料來源：**資料供應商**（路透、彭博、晨星、WM）賣靜態同市場資料；**結算所**（例如 Clearstream）提供第三方冇嘅資料；**存管機構**補充結算、託管同海外稅務資料；發行人喺**官方刊物**公布強制資料。',
     },
     {
-      id: 'c11', s: 'Slide 20', t: { en: 'What are corporate actions?', zh: '乜嘢係公司行動？' },
+      id: 'c11', fig: 'f2.c11', s: 'Slide 20', t: { en: 'What are corporate actions?', zh: '乜嘢係公司行動？' },
       en: '**Corporate events (CE) / corporate actions (CA)** are activities that a custodian must execute as **non-trade events** on the holdings in customers\' depots, for example: increase of corporate capital; split or merge of shares; stock dividends; stock change/replacement.\n\n- CAs are **published** by the issuing companies and information intermediaries.\n- CAs must be prepared **immediately** and executed **on time** by custodians.\n- CAs are determined by the **issuing company** (shares) or the **depot bank** (funds) according to the **local law** of the company\'s or depot bank\'s headquarters.',
       zh: '**公司事件 (CE)／公司行動 (CA)** 係託管人要喺客戶戶口持倉上執行嘅**非交易事件**，例如：增資；拆股或合股；以股代息；換股。\n\n- 由發行公司同資訊中介**公布**。\n- 託管人要**即刻**準備、**準時**執行。\n- 由**發行公司**（股票）或**託管銀行**（基金）按總部所在地**本地法律**決定。',
     },
@@ -76,28 +76,28 @@ SH.addLecture('fite7407', {
       tip: { en: 'Why does the custodian sell unexercised rights on the last day? Otherwise they would expire worthless and the customer would lose their value.', zh: '點解冇指示就喺最後一日賣？唔賣就會過期變廢紙，客戶會蝕咗佢嘅價值。' },
     },
     {
-      id: 'c13', s: 'Slides 24–25', t: { en: 'Capital increase from reserves and conditional increase', zh: '儲備轉增股本同有條件增資' },
+      id: 'c13', fig: 'f2.c13', s: 'Slides 24–25', t: { en: 'Capital increase from reserves and conditional increase', zh: '儲備轉增股本同有條件增資' },
       en: '**Capital increase from company reserves** is **not** a capital injection. The passive side of the balance sheet is corrected by converting **free reserves into corporate capital**, executed by issuing **gratis (bonus) shares**.\nCustodian steps: report all customer holdings in the stock → assess holdings on the **evening before** the issue → inform customers → book the gratis shares → get instructions if **partial rights** remain (buy more or sell).\n\n**Conditional capital increase** becomes active only if beneficiaries **exercise a right** to receive or exchange, e.g. for **convertible (swappable) bonds**, swappable options or **employee shares**. New shares are issued, but the number and amount are **not known in advance**.',
       zh: '**儲備轉增股本（派紅股）****並唔係**注資。只係資產負債表右邊將**自由儲備轉做股本**，用派**紅股（送股）**方式執行。\n託管人步驟：列出所有客戶持倉 → 以發行**前一晚**持倉為準 → 通知客戶 → 記入紅股 → 有**碎股權**就問客戶補買定賣。\n\n**有條件增資**：只係受益人**行使權利**（收股或換股）先會生效，例如**可換股債券**、期權或者**員工股**。會發新股，但數量同金額**事前唔知**。',
     },
     {
-      id: 'c14', s: 'Slide 26', t: { en: 'Capital reduction', zh: '減資' },
+      id: 'c14', fig: 'f2.c14', s: 'Slide 26', t: { en: 'Capital reduction', zh: '減資' },
       en: 'A **capital reduction** is often a **restructuring** measure, followed by a capital increase.\n\nExample: capital is reduced to **cover losses** (the capital base no longer matches the company assets). Shareholders bear a **partial loss**. Then the company does a capital increase against cash (often with $K_{N} > K_{O}$), and banks of the **consortium** take over part of it due to contractual obligations.\n\nResult: **fewer shares**, but a **higher share price**.',
       zh: '**減資**通常係**重組**手段，之後再增資。\n\n例子：減資去**彌補虧損**（股本同資產唔再對得上）。股東要承擔**部分損失**。之後公司做現金增資（通常 $K_{N} > K_{O}$），**銀團**按合約包銷部分。\n\n結果：**股數少咗**，但**股價高咗**。',
     },
     {
-      id: 'c15', s: 'Slides 27–30', t: { en: 'Share swaps: profit extrusion, embedding, squeeze-out, merger', zh: '換股：利潤轉移、併入、強制收購、合併' },
+      id: 'c15', fig: 'f2.c15', s: 'Slides 27–30', t: { en: 'Share swaps: profit extrusion, embedding, squeeze-out, merger', zh: '換股：利潤轉移、併入、強制收購、合併' },
       en: 'Share swaps or compensation offers **reshape company structures**:\n- **Profit extrusion**: company A is subordinated to company B, which takes A\'s **whole profit**. A\'s shareholders get no dividend, so local law may oblige B to pay **compensation in cash or in B shares**.\n- **Company embedding**: if one shareholder holds **95%**, local law can allow it to take over the minority shares, even against their will (with the AGM\'s blessing). Compensation is usually in the owner\'s **shares**.\n- **Squeeze-out**: like embedding, the main shareholder becomes sole owner, but compensation is **always in cash**. The AGM agrees after the main shareholder guarantees the cash; the depot bank books out the minority shares and credits the cash.\n- **Merger**: into a **new company** (two or more partners join) or **by inclusion** (assets and liabilities transfer to the taking-over company; old shares are replaced at a ratio).\n\nIn each case the depot bank must receive the information, **execute the swap** and **inform customers**.',
       zh: '換股或補償要約用嚟**重整公司結構**：\n- **利潤轉移 (profit extrusion)**：A 公司從屬 B，B 攞晒 A 嘅**利潤**。A 股東冇股息，所以法例可能要 B 用**現金或 B 股**補償。\n- **併入 (embedding)**：一個股東持 **95%**，法例可以容許佢收購少數股東股份，即使對方唔願（要 AGM 同意）。補償通常係**股份**。\n- **強制收購 (squeeze-out)**：同併入相似，大股東變唯一股東，但補償**一定係現金**。大股東保證付款後 AGM 同意；託管銀行扣除少數股東股份並存入現金。\n- **合併**：合併成**新公司**，或者**吸收合併**（資產負債轉去收購方，舊股按比例換新股）。\n\n每種情況託管銀行都要收資料、**執行換股**同**通知客戶**。',
       mem: { en: 'Squeeze-out = squeezed out for cash. Embedding = embedded into the parent\'s shares.', zh: 'Squeeze-out 擠走你畀現金；Embedding 將你「嵌入」母公司股份。' },
     },
     {
-      id: 'c16', s: 'Slide 31', t: { en: 'Hostile takeover', zh: '敵意收購' },
+      id: 'c16', fig: 'f2.c16', s: 'Slide 31', t: { en: 'Hostile takeover', zh: '敵意收購' },
       en: 'In a **hostile takeover**, a single shareholder (company) **secretly** buys more and more shares. Then, **against the will of management**, it offers the minority shareholders to take over their shares, usually at a price **substantially higher** than the market price. The offer can be in **cash** or in **shares** of the offering company. The rest of the process is like a regular share swap.',
       zh: '**敵意收購**：一個股東（公司）**暗中**越買越多股份，之後**唔理管理層反對**，向少數股東提出收購，價錢通常**遠高過**市價。可以用**現金**或者收購方**股份**。之後流程同一般換股一樣。',
     },
     {
-      id: 'c17', s: 'Slides 32–33', t: { en: 'Share split and reverse split', zh: '拆股同合股' },
+      id: 'c17', fig: 'f2.c17', s: 'Slides 32–33', t: { en: 'Share split and reverse split', zh: '拆股同合股' },
       en: '**Share split** (e.g. **1:5**): old shares are exchanged for new shares at the ratio. It does **not** change the balance sheet or company value. The share price **falls by the same ratio**, because the same value is spread over more shares. Previously "expensive" shares become affordable for more investors, so the price **might rise** afterwards.\n\n**Reverse split** (e.g. **4:1**): the opposite. Old shares are combined into fewer new shares; for **fractional** new shares, **tradeable rights** are issued. The price **rises** by the same ratio. Shares with a very small value are made to look more expensive to attract investors.',
       zh: '**拆股**（例如 **1:5**）：按比例將舊股換新股。**唔會**改變資產負債表或公司價值。股價按同一比例**下跌**，因為同一價值分畀更多股。以前「貴」嘅股票變得平啲，更多人買得起，之後股價**可能會升**。\n\n**合股／反向拆股**（例如 **4:1**）：相反。舊股合併成較少新股；有**碎股**就發**可買賣嘅權利**。股價按比例**上升**。令好平嘅股票睇落貴啲，吸引投資者。',
       ex: { en: '200 shares at $100, split 1:5 → 1,000 shares at $20 (still $20,000). 1,000 units at $0.50, reverse split 10:1 → 100 units at $5.', zh: '200 股 $100，1:5 拆股 → 1,000 股 $20（仍然 $20,000）。1,000 單位 $0.50，10:1 合股 → 100 單位 $5。' },
@@ -109,7 +109,7 @@ SH.addLecture('fite7407', {
       tip: { en: 'Exam link: this case shows why **corporate actions must be executed on time**, why securities are **blocked** during adjustments, why **reconciliation** matters, and how a **commission trade** makes the bank liable for delivery.', zh: '考試連繫：呢單案例顯示**公司行動要準時執行**、調整期間要**凍結**證券、**對賬**有幾重要，同埋**佣金交易**令銀行要負責交付。' },
     },
     {
-      id: 'c19', s: 'Slides 34–37', t: { en: 'Annual General Meeting (AGM)', zh: '股東週年大會 (AGM)' },
+      id: 'c19', fig: 'f2.c19', s: 'Slides 34–37', t: { en: 'Annual General Meeting (AGM)', zh: '股東週年大會 (AGM)' },
       en: 'The **AGM** of a listed company: reports the year\'s financial results and the board\'s view; the shareholders **accept the financial report**; they choose the **auditor** for the current year; and, if needed, they agree on corporate actions proposed by the board (dividends etc.), major contracts, changes to the charter, and vote for the supervisory board. Remember: *the people on stage are "just" the directors — the people in the audience are the owners!*\n\nThe **right to vote** is determined at a **record date** (e.g. 21 days before the AGM). The depot bank informs shareholders about the AGM, agenda and voting points. Shareholders can transfer the voting right to another person, a shareholder community or the depot bank, or give the bank instructions per agenda item.\n\nSequence: the company publishes the AGM date **at least 1 month** in advance → depot banks request the invitation, agenda, board and shareholder proposals → banks send them to shareholders with **authorisation and instruction forms** and a **voting recommendation** → changes of holdings before the record date are reflected (new shareholders get the documents) → customers instruct their voting intention or order **AGM tickets** → banks collect all instructions and give them to the company.\n\nAuthorisation can be for one AGM or a **standing instruction**. With a specific instruction the representative is **bound** by it; without one, the representative votes **at its own discretion**. If a customer attends in person, the authorisation must be **invalidated**. Bank staff attend with a list of instructions, and a record of executed votes is kept for **reconciliation** with the instructions.',
       zh: '上市公司 **AGM**：報告全年業績同董事會看法；股東**接受財務報告**；選出今年**核數師**；有需要時通過董事會提出嘅公司行動（股息等）、重大合約、修改章程、選監事會。記住：*台上嗰班「只係」董事，台下嗰班先係老闆！*\n\n**投票權**按**記錄日**（例如 AGM 前 21 日）決定。託管銀行通知股東 AGM、議程同投票事項。股東可以將投票權交畀其他人、股東組織或託管銀行，或者就每項議程畀指示。\n\n流程：公司最少**一個月前**公布 AGM 日期 → 託管銀行向公司索取邀請、議程、董事會同股東提案 → 寄畀股東，附**授權同指示表格**同**投票建議** → 記錄日前持倉有變要更新（新股東都要收到文件）→ 客戶指示投票意向或者申請**入場券** → 銀行收集所有指示交畀公司。\n\n授權可以係單次或**長期指示**。有具體指示，代表人就要**跟**；冇指示，代表人可以**自行決定**。客戶親身出席，授權就要**作廢**。銀行職員帶住指示清單出席，並記錄已投嘅票，同指示**對賬**。',
       mem: { en: 'Record date decides who votes, not who owns the share on the AGM day.', zh: '有冇投票權睇記錄日，唔係睇開會嗰日邊個持有。' },

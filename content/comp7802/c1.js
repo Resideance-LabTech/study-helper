@@ -11,7 +11,7 @@ SH.addLecture('comp7802', {
   gens: ['comp.simple', 'comp.effective', 'comp.nominal', 'comp.annualcomp', 'comp.continuous', 'comp.pv', 'comp.yield', 'comp.npv', 'comp.irr'],
   cards: [
     {
-      id: 'c1', s: 'Slide 2', t: { en: 'Simple interest', zh: '單利' },
+      id: 'c1', fig: 'c1.c1', s: 'Slide 2', t: { en: 'Simple interest', zh: '單利' },
       en: 'With **simple interest**, interest is paid only on the principal for the period:\n\nTotal proceeds = principal × (1 + interest rate × days/year).\n\nExample: $100 invested at 4% for 1 year (365 days) → $100 × (1 + 4% × 365/365) = **$104**.\n\nThe **year** is 365 days for some currencies and **360 days** for others (e.g. the US) — see Lecture 2.',
       zh: '**單利**只係就本金計該期間嘅利息：\n\n本利和 = 本金 × (1 + 利率 × 日數/年)。\n\n例子：$100 以 4% 投資一年（365 日）→ **$104**。\n\n**一年**有啲貨幣係 365 日，有啲（例如美元）係 **360 日**——第 2 講再講。',
       f: ['FV = PV(1 + i \\times \\frac{days}{year})'],
@@ -24,26 +24,26 @@ SH.addLecture('comp7802', {
       mem: { en: 'Simple = straight line. Compound = snowball.', zh: '單利係直線；複利係雪球。' },
     },
     {
-      id: 'c3', s: 'Slides 4–6', t: { en: 'Nominal vs effective rates', zh: '名義利率 vs 實際利率' },
+      id: 'c3', fig: 'c1.c3', s: 'Slides 4–6', t: { en: 'Nominal vs effective rates', zh: '名義利率 vs 實際利率' },
       en: 'Consider **4% p.a. with quarterly payments**, reinvested at 4%: $100 × (1 + 4%/4)⁴ = **$104.06**.\n- **4%** is the **nominal** rate (annualised, quoted).\n- **4.06%** is the **effective** rate (what you really earn in a year).\n\n$1 + effective = (1 + \\frac{nominal}{n})^{n}$, where n = number of compounding periods per year.\n\nExample: 5% is quoted for a 1-year deposit paid at maturity. The **quarterly** equivalent nominal rate is $[(1.05)^{1/4} - 1] \\times 4 = 4.91\\%$.',
       zh: '**年息 4%、每季派息**再投資：$100 × (1 + 4%/4)⁴ = **$104.06**。\n- **4%** 係**名義**利率（報價）。\n- **4.06%** 係**實際**利率（一年真正賺到）。\n\n$1 + 實際 = (1 + \\frac{名義}{n})^{n}$，n = 每年複利次數。\n\n例子：一年期存款報 5%（到期派）。等值**季度**名義利率 = $[(1.05)^{1/4} - 1] \\times 4 = 4.91\\%$。',
       f: ['effective = (1 + \\frac{nominal}{n})^{n} - 1', 'nominal = [(1 + effective)^{1/n} - 1] \\times n'],
       tip: { en: 'Interest rate questions depend on three things (slide 7): the **term** of the investment, the **period the quoted rate applies to** (is "10%" for 6 months?), and the **frequency** of interest payments.', zh: '利率題取決於三樣（slide 7）：投資**年期**、報價利率**適用嘅期間**（10% 係咪半年？）、同**派息次數**。' },
     },
     {
-      id: 'c4', s: 'Slides 8–10', t: { en: 'A real deposit: HKD time deposit', zh: '真實例子：港元定期存款' },
+      id: 'c4', fig: 'c1.c4', s: 'Slides 8–10', t: { en: 'A real deposit: HKD time deposit', zh: '真實例子：港元定期存款' },
       en: 'The lecture shows a bank\'s HKD time deposit rate table: for **HK$1,000,000 or above**, 1 month pays **0.25%**, 3 and 6 months **0.275%**, 9 and 12 months **0.30%**.\n\nA 1-month deposit of HK$1,000,000 starting **22 Aug 2025** runs **31 days**:\n\nInterest at maturity = 1,000,000 × 0.25/100 × 31/365 = **HK$212.33**.\n\nAn older bank calculator: 1 month at 2.65% → HK$2,250.68. Same formula: 1,000,000 × 2.65% × 31/365.',
       zh: '講義有一間銀行嘅港元定期利率表：**100 萬港元或以上**，1 個月 **0.25%**，3 同 6 個月 **0.275%**，9 同 12 個月 **0.30%**。\n\n100 萬港元 1 個月存款由 **2025 年 8 月 22 日**起，共 **31 日**：\n\n到期利息 = 1,000,000 × 0.25% × 31/365 = **HK$212.33**。\n\n舊嘅銀行計算機：1 個月 2.65% → HK$2,250.68，同一條公式。',
       tip: { en: 'HKD uses **365** days. Using 360 here is the most common exam mistake.', zh: '港元用 **365** 日，用 360 係最常見嘅考試錯誤。' },
     },
     {
-      id: 'c5', s: 'Slides 11–12', t: { en: 'Annually compounded rate (compound yield)', zh: '年複利率（複合收益率）' },
+      id: 'c5', fig: 'c1.c5', s: 'Slides 11–12', t: { en: 'Annually compounded rate (compound yield)', zh: '年複利率（複合收益率）' },
       en: 'To compare a short investment with annual rates, compound it up to a year.\n\nExample: a **5-month (153-day)** investment at **10.2%**:\n\nAnnually compounded rate = $(1 + 0.102 \\times \\frac{153}{365})^{365/153} - 1 = 10.5038\\%$.\n\nCheck: the 153-day interest is $1 + 0.102 \\times 153/365 - 1 = 0.042756$, and $(1.105038)^{153/365} - 1$ gives the same 0.042756.\n\nThe same formula is called the **compound yield**.',
       zh: '要將短期投資同年利率比較，就要複利到一年。\n\n例子：**5 個月（153 日）**、**10.2%**：\n\n年複利率 = $(1 + 0.102 \\times \\frac{153}{365})^{365/153} - 1 = 10.5038\\%$。\n\n驗算：153 日利息 = 0.042756；$(1.105038)^{153/365} - 1$ 都係 0.042756。\n\n同一條公式又叫**複合收益率**。',
       f: ['AC = (1 + i \\times \\frac{days}{year})^{year/days} - 1'],
     },
     {
-      id: 'c6', s: 'Slides 13–15', t: { en: 'Daily and continuous compounding', zh: '每日同連續複利' },
+      id: 'c6', fig: 'c1.c6', s: 'Slides 13–15', t: { en: 'Daily and continuous compounding', zh: '每日同連續複利' },
       en: '**Daily equivalent** of an annual rate of 9.3%: solve $(1 + \\frac{r}{365})^{365} = 1.093$ → $r = [(1.093)^{1/365} - 1] \\times 365 = 8.894\\%$.\n\n**Continuous compounding**: as n → ∞, $(1 + \\frac{r_c}{n})^{n} \\to e^{r_c}$. So $e^{r_c} = 1.093$ and $r_c = \\ln(1.093) = 8.8926\\%$.\n\nGeneral: $r = \\ln(1 + i)$ and $i = e^{r} - 1$, where i is the annual rate.',
       zh: '年利率 9.3% 嘅**每日複利**等值：解 $(1 + \\frac{r}{365})^{365} = 1.093$ → $r = 8.894\\%$。\n\n**連續複利**：n 趨向無限，$(1 + \\frac{r_c}{n})^{n} \\to e^{r_c}$。所以 $r_c = \\ln(1.093) = 8.8926\\%$。\n\n一般式：$r = \\ln(1 + i)$、$i = e^{r} - 1$。',
       mem: { en: 'More compounding → you need a lower quoted rate for the same result: 9.3% annual ≈ 8.894% daily ≈ 8.8926% continuous.', zh: '複利越密，要達到同一結果所需嘅報價利率越低。' },
@@ -55,18 +55,18 @@ SH.addLecture('comp7802', {
       ex: { en: 'Course spreadsheet: $100 → $101.60 in 146 days equals 4% simple, **4.0481%** annually compounded, or **3.9683%** continuously compounded — three ways of describing the same deal.', zh: '課程 Excel：146 日 $100 → $101.60，等於單利 4%、年複利 **4.0481%**、連續複利 **3.9683%**——同一單嘢三種講法。' },
     },
     {
-      id: 'c8', s: 'Slides 22–24', t: { en: 'Yield (rate of return)', zh: '收益率（回報率）' },
+      id: 'c8', fig: 'c1.c8', s: 'Slides 22–24', t: { en: 'Yield (rate of return)', zh: '收益率（回報率）' },
       en: 'For **short-term** investments:\n- Simple yield = $(\\frac{FV}{PV} - 1) \\times \\frac{year}{days}$\n- Compound yield = $(\\frac{FV}{PV})^{year/days} - 1$\n\nFor **long-term** investments: $FV = PV(1+i)^{N}$, so $i = (\\frac{FV}{PV})^{1/N} - 1$.\n\nExample: invest **$138**, receive **$139.58** after **64 days** → simple yield = (139.58/138 − 1) × 365/64 = **6.53%**.',
       zh: '**短期**投資：\n- 單利收益率 = $(\\frac{FV}{PV} - 1) \\times \\frac{year}{days}$\n- 複合收益率 = $(\\frac{FV}{PV})^{year/days} - 1$\n\n**長期**投資：$i = (\\frac{FV}{PV})^{1/N} - 1$。\n\n例子：投資 **$138**，**64 日**後收 **$139.58** → 單利收益率 = **6.53%**。',
     },
     {
-      id: 'c9', s: 'Slides 25–28', t: { en: 'Discount factors', zh: '折現因子' },
+      id: 'c9', fig: 'c1.c9', s: 'Slides 25–28', t: { en: 'Discount factors', zh: '折現因子' },
       en: '**Discounting** brings a future cash flow back to its present value: **PV = FV × discount factor**.\n- Simple: $DF = \\frac{1}{1 + i \\times \\frac{days}{year}}$\n- Compound: $DF = \\frac{1}{(1+i)^{N}}$\n- Continuous: $DF = e^{-rt}$\n\nExample: 3-year rate 8.5% compounded annually → $DF = 1/1.085^{3} = 0.7829$, so $100 in 3 years is worth **$78.29** today.',
       zh: '**折現**將未來現金流帶返今日：**PV = FV × 折現因子**。\n- 單利：$DF = \\frac{1}{1 + i \\times \\frac{days}{year}}$\n- 複利：$DF = \\frac{1}{(1+i)^{N}}$\n- 連續：$DF = e^{-rt}$\n\n例子：3 年 8.5% 年複利 → DF = 0.7829，所以 3 年後 $100 今日值 **$78.29**。',
       tip: { en: 'Discount factors are the building blocks of Lectures 4–5: once you have a DF for every date, you can price swaps and build the yield curve.', zh: '折現因子係第 4–5 講嘅積木：有晒每日嘅 DF，就可以為掉期定價同建收益率曲線。' },
     },
     {
-      id: 'c10', s: 'Slides 29–31', t: { en: 'NPV and IRR', zh: 'NPV 同 IRR' },
+      id: 'c10', fig: 'c1.c10', s: 'Slides 29–31', t: { en: 'NPV and IRR', zh: 'NPV 同 IRR' },
       en: '**NPV** = sum of all present values. Example at 7.5%: +83 in year 1, −10 in year 2, +150 in year 3:\n$NPV = \\frac{83}{1.075} - \\frac{10}{1.075^{2}} + \\frac{150}{1.075^{3}}$.\n\n**Which is better?** Both cost $1,000:\n- Investment 1: $50 a year for 6 years + $1,000 at the end.\n- Investment 2: $200 a year for 6 years.\n\n**IRR (internal rate of return)** is the single interest rate that discounts all future cash flows to the given price (NPV = 0):\n- Investment 1: IRR = **5.0000%**\n- Investment 2: IRR = **5.4718%** → Investment 2 has the higher return.',
       zh: '**NPV** = 所有現值相加。例子 7.5%：第 1 年 +83、第 2 年 −10、第 3 年 +150。\n\n**邊個好啲？** 兩個都要 $1,000：\n- 投資一：6 年每年 $50，最後還 $1,000。\n- 投資二：6 年每年 $200。\n\n**IRR（內部回報率）**係將所有未來現金流折現到價錢（NPV = 0）嘅單一利率：\n- 投資一：**5.0000%**\n- 投資二：**5.4718%** → 投資二回報較高。',
       f: ['Price = \\sum_{t=1}^{n} \\frac{CF_{t}}{(1+IRR)^{t}}'],

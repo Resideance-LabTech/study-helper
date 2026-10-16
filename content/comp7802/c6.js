@@ -11,30 +11,30 @@ SH.addLecture('comp7802', {
   gens: ['comp.intrinsic', 'comp.payoff'],
   cards: [
     {
-      id: 'c1', s: 'Slides 2–3', t: { en: 'What is an option?', zh: '乜嘢係期權？' },
+      id: 'c1', fig: 'c6.c1', s: 'Slides 2–3', t: { en: 'What is an option?', zh: '乜嘢係期權？' },
       en: 'An **option** is a contract between a **buyer (holder)** and a **seller (writer)** that gives the buyer the **right but not the obligation** to **buy or sell** a specified quantity of an **underlying asset** at a specific price within a specified period, regardless of the market price.\n\n**Terminology:**\n- **Strike / exercise price**: the price at which the buyer can buy or sell the underlying.\n- **Expiration**: the date the buyer loses the right.\n- **Premium**: the amount the buyer pays the writer for the right.\n- **Exercise**: deciding and advising the seller of the intention to use the right.\n- **Call**: the right to **buy**. **Put**: the right to **sell**.\n- **In the money**: likely to be exercised at the current underlying price. **Out of the money**: unlikely. **At the money**: strike = current underlying price.',
       zh: '**期權**係**買方（持有人）**同**賣方（沽出者）**之間嘅合約，畀買方喺指定期間內，以指定價錢**買入或賣出**指定數量**相關資產**嘅**權利但唔係義務**，唔理市價。\n\n**術語**：\n- **行使價**：買方可以買賣相關資產嘅價。\n- **到期日**：買方失去權利嗰日。\n- **期權金**：買方畀賣方嘅錢。\n- **行使**：決定並通知賣方要用權利。\n- **認購 (call)**：買嘅權利。**認沽 (put)**：賣嘅權利。\n- **價內**：按現價可能會行使；**價外**：唔太會；**平價**：行使價 = 現價。',
       mem: { en: 'Call = "call it to me" (buy). Put = "put it to you" (sell).', zh: 'Call = 叫你賣畀我（買）；Put = 推畀你（賣）。' },
     },
     {
-      id: 'c2', s: 'Slide 4', t: { en: 'Exercise style, settlement and venue', zh: '行使方式、交收同市場' },
+      id: 'c2', fig: 'c6.c2', s: 'Slide 4', t: { en: 'Exercise style, settlement and venue', zh: '行使方式、交收同市場' },
       en: '**Exercise style:**\n- **European option**: can only be exercised **on the expiry date**.\n- **American option**: can be exercised **any time** from purchase until expiry.\n\n**Settlement:**\n- **Physical**: the seller must **deliver the underlying** to the buyer.\n- **Cash**: the **difference** between the market price and the strike is paid in cash.\n\n**Venue:** **exchange-traded** contracts are standardised with a margin system and daily mark-to-market (e.g. SIMEX, LIFFE, CBOT, CME); **OTC** options are customised contracts between two counterparties.',
       zh: '**行使方式**：\n- **歐式**：只可以喺**到期日**行使。\n- **美式**：買入後至到期前**任何時候**都可以行使。\n\n**交收**：\n- **實物**：賣方要**交付相關資產**。\n- **現金**：用現金支付市價同行使價嘅**差額**。\n\n**市場**：**交易所**合約標準化，有保證金同每日按市值計價（例如 SIMEX、LIFFE、CBOT、CME）；**場外**期權係雙方度身訂造嘅合約。',
       tip: { en: 'European/American is about **when** you can exercise, not **where** it trades.', zh: '歐式／美式講嘅係**幾時**可以行使，唔係**喺邊**交易。' },
     },
     {
-      id: 'c3', s: 'Slides 5–6', t: { en: 'Option price = intrinsic value + time value', zh: '期權金 = 內在值 + 時間值' },
+      id: 'c3', fig: 'c6.c3', s: 'Slides 5–6', t: { en: 'Option price = intrinsic value + time value', zh: '期權金 = 內在值 + 時間值' },
       en: 'An option price reflects the **probability** of exercise and **how much** must be paid to the buyer if exercised.\n\n**Premium = intrinsic value + time value.**\n- **Intrinsic value** = what you get by exercising now (never negative for a long option):\n  - call: max(0, S − X); put: max(0, X − S).\n- **Time value** = option price − intrinsic value: the chance that the option moves (further) into the money before expiry.\n- **In the money:** call X < S; put X > S → intrinsic value > 0.\n- **At the money:** X = S.\n- **Out of the money:** call X > S; put X < S → intrinsic value = 0.',
       zh: '期權金反映**行使嘅可能性**同行使時**要畀幾多**。\n\n**期權金 = 內在值 + 時間值。**\n- **內在值** = 而家行使得到嘅（長倉唔會負）：\n  - 認購：max(0, S − X)；認沽：max(0, X − S)。\n- **時間值** = 期權金 − 內在值：到期前（更加）價內嘅機會。\n\n- **價內**：認購 X < S；認沽 X > S → 內在值 > 0。\n- **平價**：X = S。\n- **價外**：認購 X > S；認沽 X < S → 內在值 = 0。',
       f: ['Call: \\max(0, S - X), \\quad Put: \\max(0, X - S)'],
     },
     {
-      id: 'c4', s: 'Slides 7–8', t: { en: 'HSI example: calls and puts at 19,000', zh: '恒指例子：19,000 點嘅認購同認沽' },
+      id: 'c4', fig: 'c6.c4', s: 'Slides 7–8', t: { en: 'HSI example: calls and puts at 19,000', zh: '恒指例子：19,000 點嘅認購同認沽' },
       en: 'Hang Seng Index = **19,000**.\n\n**Calls:** strike 18,800 → price 543: intrinsic **200**, time value **343**, **in the money**. Strike 19,000 → 415: intrinsic 0, time value **415**, **at the money**. Strike 19,200 → 308: intrinsic 0, time value **308**, **out of the money**.\n\n**Puts:** strike 18,800 → 165: intrinsic 0, time value **165**, **out of the money**. Strike 19,000 → 239: intrinsic 0, time **239**, **at the money**. Strike 19,200 → 333: intrinsic **200**, time **133**, **in the money**.\n\nNotice: the **at-the-money** options have the **largest time value**.',
       zh: '恒指 = **19,000**。\n\n**認購**：行使價 18,800 → 543：內在值 **200**、時間值 **343**、**價內**。19,000 → 415：內在值 0、時間值 **415**、**平價**。19,200 → 308：內在值 0、時間值 **308**、**價外**。\n\n**認沽**：18,800 → 165：內在值 0、時間值 **165**、**價外**。19,000 → 239：時間值 **239**、**平價**。19,200 → 333：內在值 **200**、時間值 **133**、**價內**。\n\n留意：**平價**期權嘅**時間值最大**。',
     },
     {
-      id: 'c5', s: 'Slides 9–12', t: { en: 'Factors affecting the price; buying vs selling', zh: '影響價錢嘅因素；買 vs 賣' },
+      id: 'c5', scene: 'c6.call', fig: 'c6.c5', s: 'Slides 9–12', t: { en: 'Factors affecting the price; buying vs selling', zh: '影響價錢嘅因素；買 vs 賣' },
       en: '**Factors affecting option prices:** the underlying price S, the strike X, time to expiry T, volatility σ, the interest rate r (and dividends). Higher volatility increases both call and put prices; a longer time to expiry usually does too (always for American options).\n\n**Buy vs sell (HSI 19,000):**\n- **Buy a call** at 18,800: you expect the index to **rise**; you **pay** the premium **543**.\n- **Sell a call** at 18,800: you expect it **not to rise** (stay or fall); you **receive 543**.\n- **Buy a put** at 18,800: you expect a **fall**; you **pay 165**.\n- **Sell a put** at 18,800: you expect it **not to fall**; you **receive 165**.\n\nThe buyer\'s loss is limited to the premium; the seller\'s potential loss can be large (unlimited for a short call).',
       zh: '**影響期權價嘅因素**：相關資產價 S、行使價 X、到期時間 T、波幅 σ、利率 r（同股息）。波幅越高，認購同認沽都越貴；到期時間越長通常都越貴（美式期權一定係）。\n\n**買 vs 賣（恒指 19,000）**：\n- **買認購** 18,800：預期**升**；**付** **543**。\n- **賣認購** 18,800：預期**唔升**；**收 543**。\n- **買認沽** 18,800：預期**跌**；**付 165**。\n- **賣認沽** 18,800：預期**唔跌**；**收 165**。\n\n買方最多蝕期權金；賣方可能蝕好多（沽認購理論上無限）。',
     },
@@ -45,7 +45,7 @@ SH.addLecture('comp7802', {
       lab: 'payoff',
     },
     {
-      id: 'c7', s: 'Slide 16', t: { en: 'Warrants and CBBCs (Hong Kong)', zh: '窩輪同牛熊證（香港）' },
+      id: 'c7', fig: 'c6.c7', s: 'Slide 16', t: { en: 'Warrants and CBBCs (Hong Kong)', zh: '窩輪同牛熊證（香港）' },
       en: 'The lecture points to HKEX information on two Hong Kong structured products:\n- **Derivative warrants**: issued by third parties (usually banks) on underlying shares or indices; they work like **call or put options**, with leverage, time decay and an expiry date.\n- **Callable Bull/Bear Contracts (CBBCs)**: track the underlying with leverage and have a **call price**: if the underlying hits it, the contract is **called back early (mandatory call)** and stops trading.\n\nFor exam purposes, link them to option concepts: premium, leverage, time value and the risk of losing the whole investment.',
       zh: '講義介紹港交所兩種結構性產品：\n- **衍生權證（窩輪）**：由第三方（通常係銀行）就股票或指數發行，運作好似**認購或認沽期權**，有槓桿、時間值損耗同到期日。\n- **牛熊證 (CBBC)**：有槓桿追蹤相關資產，並有**收回價**：相關資產觸及就**強制提早收回**，停止買賣。\n\n考試時將佢哋連返期權概念：期權金、槓桿、時間值，同可能全部蝕晒嘅風險。',
       tip: { en: 'The slides only give links here; this card summarises the HKEX leaflets in general terms.', zh: 'Slide 只畀咗連結；呢張卡係港交所單張嘅一般摘要。' },
@@ -176,14 +176,14 @@ SH.addLecture('comp7802', {
   gens: ['comp.pcp', 'comp.binom1', 'comp.bs', 'comp.vol', 'comp.arb'],
   cards: [
     {
-      id: 'c1', s: 'Slides 2–4', t: { en: 'Put-call parity', zh: '認購認沽平價關係' },
+      id: 'c1', fig: 'c7.c1', s: 'Slides 2–4', t: { en: 'Put-call parity', zh: '認購認沽平價關係' },
       en: 'Put-call parity is the **arbitrage relationship** linking European options to the cash market.\n\n**Portfolio 1:** buy 1 call (strike X) + a bond worth PV(X). At maturity: if S_T ≤ X → 0 + X = **X**; if S_T > X → (S_T − X) + X = **S_T**.\n**Portfolio 2:** buy 1 put (strike X) + 1 share. At maturity: if S_T ≤ X → (X − S_T) + S_T = **X**; if S_T > X → 0 + S_T = **S_T**.\n\nSame payoff at T → same price today (no arbitrage):\n$C + Xe^{-rT} = P + S_{0}$, i.e. $C - P = S_{0} - Xe^{-rT}$.\n\nPayoff view: **long call + short put = long stock − long bond PV(X) = long forward on the stock** (at forward price X). If the relationship is mispriced, there is an arbitrage opportunity.',
       zh: '平價關係係連接歐式期權同現貨市場嘅**套利關係**。\n\n**組合一**：買 1 張認購（行使價 X）+ 值 PV(X) 嘅債券。到期：S_T ≤ X → **X**；S_T > X → **S_T**。\n**組合二**：買 1 張認沽 + 1 股。到期：S_T ≤ X → **X**；S_T > X → **S_T**。\n\n到期回報一樣 → 今日價錢一樣（無套利）：\n$C + Xe^{-rT} = P + S_{0}$，即 $C - P = S_{0} - Xe^{-rT}$。\n\n回報角度：**買認購 + 沽認沽 = 持股 − 債券 PV(X) = 股票遠期**。如果價錢唔啱，就有套利機會。',
       f: ['C - P = S_{0} - Xe^{-rT}'],
       mem: { en: '"Call plus cash = put plus share" (C + PV(X) = P + S).', zh: '「認購加現金 = 認沽加股票」。' },
     },
     {
-      id: 'c2', s: 'PutCallArbitrage.xlsx', t: { en: 'Exploiting a parity violation', zh: '利用平價失衡套利' },
+      id: 'c2', fig: 'c7.c2', s: 'PutCallArbitrage.xlsx', t: { en: 'Exploiting a parity violation', zh: '利用平價失衡套利' },
       en: 'Course spreadsheet: S = 110, X = 100, r = 5% (continuous), T = 1. Market: call **6.87**, put **5**.\n\nFair call by parity = P + S − Xe^{−rT} = 5 + 110 − 95.12 = **19.88** → the call is **undervalued** (and/or the put overvalued).\n\n**Arbitrage today:**\n1. **Buy** the cheap call: −6.87\n2. **Sell** the expensive put: +5.00\n3. **Short** 1 share: +110.00\n4. **Invest** PV(X) in a bond: −95.12\n\nProfit today = **+13.00**. At maturity, whatever S_T is, the positions cancel exactly (use the call or deliver to the put, return the share, the bond pays 100) → total **0**. A risk-free profit of 13.00.',
       zh: '課程 Excel：S = 110、X = 100、r = 5%（連續）、T = 1。市價：認購 **6.87**、認沽 **5**。\n\n平價嘅認購 = 5 + 110 − 95.12 = **19.88** → 認購**被低估**（或者認沽被高估）。\n\n**今日套利**：\n1. **買**平嘅認購：−6.87\n2. **沽**貴嘅認沽：+5.00\n3. **沽空** 1 股：+110.00\n4. **投資** PV(X) 債券：−95.12\n\n今日利潤 = **+13.00**。到期無論 S_T 幾多，所有倉位剛好抵銷 → **0**。即無風險賺 13.00。',
       tip: { en: 'Rule: buy the cheap side of the parity equation, sell the expensive side, and the payoffs at T cancel.', zh: '規則：買平價方程嘅平邊、賣貴邊，到期回報抵銷。' },
@@ -202,25 +202,25 @@ SH.addLecture('comp7802', {
       lab: 'binomial',
     },
     {
-      id: 'c5', s: 'Slides 16–18', t: { en: 'Two- and three-step examples; American puts', zh: '兩步同三步例子；美式認沽' },
+      id: 'c5', fig: 'c7.c5', s: 'Slides 16–18', t: { en: 'Two- and three-step examples; American puts', zh: '兩步同三步例子；美式認沽' },
       en: 'S = $70, X = $80, r = 12%, T = 3 months, σ = 20%.\n- **2 steps:** call **$0.21**, put **$7.85**.\n- **3 steps:** call **$0.59**, put **$8.23**.\n\n**Put-call parity check:** C − P = S − Xe^(−rT) = 70 − 80e^(−0.03) = **−7.64**. Both trees give C − P = −7.64 ✓.\n\n**American put (3 steps): $10.** It is worth more than the European put ($8.23) because it can be **exercised early**: the put is deep in the money (strike 80 vs stock 70), so exercising immediately already gives 80 − 70 = 10.',
       zh: 'S = $70、X = $80、r = 12%、T = 3 個月、σ = 20%。\n- **2 步**：認購 **$0.21**、認沽 **$7.85**。\n- **3 步**：認購 **$0.59**、認沽 **$8.23**。\n\n**平價檢查**：C − P = 70 − 80e^(−0.03) = **−7.64**，兩棵樹都啱 ✓。\n\n**美式認沽（3 步）：$10**。比歐式 ($8.23) 貴，因為可以**提早行使**：認沽好價內（行使價 80 vs 股價 70），即刻行使已經有 10。',
       tip: { en: 'In an American tree, at every node take max(exercise value, continuation value).', zh: '美式樹每個節點取 max(即時行使價值, 繼續持有價值)。' },
     },
     {
-      id: 'c6', s: 'Slides 19–23', t: { en: 'The Black-Scholes model', zh: 'Black-Scholes 模型' },
+      id: 'c6', fig: 'c7.c6', s: 'Slides 19–23', t: { en: 'The Black-Scholes model', zh: 'Black-Scholes 模型' },
       en: 'The stock follows $dS = \\mu S dt + \\sigma S dz$. Applying **Itô\'s lemma** to the option value leads to the Black-Scholes model. For a European option on a stock that pays **no dividend**:\n\n$C = S_{0}N(d_{1}) - Xe^{-rT}N(d_{2})$\n$P = Xe^{-rT}N(-d_{2}) - S_{0}N(-d_{1})$\n\nwith $d_{1} = \\frac{\\ln(S_{0}/X) + (r + \\sigma^{2}/2)T}{\\sigma\\sqrt{T}}$, $d_{2} = d_{1} - \\sigma\\sqrt{T}$, and N(·) the standard normal cumulative distribution function.\n\n**Meaning:** $N(d_{2})$ is the risk-neutral probability that the call finishes in the money; $Xe^{-rT}N(d_{2})$ is the PV of the strike you expect to pay; $S_{0}N(d_{1})$ is the value of the shares needed to replicate the call (N(d₁) = delta).',
       zh: '股價跟 $dS = \\mu S dt + \\sigma S dz$。對期權價值用 **Itô 引理**就得到 Black-Scholes。**唔派息**股票嘅歐式期權：\n\n$C = S_{0}N(d_{1}) - Xe^{-rT}N(d_{2})$\n$P = Xe^{-rT}N(-d_{2}) - S_{0}N(-d_{1})$\n\n$d_{1} = \\frac{\\ln(S_{0}/X) + (r + \\sigma^{2}/2)T}{\\sigma\\sqrt{T}}$、$d_{2} = d_{1} - \\sigma\\sqrt{T}$，N(·) 係標準常態累積分佈。\n\n**意思**：N(d₂) 係認購到期價內嘅風險中性概率；Xe^(−rT)N(d₂) 係預期要付行使價嘅現值；S₀N(d₁) 係複製認購所需股票嘅價值（N(d₁) = delta）。',
       f: ['C = S_{0}N(d_{1}) - Xe^{-rT}N(d_{2})', 'P = Xe^{-rT}N(-d_{2}) - S_{0}N(-d_{1})'],
     },
     {
-      id: 'c7', s: 'Slides 24–27', t: { en: 'Assumptions, limitations, example and convergence', zh: '假設、限制、例子同收斂' },
+      id: 'c7', fig: 'c7.c7', s: 'Slides 24–27', t: { en: 'Assumptions, limitations, example and convergence', zh: '假設、限制、例子同收斂' },
       en: '**Assumptions:** the price follows a **geometric lognormal diffusion**; the risk-free rate is **known and constant**; volatility is **known and constant**; **no taxes or transaction costs**; **no cash flows** (dividends) on the underlying; the options are **European**.\n\n**Limitations:** the lognormal assumption misses **extreme moves** (crashes); volatility and rates are **not constant** in practice; the model is **very sensitive to volatility**, which is hard to estimate; it usually uses **historic** volatility for a **future** period; applying it to **non-traded assets** (e.g. employee stock options) is questionable.\n\n**Example:** S = 70, r = 12%, σ = 20%, T = 3 months, X = 80 → d₁ = **−0.9853**, d₂ = **−1.0853** (the slide labels them N(d₁), N(d₂)). **Call = 0.5735, put = 8.2092.** Parity: 0.5735 − 8.2092 = −7.64 ✓.\n\n**Convergence:** as the number of binomial steps increases, the binomial price converges to Black-Scholes: 2-step 0.21 → 3-step 0.59 → BS 0.57 (call); 7.85 → 8.23 → 8.21 (put).',
       zh: '**假設**：價格跟**幾何對數常態擴散**；無風險利率**已知且不變**；波幅**已知且不變**；**冇稅同交易成本**；相關資產**冇現金流**（股息）；**歐式**期權。\n\n**限制**：對數常態漏咗**極端波動**（股災）；現實波幅同利率**唔係常數**；模型對**波幅好敏感**而波幅難估；通常用**歷史**波幅估**將來**；用喺**非交易資產**（例如員工期權）有疑問。\n\n**例子**：S = 70、r = 12%、σ = 20%、T = 3 個月、X = 80 → d₁ = **−0.9853**、d₂ = **−1.0853**（slide 標咗 N(d₁)、N(d₂)，其實係 d 值）。**認購 = 0.5735、認沽 = 8.2092**。平價：−7.64 ✓。\n\n**收斂**：二項式步數越多就越接近 Black-Scholes：認購 0.21 → 0.59 → 0.57；認沽 7.85 → 8.23 → 8.21。',
       tip: { en: 'Careful: on slide 25 the values −0.9853 and −1.0853 are **d₁ and d₂**, not N(d₁) and N(d₂) — a probability cannot be negative. N(d₁) ≈ 0.162 and N(d₂) ≈ 0.139.', zh: '小心：slide 25 嘅 −0.9853 同 −1.0853 係 **d₁、d₂**，唔係 N(d₁)、N(d₂)——概率唔可以係負數。N(d₁) ≈ 0.162、N(d₂) ≈ 0.139。' },
     },
     {
-      id: 'c8', s: 'Slides 28–30', t: { en: 'Volatility', zh: '波幅' },
+      id: 'c8', fig: 'c7.c8', s: 'Slides 28–30', t: { en: 'Volatility', zh: '波幅' },
       en: '**Volatility** measures how much the price of the underlying **fluctuates over time** — the uncertainty about the future price. It is the **only input that cannot be directly observed**; different estimates give different option prices. It matters because it reflects **expectations** about future price movements and **liquidity**, and volatility tends to **revert to the mean** over time.\n\n**Types:**\n- **Historical**: actual volatility in a past period.\n- **Future**: actual volatility from now to expiry (unknown).\n- **Implied**: worked backwards from a market option price by setting the Black-Scholes price equal to it.\n- **Forecasted**: estimated with a model.\n\n**Historical estimate:** $\\sigma = \\sqrt{\\frac{1}{n-1}\\sum(x_{t} - \\bar{x})^{2}}$. Example with 12 monthly returns: Σ(x − x̄)² = 0.037639 → monthly variance 0.037639/11 = **0.003422**, monthly σ = **5.85%**; yearly variance = 12 × 0.003422 = 0.041064 → yearly σ = **20.26%**.',
       zh: '**波幅**量度相關資產價格**隨時間波動**幾多——即將來價格嘅不確定性。佢係**唯一睇唔到嘅輸入**；唔同估計會得出唔同期權價。佢重要因為反映對將來價格變動嘅**預期**同**流動性**，而且波幅傾向**均值回歸**。\n\n**種類**：\n- **歷史**：過去某段時間嘅實際波幅。\n- **將來**：由而家到到期嘅實際波幅（未知）。\n- **隱含**：令 Black-Scholes 價等於市價，反推出嚟。\n- **預測**：用模型估計。\n\n**歷史估計**：12 個月回報，Σ(x − x̄)² = 0.037639 → 每月方差 0.003422、每月 σ **5.85%**；每年方差 = 12 × 0.003422 → 每年 σ **20.26%**。',
       f: ['\\sigma_{year} = \\sigma_{month} \\times \\sqrt{12}'],

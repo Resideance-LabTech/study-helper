@@ -11,34 +11,34 @@ SH.addLecture('comp7802', {
   gens: ['comp.daycount', 'comp.cdprice', 'comp.cdyield', 'comp.tbill', 'comp.disc2yield'],
   cards: [
     {
-      id: 'c1', s: 'Slides 2–3', t: { en: 'What is the money market?', zh: '乜嘢係貨幣市場？' },
+      id: 'c1', fig: 'c2.c1', s: 'Slides 2–3', t: { en: 'What is the money market?', zh: '乜嘢係貨幣市場？' },
       en: 'The **money market** trades **IOUs** issued by governments, banks and corporations:\n- **short-term**, usually maturing in **less than one year**;\n- **liquid** and in **high denominations**;\n- **no physical trading floor** — trading by phone, telex or fax; price information from Reuters, Telerate and brokers.\n\n**Participants:** **borrowers** (corporations, banks, governments); **investors/lenders** (pension funds, insurers, mutual funds, corporate treasurers); **dealers** quoting bid and offer prices (investment banks, securities houses); **brokers** showing the highest bid and lowest offer.',
       zh: '**貨幣市場**買賣政府、銀行同企業發行嘅**借據 (IOU)**：\n- **短期**，通常**一年內**到期；\n- **流動性高**、**面額大**；\n- **冇實體交易大堂**——靠電話、電傳 (telex)、傳真；價格資訊來自路透、Telerate 同經紀。\n\n**參與者**：**借款人**（企業、銀行、政府）；**投資者／貸款人**（退休基金、保險、互惠基金、企業財資）；**交易商**報買賣價（投資銀行、證券行）；**經紀**顯示最高買價同最低賣價。',
     },
     {
-      id: 'c2', s: 'Slides 4–6', t: { en: 'What affects the value of debt; the yield curve', zh: '影響債務價值嘅因素；收益率曲線' },
+      id: 'c2', fig: 'c2.c2', s: 'Slides 4–6', t: { en: 'What affects the value of debt; the yield curve', zh: '影響債務價值嘅因素；收益率曲線' },
       en: 'Three factors affect the value of debt:\n- **Credit risk**: the issuer cannot meet its obligations — higher for longer terms.\n- **Liquidity risk**: not heavily traded → wide bid/offer spreads.\n- **Market risk**: changes in market conditions.\n\nIn developed markets, **government securities** are assumed **credit-risk-free**.\n\nThe **yield curve** shows the relationship between interest rates and maturities — the **term structure** of interest rates. It reflects expectations: an **upward** slope means short-term rates are expected to **rise**; a **flat** curve means rates are expected to stay about the same. In stable markets, long-term rates are usually higher because lenders want compensation for tying up money longer.',
       zh: '三個因素影響債務價值：\n- **信用風險**：發行人履行唔到責任——年期越長越高。\n- **流動性風險**：交投少 → 買賣差價闊。\n- **市場風險**：市場狀況變化。\n\n發達市場一般假設**政府證券****冇信用風險**。\n\n**收益率曲線**顯示利率同年期嘅關係——即利率**期限結構**。佢反映預期：**向上**傾斜 = 預期短期利率**上升**；**平坦** = 預期大致不變。穩定市場長期利率通常較高，因為借出長期錢要補償。',
     },
     {
-      id: 'c3', s: 'Slides 7–10', t: { en: 'Credit ratings', zh: '信用評級' },
+      id: 'c3', fig: 'c2.c3', s: 'Slides 7–10', t: { en: 'Credit ratings', zh: '信用評級' },
       en: 'Banks set lending rates by the borrower\'s **credit risk**. Rating agencies: **Standard & Poor\'s**, **Moody\'s**, **Fitch**.\n\n**Long-term paper (S&P / Moody\'s):** best quality **AAA / Aaa**; high quality **AA+ to AA− / Aa1 to Aa3**; upper-medium **A+ to A− / A1 to A3**; medium **BBB+ to BBB− / Baa1 to Baa3**.\n\n**Short-term paper (S&P / Moody\'s):** **A1+ / P1**, **A1 / P1**, **A2 / P2**, **A3 / P3**.',
       zh: '銀行按借款人**信用風險**定貸款利率。評級機構：**標普**、**穆迪**、**惠譽**。\n\n**長期票據（標普／穆迪）**：最佳 **AAA／Aaa**；高質 **AA+ 至 AA−／Aa1 至 Aa3**；中上 **A+ 至 A−／A1 至 A3**；中等 **BBB+ 至 BBB−／Baa1 至 Baa3**。\n\n**短期票據**：**A1+／P1**、**A1／P1**、**A2／P2**、**A3／P3**。',
       mem: { en: 'Moody\'s uses small letters and numbers (Aa1); S&P uses capitals and +/− (AA+).', zh: '穆迪用細階字母加數字（Aa1）；標普用大階加 +／−（AA+）。' },
     },
     {
-      id: 'c4', s: 'Slides 11–13', t: { en: 'Instruments and key terms', zh: '工具同術語' },
+      id: 'c4', fig: 'c2.c4', s: 'Slides 11–13', t: { en: 'Instruments and key terms', zh: '工具同術語' },
       en: '**Instruments (issuer):** treasury bill (government); time deposit and certificate of deposit (bank); banker\'s acceptance (bank); commercial paper (corporation); repurchase agreement (government/bank).\n\n**Terms:**\n- **Eurodollar**: US-dollar deposits at banks **outside** the US.\n- **Coupon**: the interest rate stated on an instrument at issue.\n- **Discount instrument**: no coupon; the discount = par value − price paid.\n- **Bearer** security: the issuer pays whoever holds it at maturity.\n- **Fixed income security**: future cash flows are contractually defined in advance.\n- **Yield to maturity**: the return if you buy at a given price and hold to maturity.\n- **LIBOR / HIBOR**: interbank **offered** rate — the rate at which one bank offers money to another.',
       zh: '**工具（發行人）**：國庫券（政府）；定期存款、存款證（銀行）；銀行承兌匯票（銀行）；商業票據（企業）；回購協議（政府／銀行）。\n\n**術語**：\n- **歐洲美元**：美國**境外**銀行嘅美元存款。\n- **票息**：發行時列明嘅利率。\n- **貼現工具**：冇票息；折讓 = 面值 − 買入價。\n- **不記名**證券：到期時邊個持有就還畀邊個。\n- **定息證券**：未來現金流事先合約訂明。\n- **到期收益率**：以某價買入持有到期嘅回報。\n- **LIBOR／HIBOR**：銀行同業**拆出**利率。',
     },
     {
-      id: 'c5', s: 'Slides 14–16', t: { en: 'LIBOR and the LIBOR scandal', zh: 'LIBOR 同 LIBOR 醜聞' },
+      id: 'c5', fig: 'c2.c5', s: 'Slides 14–16', t: { en: 'LIBOR and the LIBOR scandal', zh: 'LIBOR 同 LIBOR 醜聞' },
       en: '**LIBOR** was the benchmark for rates at which banks lend **unsecured** funds to each other in London. A panel of banks submitted estimates of their borrowing costs to Thomson Reuters every morning at **11:00 a.m.**; the calculation agent **threw out the highest and lowest 25%** and **averaged** the rest. It covered **5 currencies** (USD, EUR, GBP, JPY, CHF) and **7 maturities** from overnight to one year.\n\n**Scandal:** Barclays and other banks **manipulated** LIBOR in 2005–2007 to profit on derivatives, and after the 2007–2008 crisis submitted **low** rates to look less risky. A UBS trader was arrested in 2012 for rigging LIBOR.\n\n**Reform (UK FCA):** all GBP, EUR, CHF and JPY LIBOR settings and 1-week/2-month USD LIBOR **ceased after 31 Dec 2021**; remaining USD LIBOR until **30 June 2023**.',
       zh: '**LIBOR** 係倫敦銀行同業**無抵押**拆借利率基準。一組銀行每朝 **11 點**向路透提交借貸成本估計；計算代理**剔走最高同最低 25%**，再將其餘**平均**。涵蓋 **5 種貨幣**（美元、歐元、英鎊、日圓、瑞郎）同 **7 個年期**（隔夜至一年）。\n\n**醜聞**：巴克萊等銀行喺 2005–2007 年**操控** LIBOR 圖利衍生工具；2007–08 危機後故意報**低**，扮風險低。瑞銀一名交易員 2012 年因操控 LIBOR 被捕。\n\n**改革（英國 FCA）**：所有英鎊、歐元、瑞郎、日圓 LIBOR 同一週／兩個月美元 LIBOR **2021 年 12 月 31 日後停止**；其餘美元 LIBOR 到 **2023 年 6 月 30 日**。',
       tip: { en: 'Key contrast for the exam: LIBOR was based on **quotes/estimates**; SOFR is based on **actual completed transactions**.', zh: '考試重點對比：LIBOR 基於**報價／估計**；SOFR 基於**真實成交**。' },
     },
     {
-      id: 'c6', s: 'Slides 17–19', t: { en: 'SOFR and CME Term SOFR', zh: 'SOFR 同 CME 定期 SOFR' },
+      id: 'c6', fig: 'c2.c6', s: 'Slides 17–19', t: { en: 'SOFR and CME Term SOFR', zh: 'SOFR 同 CME 定期 SOFR' },
       en: '**SOFR (Secured Overnight Financing Rate)** replaced LIBOR in the US. It is based on **overnight Treasury repo** transactions — banks lend to each other overnight using **Treasuries as collateral** to meet liquidity and reserve needs. Every morning the **Federal Reserve Bank** publishes SOFR for the previous business day\'s repo transactions.\n\nDifference: SOFR is based on **completed transactions** (and is **secured**); LIBOR relied on bank **quotes** that were not necessarily real transactions (and was **unsecured**).\n\n**CME Term SOFR Reference Rates**: daily **forward-looking** rate estimates for **1, 3, 6 and 12 months**, calculated from SOFR futures — **13 consecutive one-month SOFR futures (SR1)** and **5 consecutive three-month SOFR futures (SR3)**.',
       zh: '**SOFR（有抵押隔夜融資利率）**喺美國取代 LIBOR。佢基於**隔夜國債回購**交易——銀行用**國債做抵押**互相隔夜借錢，應付流動資金同儲備需要。**聯儲銀行**每朝公布上一個營業日回購交易嘅 SOFR。\n\n分別：SOFR 基於**真實成交**（**有抵押**）；LIBOR 靠銀行**報價**，未必係真實交易（**無抵押**）。\n\n**CME 定期 SOFR 參考利率**：每日公布 **1、3、6、12 個月**嘅**前瞻性**利率估計，用 SOFR 期貨計——**13 個連續一個月期貨 (SR1)** 同 **5 個連續三個月期貨 (SR3)**。',
     },
@@ -50,12 +50,12 @@ SH.addLecture('comp7802', {
       tip: { en: 'Same rate, same days, different currency → different interest. HK$1m at 5% for 90 days = 12,328.77 (365) but US$1m = 12,500.00 (360).', zh: '同利率同日數，唔同貨幣利息唔同。100 萬港元 5% 90 日 = 12,328.77（365）；100 萬美元 = 12,500（360）。' },
     },
     {
-      id: 'c8', s: 'Slides 22–24', t: { en: 'Eurodeposits, quotes and date conventions', zh: '歐洲存款、報價同日期慣例' },
+      id: 'c8', fig: 'c2.c8', s: 'Slides 22–24', t: { en: 'Eurodeposits, quotes and date conventions', zh: '歐洲存款、報價同日期慣例' },
       en: 'The eurodeposit market runs **round the clock**: Singapore and Hong Kong, Bahrain, Frankfurt, Paris, London, New York.\n- **LIBOR**: the rate dealers **charge for lending** (they **offer** funds).\n- **LIBID**: the rate dealers **pay for deposits** (they **bid** for funds).\n- London quotes **offer – bid**; other places quote **bid – offer**.\n- **Rule:** you **pay the higher** rate for a loan and **receive the lower** rate for a deposit.\n\n**Short dates:** **O/N** (today → tomorrow); **T/N** (tomorrow → next day); **S/N** (spot → day after spot); **S/W** (spot → 7 days later).\n\n**Modified following:** **end/end rule** — if spot is a month-end, all forward dates are month-ends. **Month-end roll back** — if the maturity is a month-end that falls on a weekend/holiday, roll **back** to the last working day of the same month. Example: a 2-month deposit booked in London on 26 Feb for value 28 Feb (month-end) matures 30 April; if 30 April is a Sunday, it matures **28 April**.',
       zh: '歐洲存款市場**24 小時**運作：新加坡同香港、巴林、法蘭克福、巴黎、倫敦、紐約。\n- **LIBOR**：交易商**借出**收嘅利率（**拆出**）。\n- **LIBID**：交易商**接受存款**畀嘅利率（**拆入**）。\n- 倫敦報**賣價 – 買價**；其他地方報**買價 – 賣價**。\n- **規則**：借錢**畀較高**利率，存款**收較低**利率。\n\n**短期日期**：**O/N**（今日→聽日）；**T/N**（聽日→後日）；**S/N**（即期日→翌日）；**S/W**（即期日→7 日後）。\n\n**修正後續**：**月尾對月尾**——即期日係月尾，所有遠期日都係月尾。**月尾回撥**——到期日係月尾但遇週末／假期，就**提前**到同月最後一個工作日。例子：2 月 26 日倫敦訂兩個月存款，起息 2 月 28 日（月尾），到期 4 月 30 日；如果 4 月 30 日係星期日，就 **4 月 28 日**到期。',
     },
     {
-      id: 'c9', s: 'Slides 25–26', t: { en: 'Time deposits and certificates of deposit', zh: '定期存款同存款證' },
+      id: 'c9', fig: 'c2.c9', s: 'Slides 25–26', t: { en: 'Time deposits and certificates of deposit', zh: '定期存款同存款證' },
       en: '**Time deposit/loan:** term 1 day to several years (usually < 1 year); interest usually **all paid at maturity**; quoted as an **interest rate**; any currency; settlement same day (domestic) or **2 working days** (international); **no registration**; **not negotiable**.\n\n**CD:** term generally **up to one year**; usually pays a **coupon**; quoted as a **yield**; any currency; same settlement as deposits; usually **bearer** form; **negotiable** — it can be **sold before maturity** in the secondary market.',
       zh: '**定期存款／貸款**：1 日到幾年（通常少過 1 年）；利息通常**到期一次過派**；用**利率**報價；任何貨幣；本地即日、國際 **2 個工作日**交收；**唔使登記**；**唔可轉讓**。\n\n**存款證 (CD)**：一般**一年內**；通常有**票息**；用**收益率**報價；任何貨幣；交收同存款一樣；通常**不記名**；**可轉讓**——可以喺二手市場**提早賣出**。',
       mem: { en: 'A CD is a time deposit you can sell.', zh: '存款證＝可以轉賣嘅定期存款。' },
@@ -67,7 +67,7 @@ SH.addLecture('comp7802', {
       f: ['Price = \\frac{F(1 + c \\times \\frac{coupon\\ days}{year})}{1 + i \\times \\frac{days\\ left}{year}}'],
     },
     {
-      id: 'c11', s: 'CDSample.pdf (HSBC, 6 Mar 2014)', t: { en: 'A real CD quote: China CITIC 2.85% 2015', zh: '真實存款證報價：中信 2.85% 2015' },
+      id: 'c11', fig: 'c2.c11', s: 'CDSample.pdf (HSBC, 6 Mar 2014)', t: { en: 'A real CD quote: China CITIC 2.85% 2015', zh: '真實存款證報價：中信 2.85% 2015' },
       en: 'An HSBC screen shows a **CNY** CD: China CITIC Bank International, coupon **2.850%** paid **at maturity**, issued **18 Feb 2014**, matures **18 Feb 2015**, minimum purchase 50,000.\n- Indicative **buy price 100.3750%**, **buy yield 2.44%**; sell price 99.4375%.\n- Settlement **11 Mar 2014**; accrued interest **1.64 per thousand**.\n\n**Check the numbers:** accrued interest = 1,000 × 2.85% × 21/365 = **1.64** (21 days from 18 Feb to 11 Mar). Maturity proceeds per 100 = 100 × (1 + 2.85% × 365/365) = 102.85. Dirty price ≈ 100.375 + 0.164 = 100.539. Days to maturity = 344. Yield = (102.85/100.539 − 1) × 365/344 ≈ **2.44%** ✓.',
       zh: '滙豐畫面顯示一張**人民幣**存款證：中信銀行國際，票息 **2.850%** **到期派**，**2014 年 2 月 18 日**發行，**2015 年 2 月 18 日**到期，最低認購 50,000。\n- 參考**買入價 100.3750%**、**買入收益 2.44%**；賣出價 99.4375%。\n- 交收 **2014 年 3 月 11 日**；應計利息**每千 1.64**。\n\n**驗算**：應計利息 = 1,000 × 2.85% × 21/365 = **1.64**。到期金額每 100 = 102.85。全價 ≈ 100.539。剩 344 日。收益率 ≈ **2.44%** ✓。',
       tip: { en: 'Notice: buying **above 100** gives a yield **below** the 2.85% coupon. Price up ⇔ yield down.', zh: '留意：用**高過 100** 買，收益就**低過** 2.85% 票息。價升⇔息跌。' },
@@ -79,7 +79,7 @@ SH.addLecture('comp7802', {
       mem: { en: 'Discount rate divides by the face value; yield divides by what you actually paid.', zh: '貼現率用面值做分母；收益率用你實際畀嘅錢做分母。' },
     },
     {
-      id: 'c13', s: 'Slides 37–40', t: { en: 'Commercial paper, bankers\' acceptances and repos', zh: '商業票據、銀行承兌匯票同回購' },
+      id: 'c13', fig: 'c2.c13', s: 'Slides 37–40', t: { en: 'Commercial paper, bankers\' acceptances and repos', zh: '商業票據、銀行承兌匯票同回購' },
       en: '**Commercial paper (CP):** issued by **corporations**; US CP 1–270 days, ECP 2–365 days (usually 30–180); **non-interest bearing**, issued at a **discount**; US quoted on a discount-rate basis, ECP as a yield; US domestic USD vs ECP any Eurocurrency (mostly USD); settlement same day (US) or 2 working days (ECP); bearer; negotiable.\n\n**Bill of exchange / banker\'s acceptance (BA):** 1 week to 1 year (usually < 6 months); issued at a **discount**; US/UK on a discount-rate basis; mostly domestic; available for discount immediately; negotiable. It comes from **international trade**: the importer\'s bank (Bank I) issues a **letter of credit**; the exporter ships and presents a draft; Bank I **accepts** the draft (promising to pay in e.g. 60 days); Bank X can **sell the acceptance** to an investor, who is paid by Bank I at maturity.\n\n**Repurchase agreement (repo):** very short term; interest = **difference between purchase and repurchase prices**; quoted as a yield; any currency; settlement **cash against delivery of the security**; not negotiable.',
       zh: '**商業票據 (CP)**：**企業**發行；美國 1–270 日、歐洲 CP 2–365 日（通常 30–180）；**冇利息**，**折讓**發行；美國用貼現率、ECP 用收益率；交收美國即日、ECP 兩日；不記名；可轉讓。\n\n**匯票／銀行承兌匯票 (BA)**：1 週至 1 年（通常少過 6 個月）；**折讓**發行；美英用貼現率；大多本地；可以即時貼現；可轉讓。佢嚟自**國際貿易**：進口商銀行 (Bank I) 開**信用證**；出口商出貨並提交匯票；Bank I **承兌**（承諾例如 60 日後付款）；Bank X 可以將承兌匯票**賣畀投資者**，到期由 Bank I 付款。\n\n**回購協議 (repo)**：好短期；利息 = **買入價同回購價嘅差**；用收益率報價；任何貨幣；**付款交證券**；唔可轉讓。',
     },

@@ -205,4 +205,36 @@
       { en: 'Each step = a **system** + a **service** (staff work). The bank decides how much of each to outsource — and stays **accountable**.', zh: '每步 = **系統** + **服務**（人手）。銀行決定每樣外判幾多——而且仍要**問責**。', set: Object.assign(Object.fromEntries(chain.map((_, k) => ['c' + k, { o: 1 }])), { t: { txt: 'System + service per step' }, t2: { txt: 'Outsource the work, keep the accountability' } }) },
     ],
   });
+
+  /* ---------- L3: AML check on a physical-share deposit ---------- */
+  A({
+    id: 'f3.aml', course: 'fite7407', lecture: 'f3', t: { en: 'An AML check, step by step', zh: '反洗錢檢查逐步睇' },
+    base: (D) => D.box('cust', 8, 30, 86, 50, 'Customer', '', 'physical shares') + D.box('bank', 128, 30, 86, 50, 'Depot bank', '', 'threshold check') +
+      D.box('aml', 248, 30, 86, 50, 'AML officer', '', 'examines') + D.box('auth', 248, 150, 86, 50, 'Authorities', '', 'informed proactively') +
+      D.chip('shares', 51, 110, 'HK$150,000', 'g', 80) + D.bar('th', 128, 120, 86, 10, 'n', 'HK$120,000 threshold') +
+      D.chip('id', 171, 175, 'ID actor + beneficiary', 'a', 108) + D.arrow('a3', 291, 82, 291, 148) + D.text('t', 170, 18, '', 'sc-note'),
+    init: { id: { o: 0 }, a3: { o: 0 } },
+    frames: [
+      { en: 'A customer in Hong Kong wants to put **physical shares worth HK$150,000** into his depot.', zh: '香港客戶想將價值 **HK$150,000** 嘅**實物股票**存入戶口。', set: { t: { txt: 'Transfer physical shares into a depot' } } },
+      { en: 'The bank compares the amount with the **AML threshold**: **HK$120,000** in Hong Kong (EUR 15,000 in the EU, US$10,000 cash in the US).', zh: '銀行對比**反洗錢門檻**：香港 **HK$120,000**（歐盟 EUR 15,000、美國現金 US$10,000）。', set: { shares: { x: 171, y: 110 }, th: { pulse: true } } },
+      { en: 'Above the threshold → the bank must **identify the actors and beneficiaries** of the transaction.', zh: '超過門檻 → 銀行要**識別參與者同受益人**。', set: { shares: { tone: 's' }, id: { o: 1, pulse: true } } },
+      { en: 'The data goes to the trained **AML officer**, who checks **who** is involved and the **source of the money**.', zh: '資料交俾受過訓練嘅**反洗錢主任**，查**邊個**參與同**資金來源**。', set: { id: { x: 284, y: 112 }, aml: { pulse: true } } },
+      { en: 'If a criminal, terrorist or drug background is suspected, the **authorities are involved proactively**.', zh: '如果懷疑同犯罪、恐怖主義或毒品有關，就要**主動通知當局**。', set: { a3: { o: 1 }, auth: { tone: 'bad', pulse: true }, t: { txt: 'Same checks for buying/selling physical shares and pledging' } } },
+    ],
+  });
+
+  /* ---------- R1: time decay of a premium bond accelerates ---------- */
+  A({
+    id: 'fr1.decay', course: 'fite7407', lecture: 'fr1', t: { en: 'Why the premium melts faster near maturity', zh: '點解溢價越近到期溶得越快' },
+    base: (D) => D.text('h', 170, 22, '10% bond, market rate 8%, face $1,000', 'sc-note') +
+      D.bar('face', 20, 70, 200, 26, 'n', 'face value $1,000') + D.bar('prem', 220, 70, 98, 26, 'g', 'premium (×2.5)') +
+      D.text('p', 170, 132, '', 'sc-big') + D.text('d', 170, 160, '', 'sc-lbl') + D.text('n', 170, 196, '', 'sc-sub'),
+    frames: [
+      { en: 'With **20 years** left, the 10% bond costs **$1,196.36**: face value plus a **premium of $196.36** (gold bar).', zh: '剩 **20 年**，10% 債券價 **$1,196.36**：面值加 **$196.36 溢價**（金色）。', set: { p: { txt: 'Price $1,196.36' }, n: { txt: '20 years to maturity' } } },
+      { en: 'One year later rates are unchanged and the price is **$1,192.07** — it fell only **$4.29**.', zh: '一年後利率不變，價錢 **$1,192.07**——只跌 **$4.29**。', set: { prem: { w: 96 }, p: { txt: 'Price $1,192.07' }, d: { txt: 'first year: −$4.29' }, n: { txt: '19 years left' } } },
+      { en: 'Halfway, with 10 years left: **$1,134.20**. The premium is shrinking a bit faster.', zh: '一半，剩 10 年：**$1,134.20**。溢價縮得快咗少少。', set: { prem: { w: 66 }, p: { txt: 'Price $1,134.20' }, d: { txt: '' }, n: { txt: '10 years left' } } },
+      { en: 'With 1 year left: **$1,018.52**. In the **last year** the price falls **$18.52** — four times the first year.', zh: '剩 1 年：**$1,018.52**。**最後一年**跌 **$18.52**——係第一年嘅四倍。', set: { prem: { w: 9 }, p: { txt: 'Price $1,018.52' }, d: { txt: 'last year: −$18.52' }, n: { txt: '1 year left' } } },
+      { en: 'At maturity the price is exactly **$1,000**. The premium decays at an **increasing rate** (concave path); a discount bond rises to par the same way.', zh: '到期剛好 **$1,000**。溢價以**加速**方式消失（凹形路徑）；折讓債以同樣方式升到面值。', set: { prem: { w: 0 }, p: { txt: 'Price $1,000' }, d: { txt: 'time decay accelerates' }, n: { txt: 'maturity', }, face: { tone: 'ok' } } },
+    ],
+  });
 })();

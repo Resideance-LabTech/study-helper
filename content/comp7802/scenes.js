@@ -174,4 +174,22 @@
       { en: 'It does **not** say how bad the 1% tail can be. Only compare VaRs with the **same horizon and confidence**.', zh: 'VaR **冇**講嗰 1% 尾部可以差到幾多。只可以比較**相同時間範圍同信心水平**嘅 VaR。', set: { tail: { pulse: true }, b: { txt: 'the tail can be much worse!' } } },
     ],
   });
+
+  /* ---------- L6: buying a call — profit at expiry ---------- */
+  // index axis 18,000 → 20,500 mapped to x 30 → 310 (0.112 px per point)
+  const ix = (v) => 30 + (v - 18000) * 0.112;
+  A({
+    id: 'c6.call', course: 'comp7802', lecture: 'c6', t: { en: 'Buying a call: what happens at expiry', zh: '買認購期權：到期會點' },
+    base: (D) => D.raw('<line class="sc-arrow" x1="24" y1="120" x2="318" y2="120"/>') +
+      [18000, 18500, 19000, 19500, 20000, 20500].map((v) => D.raw(`<line class="sc-arrow" x1="${ix(v)}" y1="116" x2="${ix(v)}" y2="124"/>`) + D.text('l' + v, ix(v), 138, v.toLocaleString('en-US'), 'sc-sub')).join('') +
+      D.raw(`<line x1="${ix(19000)}" y1="60" x2="${ix(19000)}" y2="120" stroke="var(--gold)" stroke-dasharray="4 3" stroke-width="1.5"/>`) + D.text('k', ix(19000), 54, 'strike 19,000', 'sc-note') +
+      D.tok('hsi', ix(19000), 98, 'HSI', 'a', 15) + D.text('pl', 170, 180, '', 'sc-big') + D.text('why', 170, 204, '', 'sc-sub') + D.text('h', 170, 22, 'Buy 1 HSI call, strike 19,000, premium 415', 'sc-note'),
+    frames: [
+      { en: 'You **buy a call** on the Hang Seng Index with strike **19,000** and pay a premium of **415** (lecture example).', zh: '你以 **415** 期權金**買入**行使價 **19,000** 嘅恒指**認購期權**。', set: { pl: { txt: 'Paid: −415' } } },
+      { en: 'At expiry the index is **18,500** — below the strike. You **do not exercise**; your loss is just the premium.', zh: '到期恒指 **18,500**，低過行使價。你**唔行使**，只蝕期權金。', set: { hsi: { x: ix(18500), tone: 's' }, pl: { txt: 'P&L −415' }, why: { txt: 'out of the money: the right is worthless' } } },
+      { en: 'At **19,415** you exercise and get 415 back: **break-even** = strike + premium.', zh: '去到 **19,415**，行使收返 415：**打和點** = 行使價 + 期權金。', set: { hsi: { x: ix(19415), tone: 'g' }, pl: { txt: 'P&L 0' }, why: { txt: 'break-even = 19,000 + 415' } } },
+      { en: 'At **20,000** the payoff is 20,000 − 19,000 = 1,000, so the profit is **+585**.', zh: '去到 **20,000**，回報 1,000，利潤 **+585**。', set: { hsi: { x: ix(20000), tone: 'ok', pulse: true }, pl: { txt: 'P&L +585' }, why: { txt: 'payoff max(0, S − X) − premium' } } },
+      { en: 'The buyer\'s loss is **limited to the premium**, the upside is open. The **seller** has the mirror image: +415 at best, large losses if the index soars.', zh: '買方最多蝕**期權金**，上升潛力無限；**賣方**相反：最多賺 415，大升就大蝕。', set: { pl: { txt: 'Buyer: max loss 415' }, why: { txt: 'seller of a call: loss can be unlimited' } } },
+    ],
+  });
 })();

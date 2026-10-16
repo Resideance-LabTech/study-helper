@@ -11,7 +11,7 @@ SH.addLecture('fite7407', {
   gens: ['fite.npv', 'fite.stock1', 'fite.stockret', 'fite.zeroprice', 'fite.zeroytm', 'fite.couponprice', 'fite.accrued', 'fite.rights'],
   cards: [
     {
-      id: 'c1', s: 'Tutorial slides 3–4', t: { en: 'Net present value (NPV)', zh: '淨現值 (NPV)' },
+      id: 'c1', fig: 'ft1.c1', s: 'Tutorial slides 3–4', t: { en: 'Net present value (NPV)', zh: '淨現值 (NPV)' },
       en: '**NPV** is the **discounted aggregation of future cash flows**. It brings all cash flows onto one time scale — their comparable value **as of today** — so investment alternatives can be compared.\n\nNPV depends on the interest rate $r$ for money in the given period. A cash flow $C$ received in $n$ years is worth $\\frac{C}{(1+r)^{n}}$ today.',
       zh: '**NPV** 即係將**未來現金流折現再加埋**。將所有現金流放返同一條時間線（**今日**嘅價值），先可以比較唔同投資。\n\nNPV 取決於利率 $r$。$n$ 年後收到嘅 $C$，今日只值 $\\frac{C}{(1+r)^{n}}$。',
       f: ['NPV = \\frac{C_{1}}{1+r} + \\frac{C_{2}}{(1+r)^{2}} + ... + \\frac{C_{N}}{(1+r)^{N}} = \\sum_{n=1}^{N} \\frac{C_{n}}{(1+r)^{n}}'],
@@ -19,7 +19,7 @@ SH.addLecture('fite7407', {
       mem: { en: 'Further away = smaller today. Each extra year divides by (1 + r) once more.', zh: '越遠嘅錢今日越細；每遠一年就多除一次 (1 + r)。' },
     },
     {
-      id: 'c2', s: 'Tutorial slides 5–6', t: { en: 'Valuing a share: one-year investor', zh: '股票估值：一年期投資者' },
+      id: 'c2', fig: 'ft1.c2', s: 'Tutorial slides 5–6', t: { en: 'Valuing a share: one-year investor', zh: '股票估值：一年期投資者' },
       en: 'Share value is driven by three factors: the **share price**, the **cost of capital** and the **future dividends**.\n\nA one-year investor pays $P_{0}$ today and receives the dividend $Div_{1}$ plus the future price $P_{1}$ in one year. With a cost of capital $r_{E}$:',
       zh: '股票價值由三樣嘢決定：**股價**、**資本成本**同**未來股息**。\n\n一年期投資者今日畀 $P_{0}$，一年後收股息 $Div_{1}$ 同未來股價 $P_{1}$。資本成本係 $r_{E}$：',
       f: ['P_{0} = \\frac{Div_{1} + P_{1}}{1 + r_{E}}', 'r_{E} = \\frac{Div_{1} + P_{1}}{P_{0}} - 1 = \\frac{Div_{1} + P_{1} - P_{0}}{P_{0}}'],
@@ -27,21 +27,21 @@ SH.addLecture('fite7407', {
       tip: { en: 'The return formula splits nicely into a **dividend yield** (Div₁/P₀) and a **capital gain rate** ((P₁ − P₀)/P₀). Saying this in words earns marks.', zh: '回報可以拆做**股息率** (Div₁/P₀) 同**資本增值率** ((P₁ − P₀)/P₀)。用文字講出嚟會有分。' },
     },
     {
-      id: 'c3', s: 'Tutorial slide 7', t: { en: 'Dividend discount model (multi-year)', zh: '股息折現模型（多年）' },
+      id: 'c3', fig: 'ft1.c3', s: 'Tutorial slide 7', t: { en: 'Dividend discount model (multi-year)', zh: '股息折現模型（多年）' },
       en: 'A multi-year investor receives dividends every year and the share price $P_{N}$ after $N$ years. The **dividend discount model** sets today\'s price as the present value of all of these:',
       zh: '多年投資者每年收股息，第 $N$ 年再收股價 $P_{N}$。**股息折現模型**話今日股價就係所有呢啲嘅現值：',
       f: ['P_{0} = \\frac{Div_{1}}{1+r_{E}} + \\frac{Div_{2}}{(1+r_{E})^{2}} + ... + \\frac{Div_{N}}{(1+r_{E})^{N}} + \\frac{P_{N}}{(1+r_{E})^{N}}'],
       mem: { en: 'A share is just a bond whose "coupons" are dividends and whose "face value" is the future selling price.', zh: '股票好似一張債：「票息」係股息，「面值」係將來賣出價。' },
     },
     {
-      id: 'c4', s: 'Tutorial slide 8', t: { en: 'Zero bonds and yield to maturity', zh: '零息債同到期收益率' },
+      id: 'c4', fig: 'ft1.c4', s: 'Tutorial slide 8', t: { en: 'Zero bonds and yield to maturity', zh: '零息債同到期收益率' },
       en: '**Zero bonds** pay **no coupon**. They trade at a price $P$ today and repay the **face value (FV)** at maturity. With **YTM** as the bond\'s interest rate:',
       zh: '**零息債**冇**票息**。今日用價 $P$ 買，到期收返**面值 (FV)**。用 **YTM** 做利率：',
       f: ['P = \\frac{FV}{(1+YTM)^{n}}', 'YTM = (\\frac{FV}{P})^{1/n} - 1'],
       ex: { en: 'Tutorial: a 1-year zero at $96.62 per $100 → YTM = 100/96.62 − 1 = 3.498% ≈ **3.5%**.', zh: '導修：一年期零息債 $96.62 → YTM = 100/96.62 − 1 ≈ **3.5%**。' },
     },
     {
-      id: 'c5', s: 'Tutorial slide 9', t: { en: 'Coupon bonds', zh: '有息債券' },
+      id: 'c5', fig: 'ft1.c5', s: 'Tutorial slide 9', t: { en: 'Coupon bonds', zh: '有息債券' },
       en: '**Coupon bonds** pay a regular coupon $C$ and repay the face value at maturity. The price is the present value of the coupons (an **annuity**) plus the present value of the face value:',
       zh: '**有息債**定期派票息 $C$，到期還面值。價錢 = 票息嘅現值（**年金**）+ 面值嘅現值：',
       f: ['P = C \\times \\frac{1}{YTM}(1 - \\frac{1}{(1+YTM)^{N}}) + \\frac{FV}{(1+YTM)^{N}}'],
@@ -49,19 +49,19 @@ SH.addLecture('fite7407', {
       tip: { en: 'Common trap: the coupon **C** is a dollar amount (coupon rate × face value), not the percentage.', zh: '常見陷阱：**C** 係金額（票息率 × 面值），唔係百分比。' },
     },
     {
-      id: 'c6', s: 'Tutorial slide 14', t: { en: 'Premium, par and discount', zh: '溢價、平價同折讓' },
+      id: 'c6', fig: 'ft1.c6', s: 'Tutorial slide 14', t: { en: 'Premium, par and discount', zh: '溢價、平價同折讓' },
       en: 'Depending on the coupon rate and the market interest rate (YTM), a bond trades:\n- **at a premium** ($P > FV$) when the coupon rate is **higher** than the market rate;\n- **at par** ($P = FV$) when the coupon rate **equals** the market rate;\n- **at a discount** ($P < FV$) when the coupon rate is **lower** than the market rate.\n\nThis is the *clean* price (without accrued interest).',
       zh: '視乎票息率同市場利率 (YTM)：\n- 票息率**高過**市場利率 → **溢價** ($P > FV$)；\n- **相等** → **平價** ($P = FV$)；\n- **低過** → **折讓** ($P < FV$)。\n\n呢個係*淨價 (clean price)*，未計應計利息。',
       mem: { en: 'A bond that pays more than the market must cost more than its face value.', zh: '息高過市場嘅債，梗係要貴過面值先買到。' },
     },
     {
-      id: 'c7', s: 'Tutorial slides 10, 15', t: { en: 'Accrued interest and the dirty price', zh: '應計利息同全價' },
+      id: 'c7', fig: 'ft1.c7', s: 'Tutorial slides 10, 15', t: { en: 'Accrued interest and the dirty price', zh: '應計利息同全價' },
       en: 'Between coupon payments, the bond accumulates the "right" to receive the next coupon: **accrued interest**. If you buy $x$ days after the last coupon, the price you pay includes this portion:\n\nThe price including accrued interest is the **dirty price**; it rises during the coupon period and drops by the coupon amount on the payment date (a saw-tooth pattern). The **clean price** excludes it.',
       zh: '兩次派息之間，債券累積收下一期票息嘅「權利」，即**應計利息**。如果你喺上次派息後 $x$ 日買，價錢就包括呢部分：\n\n包埋應計利息嘅叫**全價 (dirty price)**，喺派息期內慢慢升，派息日跌返一個票息（鋸齒形）。**淨價 (clean price)** 就唔包。',
       f: ['I_{A} = C \\times \\frac{x}{360}'],
     },
     {
-      id: 'c8', s: 'Tutorial solution slide 16', t: { en: 'Why a subscription right is worth $1 (capital increase)', zh: '點解認購權值 $1（增資）' },
+      id: 'c8', fig: 'ft1.c8', s: 'Tutorial solution slide 16', t: { en: 'Why a subscription right is worth $1 (capital increase)', zh: '點解認購權值 $1（增資）' },
       en: 'Lecture 2 example: issue ratio **6:1**, young shares at **$18**, old shares at **$25**. Value of one right: $V = \\frac{25 - 18}{6 + 1} = \\$1$.\n\n**Check with two investors:**\n- **Old owner** with 6 shares gets 6 free rights and buys 1 new share at $18. Now 7 shares worth 6 × 25 + 18 = $168 → **$24 per share**.\n- **New investor** with 0 shares buys 6 rights at $1 and one new share at $18: 6 × 1 + 18 = **$24** for one share.\n\nBoth end up paying **$24** per share, so the right is fairly priced at $1.',
       zh: '第 2 講例子：比例 **6:1**、新股 **$18**、舊股 **$25**。每個認購權值 $V = \\frac{25 - 18}{6 + 1} = \\$1$。\n\n**用兩個投資者驗算：**\n- **舊股東**有 6 股，免費收 6 個權，用 $18 買 1 股新股。而家 7 股值 6 × 25 + 18 = $168 → **每股 $24**。\n- **新投資者**冇股，用 $1 買 6 個權，再用 $18 買新股：6 × 1 + 18 = **$24** 一股。\n\n兩個人每股成本都係 **$24**，所以權值 $1 係公平嘅。',
     },

@@ -11,7 +11,7 @@ SH.addLecture('fite7407', {
   gens: ['fite.basel'],
   cards: [
     {
-      id: 'c1', s: 'Slide 3', t: { en: 'Three sectors of the banking landscape', zh: '銀行業三大板塊' },
+      id: 'c1', fig: 'f4.c1', s: 'Slide 3', t: { en: 'Three sectors of the banking landscape', zh: '銀行業三大板塊' },
       en: 'By **ownership**, the banking landscape has three sectors:\n- **Privately owned banks**, e.g. Deutsche Bank, HSBC — banks that did not require a state bailout in the financial crisis.\n- **Communal and federal ("government-owned") banks**: banks owned by a city or county; federal and national banks.\n- **Cooperative-owned banks**: agricultural banks; banks grown out of a community of the same business.',
       zh: '按**擁有權**，銀行業分三大板塊：\n- **私營銀行**：例如德意志銀行、滙豐——金融危機時唔使政府救助嘅銀行。\n- **地方及聯邦（「政府擁有」）銀行**：城市或郡擁有嘅銀行；聯邦同國家銀行。\n- **合作社銀行**：農業銀行；由同業社群發展出嚟嘅銀行。',
       tip: { en: 'DWP Bank (Lecture 2 case) is owned by the savings-bank and cooperative sector — a transaction bank serving those banks.', zh: 'DWP Bank（第 2 講案例）由儲蓄銀行同合作社銀行界擁有，係服務佢哋嘅交易銀行。' },
@@ -23,12 +23,12 @@ SH.addLecture('fite7407', {
       mem: { en: 'Sell it – Make it – Process it.', zh: '賣產品 – 做產品 – 處理產品。' },
     },
     {
-      id: 'c3', s: 'Slide 6', t: { en: '"Banking is necessary, banks are not"', zh: '「銀行業務必要，銀行未必」' },
+      id: 'c3', fig: 'f4.c3', s: 'Slide 6', t: { en: '"Banking is necessary, banks are not"', zh: '「銀行業務必要，銀行未必」' },
       en: 'The classic **universal bank** concept is **obsolete**. Market forces promote **segmentation and specialisation**.\n- Banks are still needed to create the core banking products — there are regulations about what it takes to be a "bank".\n- **Non-bank companies** move into banking: car manufacturers, phone manufacturers, payment processors, and the **FinTech** community of **challenger banks**.\n- Customers may associate the banking service with the non-bank company (e.g. **third-party credit cards**).\n- **Transaction banks provide a "commodity"** for the banking sector: standardised processing that many banks can buy.',
       zh: '傳統**綜合銀行**概念已經**過時**，市場推動**分工同專業化**。\n- 仍然要有銀行做核心銀行產品——法例規定點先算「銀行」。\n- **非銀行公司**進入銀行業：汽車廠、手機廠、支付處理商，同 **FinTech** **挑戰者銀行**。\n- 客戶可能將銀行服務當成係嗰間非銀行公司嘅（例如**聯名信用卡**）。\n- **交易銀行提供「商品」**：好多銀行都可以買嘅標準化處理服務。',
     },
     {
-      id: 'c4', s: 'Slides 8–9', t: { en: 'Basel I and Basel II', zh: '巴塞爾 I 同 II' },
+      id: 'c4', fig: 'f4.c4', s: 'Slides 8–9', t: { en: 'Basel I and Basel II', zh: '巴塞爾 I 同 II' },
       en: 'Banks are controlled by many laws and regulations. Especially relevant for transaction banks — and for **outsourcing** — are **Basel II**, risk management requirements and the **Sarbanes-Oxley Act (SOx)**.\n\n**Basel I** (1988) was a first attempt to limit the risk of bank **insolvency**.\n\n**Basel II** (defined 2004, effective end of 2006) extends this and ensures the professional handling of **credit risk, market risk, liquidity risk** and **other risks such as operational risk**. The target: **measure** the bank\'s risk exposure and require that it is **covered by the bank\'s own (proprietary) capital**.',
       zh: '銀行受好多法規監管。對交易銀行同**外判**特別重要嘅係**巴塞爾 II**、風險管理要求同**沙賓法案 (SOx)**。\n\n**巴塞爾 I**（1988）：第一次嘗試限制銀行**無力償債**風險。\n\n**巴塞爾 II**（2004 定、2006 年底生效）：擴展並確保專業處理**信用風險、市場風險、流動性風險**同**其他風險（例如操作風險）**。目標：**量度**銀行風險，要求用**自有資本**覆蓋。',
     },
@@ -40,38 +40,38 @@ SH.addLecture('fite7407', {
       mem: { en: 'Pillar 1 = How much capital? Pillar 2 = Is your risk process good? Pillar 3 = Tell the market.', zh: '支柱一：要幾多資本？支柱二：你嘅風險流程好唔好？支柱三：話畀市場知。' },
     },
     {
-      id: 'c6', s: 'Slide 13', t: { en: 'Basel III', zh: '巴塞爾 III' },
+      id: 'c6', fig: 'f4.c6', s: 'Slide 13', t: { en: 'Basel III', zh: '巴塞爾 III' },
       en: '**Basel III** adds requirements on top of Basel II:\n- **Minimum capital requirements** are increased substantially.\n- A **leverage cap** limits the bank\'s activities relative to its size.\n- A **liquidity requirement**: enough liquidity for stress tests covering **30 days** of adverse economic conditions.\n\nBasel III also allows **relaxed requirements** where banks have a better operational relationship with their corporate clients — i.e. **know your client (KYC)** and know the client\'s risks.',
       zh: '**巴塞爾 III** 喺 II 之上再加要求：\n- **最低資本要求**大幅提高。\n- **槓桿上限**：限制銀行相對規模嘅活動。\n- **流動性要求**：要有足夠流動資金應付 **30 日**壓力測試。\n\n如果銀行同企業客戶有更好嘅營運關係——即**認識你的客戶 (KYC)**、了解客戶風險——巴塞爾 III 容許**放寬要求**。',
       mem: { en: 'Basel III = more Capital, a Leverage cap, Liquidity for 30 days.', zh: '巴塞爾 III：資本多啲、槓桿有上限、流動性頂 30 日。' },
     },
     {
-      id: 'c7', s: 'Slides 14–15', t: { en: 'Sarbanes-Oxley Act (SOx)', zh: '沙賓法案 (SOx)' },
+      id: 'c7', fig: 'f4.c7', s: 'Slides 14–15', t: { en: 'Sarbanes-Oxley Act (SOx)', zh: '沙賓法案 (SOx)' },
       en: 'The **Sarbanes-Oxley Act** (since **2002**) requires:\n- a governmental organisation that defines rules for financial audits: the **Public Company Accounting Oversight Board (PCAOB)**;\n- regular reporting by affected companies, especially the **quarterly report** of financial results (**Section 302**) and the **yearly management confirmation** that sufficient **controls** guarantee correct financial results (**Section 404**).\n\n**Applicability:** all companies listed with the **SEC** and all their subsidiaries. **Indirectly**, also **outsourcing providers** of listed companies if their processes can influence the financial result. SOx-impacted companies must confirm the correctness of the contribution of **all outsourced processes**; this needs **neutral external audits**, and service providers must prove **efficient controls**. Compliance must be testified by an **external neutral auditor**.',
       zh: '**沙賓法案**（**2002** 年起）要求：\n- 設立定財務審計規則嘅政府機構：**上市公司會計監督委員會 (PCAOB)**；\n- 受影響公司定期報告，特別係**季度業績**（**第 302 條**）同**管理層每年確認**有足夠**內部控制**保證財務結果正確（**第 404 條**）。\n\n**適用範圍**：所有喺 **SEC** 上市嘅公司同附屬公司。**間接**包括上市公司嘅**外判供應商**，只要佢哋嘅流程會影響財務結果。受 SOx 影響嘅公司要確認**所有外判流程**嘅貢獻正確，需要**中立外部審計**，供應商要證明有**有效控制**。合規要由**外部中立核數師**證明。',
       tip: { en: 'Why does SOx matter for outsourcing? A US-listed bank cannot outsource its responsibility: it must prove that its service provider\'s controls work too.', zh: '點解 SOx 同外判有關？美國上市銀行唔可以將責任一齊外判，要證明供應商嘅控制都有效。' },
     },
     {
-      id: 'c8', s: 'Slides 16–17', t: { en: 'SAS 70 Type I and Type II', zh: 'SAS 70 第一類同第二類' },
+      id: 'c8', fig: 'f4.c8', s: 'Slides 16–17', t: { en: 'SAS 70 Type I and Type II', zh: 'SAS 70 第一類同第二類' },
       en: 'The SOx framework of controls can be confirmed with a specific audit report: **SAS 70**. Both the SEC-listed corporation and its service provider (and the provider\'s subsidiaries) must have an internal control framework, certified by external auditors.\n\nSAS 70 reports focus on the **internal control system** (the verification checks), not the business process description.\n- **SAS 70 Type I**: audits the **documentation (description)** and **existence** of a control.\n- **SAS 70 Type II**: everything in Type I **plus** an audit of the documented **execution** of a **functioning control** over at least **6 months**.\n\nAuditors ask about each control: *Who? How? Why? Where documented?*',
       zh: 'SOx 嘅控制框架可以用 **SAS 70** 審計報告確認。SEC 上市公司同佢嘅服務供應商（同供應商附屬公司）都要有內部控制框架，由外部核數師核證。\n\nSAS 70 重點係**內部控制系統**（核查步驟），唔係業務流程描述。\n- **SAS 70 第一類**：審核控制嘅**文件（描述）**同**是否存在**。\n- **SAS 70 第二類**：第一類全部**再加**審核最少 **6 個月**內控制**實際運作**嘅紀錄。\n\n核數師對每個控制問：*邊個做？點做？點解？記錄喺邊？*',
       mem: { en: 'Type I = "the control exists on paper". Type II = "and it really worked for 6 months".', zh: '第一類＝紙上有呢個控制；第二類＝仲真係運作咗 6 個月。' },
     },
     {
-      id: 'c9', s: 'Slides 18–21', t: { en: 'MiFID II', zh: 'MiFID II' },
+      id: 'c9', fig: 'f4.c9', s: 'Slides 18–21', t: { en: 'MiFID II', zh: 'MiFID II' },
       en: 'The **Markets in Financial Instruments Directive (MiFID II)** is EU legislation for investment firms providing services in financial instruments (shares, bonds, derivatives). Aim: **improve the functioning of financial markets** and **strengthen investor protection**. Non-EEA institutions are affected **directly** (licensed EEA branch) and **indirectly** (dealing with EEA parties, products and venues); EEA branches abroad must also comply with parts of it.\n\n**Best execution:** MiFID I required "**reasonable steps**" to get the best result for clients; MiFID II requires "**all sufficient steps**" — a higher bar. Firms must publish execution-quality data (cost, speed…) at least **annually, free of charge**, including their **top five execution venues** of the previous year.\n\n**Transaction reporting:** trade details reported to regulators to monitor **market abuse**. MiFID II extends it to all products traded on EU **RMs, OTFs and MTFs**, with many more data fields — e.g. details of the **person executing** the trade (the trader) and the **algorithm** used to decide to trade.',
       zh: '**金融工具市場指令 (MiFID II)** 係歐盟對提供金融工具（股票、債券、衍生工具）服務嘅投資公司嘅法規。目的：**改善市場運作**、**加強投資者保障**。非歐洲經濟區機構會受**直接**（有 EEA 持牌分行）同**間接**（同 EEA 對手、產品、交易場所交易）影響；EEA 公司喺外地嘅分行都要遵守部分要求。\n\n**最佳執行**：MiFID I 要求「**合理步驟**」；MiFID II 要求「**所有足夠步驟**」，門檻更高。公司要每年最少一次**免費**公布執行質素數據（成本、速度…），包括上年**五大執行場所**。\n\n**交易報告**：向監管報告交易細節，監察**市場濫用**。MiFID II 擴展到所有喺歐盟 **RM、OTF、MTF** 交易嘅產品，數據欄位大增，例如**執行交易嘅人**（交易員）同**決定交易嘅算法**。',
       tip: { en: 'IT angle: "details of the algorithm" means the bank\'s systems must record which algorithm made each trading decision.', zh: 'IT 角度：「算法資料」即係系統要記錄每個交易決定係邊個算法做嘅。' },
     },
     {
-      id: 'c10', s: 'Slides 22–24', t: { en: 'GDPR: controllers, processors and Article 5', zh: 'GDPR：控制者、處理者同第 5 條' },
+      id: 'c10', fig: 'f4.c10', s: 'Slides 22–24', t: { en: 'GDPR: controllers, processors and Article 5', zh: 'GDPR：控制者、處理者同第 5 條' },
       en: 'The **General Data Protection Regulation (GDPR)** applies to **controllers** and **processors**:\n- the **controller** decides **how and why** personal data is processed;\n- the **processor** acts **on the controller\'s behalf**.\n\nA processor has specific legal obligations (e.g. keep records of personal data and processing activities) and more liability if responsible for a breach. A controller is **not relieved** of its obligations when using a processor and must ensure the **contracts** with processors comply with GDPR. GDPR applies to organisations in the EU **and** to organisations outside the EU that offer goods or services to individuals **in the EU**.\n\n**Article 5 principles** — personal data shall be:\n(a) processed **lawfully, fairly and transparently**;\n(b) collected for **specified, explicit and legitimate purposes** (purpose limitation);\n(c) **adequate, relevant and limited** to what is necessary (data minimisation);\n(d) **accurate** and kept up to date;\n(e) kept no longer than necessary (**storage limitation**);\n(f) processed with appropriate **security** (integrity and confidentiality).',
       zh: '**一般資料保障規例 (GDPR)** 適用於**控制者**同**處理者**：\n- **控制者**決定個人資料**點樣同點解**處理；\n- **處理者**代**控制者**處理。\n\n處理者有特定法律責任（例如記錄個人資料同處理活動），出事要負更大責任。控制者用處理者**唔會免責**，要確保同處理者嘅**合約**符合 GDPR。GDPR 適用於歐盟內機構，**同埋**向**歐盟境內人士**提供貨品或服務嘅歐盟外機構。\n\n**第 5 條原則**——個人資料要：\n(a) **合法、公平、透明**咁處理；\n(b) 為**指定、明確、合法目的**收集（目的限制）；\n(c) **足夠、相關、只限必要**（資料最少化）；\n(d) **準確**並保持更新；\n(e) 唔可以保存超過需要（**儲存限制**）；\n(f) 有適當**保安**（完整同保密）。',
       mem: { en: 'Article 5 in six words: Lawful, Purpose, Minimal, Accurate, Limited-time, Secure.', zh: '第 5 條六個字：合法、目的、最少、準確、限時、保安。' },
       tip: { en: 'Outsourcing link: a bank that outsources processing to a transaction bank is the **controller**; the transaction bank is the **processor**. The bank stays responsible.', zh: '外判連繫：將處理外判畀交易銀行嘅銀行係**控制者**，交易銀行係**處理者**，銀行仍然要負責。' },
     },
     {
-      id: 'c11', s: 'Slide 25', t: { en: 'FATCA', zh: 'FATCA（海外賬戶稅收合規法案）' },
+      id: 'c11', fig: 'f4.c11', s: 'Slide 25', t: { en: 'FATCA', zh: 'FATCA（海外賬戶稅收合規法案）' },
       en: 'The lecture includes **FATCA** (Foreign Account Tax Compliance Act, from the US) as a further regulation relevant to banks. In short, FATCA requires foreign financial institutions to **identify and report accounts held by US taxpayers** to the US tax authorities, so that US persons cannot hide income abroad. For a transaction bank this means extra customer **classification**, **data fields** and **reporting** processes — another example of tax reporting that crosses borders (compare Lecture 3).',
       zh: '講義亦包括 **FATCA**（美國《海外賬戶稅收合規法案》）。簡單講，FATCA 要求外國金融機構**識別並申報美國納稅人持有嘅戶口**畀美國稅局，令美國人唔可以喺海外收埋收入。對交易銀行嚟講，即係要多咗客戶**分類**、**資料欄位**同**申報**流程——又一個跨境稅務申報例子（比較第 3 講）。',
       tip: { en: 'The slide is a PwC diagram; know the purpose and the impact on bank processes rather than details.', zh: '張 slide 係 PwC 圖，記住目的同對銀行流程嘅影響就夠，唔使背細節。' },
@@ -90,7 +90,7 @@ SH.addLecture('fite7407', {
       mem: { en: 'Mode = the "usual" loss. VaR = the "bad year" loss. Regulators care about the bad year.', zh: '眾數＝「平時」損失；VaR＝「衰年」損失。監管關心衰年。' },
     },
     {
-      id: 'c14', s: 'Slides 33–36', t: { en: 'Risk-bearing capacity and the maximum loss cap', zh: '風險承受能力同最大損失上限' },
+      id: 'c14', fig: 'f4.c14', s: 'Slides 33–36', t: { en: 'Risk-bearing capacity and the maximum loss cap', zh: '風險承受能力同最大損失上限' },
       en: '**Aggregating risk** requires knowledge about individual risks: industry estimates, simple measurement approaches, or **advanced approaches** with an **incident database**, internal **self-assessment** and internal **risk control**. The result — a density of aggregated risk after simulation — takes **hours** to calculate and is presented to **top management**.\n\n**How much risk can a company bear?**\n**Risk-bearing capacity** = budget for incidents + provisioning for damages + planned profit + own capital = **maximum VaR_total (99.9%)**.\n\nThe **maximum loss cap (MLC)** is defined by a density whose **mode** equals the "**planned damages**" and whose **VaR (99.9%)** equals the **maximum bearable damage**.\n\n**Comparison:** the maximum loss cap is **not exceeded** if\n- $VaR_{aR} < VaR_{MLC}$ for the **same quantile**, or\n- $Quantile(VaR_{aR}) > Quantile(VaR_{MLC})$ for the **same potential damage**.',
       zh: '**匯總風險**要了解個別風險：行業估計、簡單量度，或者**進階方法**——**事故資料庫**、內部**自我評估**、內部**風險控制**。模擬出嚟嘅總風險密度要計**幾個鐘**，會畀**最高管理層**睇。\n\n**公司承受到幾多風險？**\n**風險承受能力** = 事故預算 + 損失撥備 + 計劃利潤 + 自有資本 = **最大 VaR_總 (99.9%)**。\n\n**最大損失上限 (MLC)**：用一條密度定義，佢嘅**眾數**＝「**計劃損失**」，**VaR (99.9%)**＝**最大可承受損失**。\n\n**比較**：以下情況就**冇超過**上限：\n- 同一分位數下 $VaR_{aR} < VaR_{MLC}$，或者\n- 同一潛在損失下 $Quantile(VaR_{aR}) > Quantile(VaR_{MLC})$。',
       f: ['\\text{Risk-bearing capacity} = \\text{Incident budget} + \\text{Provisions} + \\text{Planned profit} + \\text{Own capital}', 'VaR_{aR}(q) < VaR_{MLC}(q) \\to \\text{cap not exceeded}'],

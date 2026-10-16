@@ -44,8 +44,8 @@
   /* FITE7407 L5: accountability vs responsibility */
   F.accountability = () => svg(340, 170,
     box(8, 20, 140, 130, 'Outsourcing institution', 'ACCOUNTABILITY') + box(192, 20, 140, 130, 'Service provider', 'RESPONSIBILITY') +
-    txt(78, 98, 'risk management', 'sc-sub') + txt(78, 112, 'internal controls', 'sc-sub') + txt(78, 126, 'internal audit', 'sc-sub') +
-    txt(262, 98, 'business process A', 'sc-sub') + txt(262, 112, 'business process B', 'sc-sub') + txt(262, 126, '…', 'sc-sub') +
+    txt(78, 112, 'risk management', 'sc-sub') + txt(78, 126, 'internal controls', 'sc-sub') + txt(78, 140, 'internal audit', 'sc-sub') +
+    txt(262, 112, 'business process A', 'sc-sub') + txt(262, 126, 'business process B', 'sc-sub') + txt(262, 140, '…', 'sc-sub') +
     arr(150, 70, 190, 70) + txt(170, 62, 'contract') + arr(190, 92, 150, 92) + txt(170, 104, 'reports'), 'Accountability vs responsibility');
 
   /* COMP7802 L2: day-count club */
@@ -72,8 +72,8 @@
   /* COMP7802 L3: FRA timeline */
   F.fratime = () => svg(340, 120,
     `<line class="sc-arrow" x1="14" y1="60" x2="330" y2="60" marker-end="url(#fg-h)"/>` +
-    [[20, 'Trade date', 'FRA rate fixed'], [130, 'Fixing date', 'reference set'], [160, 'Settlement', 'paid, discounted'], [310, 'Maturity', 'period ends']].map(([x, a, b]) =>
-      `<line x1="${x}" y1="52" x2="${x}" y2="68" class="sc-arrow"/>` + txt(x, 40, a, 'sc-lbl') + txt(x, 86, b, 'sc-sub')).join('') +
+    [[40, 'Trade date', 'FRA rate fixed', 0], [128, 'Fixing date', 'reference set', 0], [170, 'Settlement', 'paid, discounted', 1], [300, 'Maturity', 'period ends', 0]].map(([x, a, b, low]) =>
+      `<line x1="${x}" y1="52" x2="${x}" y2="68" class="sc-arrow"/>` + (low ? txt(x, 84, a, 'sc-lbl') + txt(x, 95, b, 'sc-sub') : txt(x, 30, a, 'sc-lbl') + txt(x, 43, b, 'sc-sub'))).join('') +
     `<rect x="160" y="96" width="150" height="10" rx="4" fill="var(--accent)" opacity=".5"/>` + txt(235, 118, 'FRA period (e.g. 3 v 6)'), 'FRA timeline');
 
   /* COMP7802 L8: the Greeks at a glance */
